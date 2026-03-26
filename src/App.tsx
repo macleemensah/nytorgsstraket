@@ -7,6 +7,8 @@ import Events from './components/Events';
 import ExploreStreet from './components/ExploreStreet';
 import Footer from './components/Footer';
 
+import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   return (
     <div className="min-h-screen bg-bg-paper">
@@ -19,6 +21,7 @@ function App() {
         <ExploreStreet />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
