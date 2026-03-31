@@ -3,7 +3,7 @@ import lykkeLogo from '../assets/stores/lykke.webp';
 import parlanLogo from '../assets/stores/parlan.webp';
 import apcLogo from '../assets/stores/apc.svg';
 import aesopLogo from '../assets/stores/aesop.png';
-import klattermusenLogo from '../assets/stores/klattermusen.webp';
+import klattermusenLogo from '../assets/stores/klattermusen.png';
 
 const STORES = [
   {
