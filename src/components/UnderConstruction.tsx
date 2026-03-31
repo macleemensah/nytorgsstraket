@@ -3,6 +3,7 @@ import lykkeLogo from '../assets/stores/lykke.webp';
 import parlanLogo from '../assets/stores/parlan.webp';
 import apcLogo from '../assets/stores/apc.svg';
 import aesopLogo from '../assets/stores/aesop.png';
+import klattermusenLogo from '../assets/stores/klattermusen.webp';
 
 const STORES = [
   {
@@ -45,6 +46,16 @@ const STORES = [
       "Lördag 11–17",
       "Söndag 12–16"
     ]
+  },
+  {
+    name: "Klättermusen Verkstad",
+    logo: klattermusenLogo,
+    url: "https://www.klattermusen.com/",
+    openingHours: [
+      "Mån-fre 11–18",
+      "Lördag 11–17",
+      "Söndag 11–16"
+    ]
   }
 ];
 
@@ -84,7 +95,7 @@ export default function UnderConstruction() {
       </div>
 
       {/* Stores Section */}
-      <div className="mt-16 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-4 items-start">
+      <div className="mt-16 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 px-4 items-start justify-center">
         {STORES.map((store) => (
           <div key={store.name} className="flex flex-col items-center text-center space-y-6">
             <a 
