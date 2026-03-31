@@ -15,23 +15,32 @@ export default function UnderConstruction() {
 
       {/* Copy */}
       <div className="max-w-2xl text-center space-y-6 px-4">
-        <h1 
-          className="text-3xl md:text-4xl text-[#E31837] tracking-wide" 
-          style={{ fontFamily: "'Lindstaye', cursive" }}
+        <h1
+          className="text-3xl md:text-4xl text-[#E31837] tracking-wide"
+          style={{ fontFamily: '"DIN Condensed", "Barlow Condensed", sans-serif', fontWeight: 700 }}
         >
           Här växer Nytorgsstråket fram
         </h1>
-        <p className="text-gray-600 text-base md:text-lg font-sans leading-relaxed">
+        <p
+          className="text-gray-600 text-base md:text-lg leading-relaxed"
+          style={{ fontFamily: '"DIN Condensed", "Barlow Condensed", sans-serif', fontWeight: 700 }}
+        >
           Just nu arbetar vi för fullt med att skapa en ny digital mötesplats för Nytorgsstråket. Snart hittar du allt om våra verksamheter, evenemang och det lokala livet här hos oss.
         </p>
-        <p className="text-[#E31837] text-lg md:text-xl font-medium font-sans">
+        <p
+          className="text-[#E31837] text-4xl md:text-5xl"
+          style={{ fontFamily: "'Lindstaye', cursive" }}
+        >
           Håll utkik – vi öppnar snart!
         </p>
       </div>
       
       {/* Footer / Contact Detail */}
       <div className="absolute bottom-8 text-center w-full">
-        <p className="text-sm font-sans text-gray-400 uppercase tracking-widest">
+        <p
+          className="text-sm text-gray-400 uppercase tracking-widest"
+          style={{ fontFamily: '"DIN Condensed", "Barlow Condensed", sans-serif', fontWeight: 700 }}
+        >
           Södermalm &bull; Stockholm
         </p>
       </div>
