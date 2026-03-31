@@ -1,7 +1,7 @@
 import logo from '../assets/logo.png';
 import lykkeLogo from '../assets/stores/lykke.webp';
 import parlanLogo from '../assets/stores/parlan.webp';
-import apcLogo from '../assets/stores/apc.png';
+import apcLogo from '../assets/stores/apc.svg';
 
 const STORES = [
   {
