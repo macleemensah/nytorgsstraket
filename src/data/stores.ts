@@ -250,7 +250,12 @@ export const STORES: Store[] = [
     openingHours: [
       "Mån-fre 10–18",
       "Lördag 10–16",
-      "Söndag 11–16"
+      "Söndag 11–16",
+      "Skärtorsdag 10–18",
+      "Långfredag Stängt",
+      "Påskafton 10–16",
+      "Påskdagen Stängt",
+      "Annandag påsk Stängt"
     ],
     scale: 1.0,
     description: "Det grönskande hörnet på Nytorgsgatan. Bladverket sätter växterna, blommorna och säsongens naturliga toner i fokus. Handplockade snittblommor, rariteter till krukväxter och en noga kurerad kollektion av exklusiva krukor fyller hela butiken med liv och doft.",
