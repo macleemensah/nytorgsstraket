@@ -83,7 +83,12 @@ export const STORES: Store[] = [
     url: "https://www.apcstore.com",
     openingHours: [
       "Mån-lör 10:30–18:30",
-      "Söndag 11–16"
+      "Söndag 11–16",
+      "Skärtorsdag 10:30–18:30",
+      "Långfredag 12:00–16:00",
+      "Påskafton 11:00–18:00",
+      "Påskdagen 12:00–16:00",
+      "Annandag påsk 12:00–16:00"
     ],
     scale: 0.7,
     description: "A.P.C. står för Atelier de Production et de Création. Det franska varumärket grundades 1987 av Jean Touitou med fokus på minimalistisk design och en perfekt skuren denimkollektion i japanskt råtyg. Idag erbjuds en komplett herr- och damgarderob som utstrålar avslappnad elegans.",
