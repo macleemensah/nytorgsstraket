@@ -58,11 +58,12 @@ export const STORES: Store[] = [
     category: 'Butiker',
     logo: parlanLogo,
     url: "https://www.parlanskonfektyr.se/",
-    extra: "Öppet 11–16: Långfredag & Annandag påsk",
     openingHours: [
       "Mån-fre 11–18",
       "Lördag 11–17",
-      "Söndag 11–16"
+      "Söndag 11–16",
+      "Långfredag 11–16",
+      "Annandag påsk 11–16"
     ],
     scale: 1.3,
     description: "Kärleken till det fina mathantverket, ett oklanderligt öga för estetik och en stund av glädje och nostalgi inslaget i cellofan. Pärlans konfektkokerskor kokar mjuk, ljuvlig gräddkola smaksatt med allt från vanilj och havssalt till lakrits eller passion.",
@@ -205,11 +206,11 @@ export const STORES: Store[] = [
     logo: store654Logo,
     url: "https://654.se/",
     openingHours: [
-      "Skärtorsdag: 11.00–17.00",
-      "Långfredag: 12.00–17.00",
-      "Påskafton: 11.00–17.00",
-      "Påskdagen: 12.00–17.00",
-      "Annandag Påsk: 12.00–17.00"
+      "Skärtorsdag 11–17",
+      "Långfredag 12–17",
+      "Påskafton 11–17",
+      "Påskdagen 12–17",
+      "Annandag påsk 12–17"
     ],
     scale: 0.85,
     description: "Utgåva av nischbrands, surfing, friluftsliv, kaffe och gemenskap – allt format av en djup passion. 6/5/4 är inte bara en kläd- och prylaffär; det är en kaffebar och en hub på Södermalm där de som älskar att ta med vildmarken till stan umgås och handlar.",
@@ -310,11 +311,14 @@ export const STORES: Store[] = [
     category: 'Butiker',
     logo: "/house-of-tell-logo.png",
     url: "#",
-    extra: "Påsk: Skärtorsdag 11-18, Långfredag 12-16, Påskafton 11-17, Påskdagen 12-16",
     openingHours: [
       "Mån-fre 11–18",
       "Lördag 11–17",
-      "Söndag 12–16"
+      "Söndag 12–16",
+      "Skärtorsdag 11–18",
+      "Långfredag 12–16",
+      "Påskafton 11–17",
+      "Påskdagen 12–16"
     ],
     scale: 1.0,
     description: "House of Tell erbjuder noga utvald inredning och design.",
