@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react';
-import './index.css';
-
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Discover from './components/Discover';
-import FeaturedPlaces from './components/FeaturedPlaces';
-import Events from './components/Events';
-import ExploreStreet from './components/ExploreStreet';
-import Footer from './components/Footer';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react";
+
+import HomePage from './pages/HomePage';
+import PlaceDetail from './pages/PlaceDetail';
+import CategoryPage from './pages/CategoryPage';
 import UnderConstruction from './components/UnderConstruction';
+import './index.css';
 
 function App() {
   const [isDevMode, setIsDevMode] = useState(false);
@@ -32,16 +28,14 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-bg-paper">
-      <Navbar />
-      <main>
-        <Hero />
-        <Discover />
-        <FeaturedPlaces />
-        <Events />
-        <ExploreStreet />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-bg-paper text-text-dark font-din selection:bg-selection selection:text-text-dark antialiased">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/plats/:slug" element={<PlaceDetail />} />
+          <Route path="/kategori/:slug" element={<CategoryPage />} />
+        </Routes>
+      </BrowserRouter>
       <Analytics />
     </div>
   );

@@ -1,4 +1,5 @@
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Discover: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Discover: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 h-[800px] md:h-[600px]">
         {/* Shops */}
-        <a href="#" className="md:col-span-7 relative group overflow-hidden bg-[#e5e4e2] block h-64 md:h-full rounded-sm">
+        <Link to="/kategori/butiker" className="md:col-span-7 relative group overflow-hidden bg-[#e5e4e2] block h-64 md:h-full rounded-sm">
           <img 
             src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop" 
             alt="Butiker" 
@@ -28,11 +29,11 @@ const Discover: React.FC = () => {
           <div className="absolute bottom-8 left-8 text-white">
             <h3 className="text-3xl font-orpheus tracking-tight">Butiker</h3>
           </div>
-        </a>
+        </Link>
         
         <div className="md:col-span-5 grid grid-rows-2 gap-4 md:gap-6 h-full">
           {/* Cafés */}
-          <a href="#" className="relative group overflow-hidden bg-[#e5e4e2] block h-64 md:h-full rounded-sm">
+          <Link to="/kategori/kafeer" className="relative group overflow-hidden bg-[#e5e4e2] block h-64 md:h-full rounded-sm">
             <img 
               src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop" 
               alt="Kaféer" 
@@ -42,11 +43,11 @@ const Discover: React.FC = () => {
             <div className="absolute bottom-6 left-6 text-white">
               <h3 className="text-2xl font-orpheus tracking-tight">Kaféer</h3>
             </div>
-          </a>
+          </Link>
           
           <div className="grid grid-cols-2 gap-4 md:gap-6 h-64 md:h-full">
             {/* Culture */}
-            <a href="#" className="relative group overflow-hidden bg-[#e5e4e2] block h-full rounded-sm">
+            <Link to="/kategori/kultur" className="relative group overflow-hidden bg-[#e5e4e2] block h-full rounded-sm">
               <img 
                 src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" 
                 alt="Kultur" 
@@ -56,8 +57,8 @@ const Discover: React.FC = () => {
               <div className="absolute bottom-6 left-6 text-white">
                 <h3 className="text-xl font-orpheus tracking-tight">Kultur</h3>
               </div>
-            </a>
-            <a href="#" className="relative group overflow-hidden bg-[#e5e4e2] block h-full rounded-sm">
+            </Link>
+            <Link to="/kategori/mat-och-dryck" className="relative group overflow-hidden bg-[#e5e4e2] block h-full rounded-sm">
               <img 
                 src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop" 
                 alt="Mat & Dryck" 
@@ -67,7 +68,7 @@ const Discover: React.FC = () => {
               <div className="absolute bottom-6 left-6 text-white">
                 <h3 className="text-xl font-orpheus tracking-tight">Mat & Dryck</h3>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

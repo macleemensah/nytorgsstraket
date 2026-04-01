@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
 /* ─── DIN Condensed (self-hosted) ───────────────────────────────────────── */
 /* Drop your licensed font files into public/fonts/ — see public/fonts/README.md */
 
@@ -31,8 +34,6 @@
 }
 
 /* ─── Google Fonts fallback (used until DIN Condensed files are present) ── */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-@import "tailwindcss";
 
 @theme {
   --color-brand-red: #DA1A21;
