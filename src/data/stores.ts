@@ -344,7 +344,7 @@ export const STORES: Store[] = [
     openingHours: [
       "Mån-sön 12–18"
     ],
-    scale: 1.0,
+    scale: 0.85,
     description: "Capanna Verde är ett unikt tillskott till Nytorgsstråket.",
     heroImage: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2000&auto=format&fit=crop",
     galleryImages: [

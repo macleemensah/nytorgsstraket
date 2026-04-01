@@ -50,7 +50,7 @@ export default function UnderConstruction() {
                 <img 
                   src={store.logo} 
                   alt={`${store.name} logo`} 
-                  className={`max-h-20 max-w-full object-contain transition-all duration-500 group-hover:scale-110 ${['Stadsmissionen', 'Nytorget 6', 'Meatballs for the People', 'Bladverket'].includes(store.name) ? 'brightness-0 opacity-80' : ''}`} 
+                  className={`max-h-20 max-w-full object-contain transition-all duration-500 group-hover:scale-110 ${['Stadsmissionen', 'Nytorget 6', 'Meatballs for the People', 'Bladverket', 'Capanna Verde'].includes(store.name) ? 'brightness-0 opacity-80' : ''}`} 
                   style={{ transform: `scale(${store.scale || 1.0})` }}
                 />
               </div>
