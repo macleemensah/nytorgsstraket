@@ -315,7 +315,7 @@ export const STORES: Store[] = [
     name: "House of Tell",
     category: 'Butiker',
     logo: "/house-of-tell-logo.png",
-    url: "#",
+    url: "https://www.houseoftell.com/",
     openingHours: [
       "Mån-fre 11–18",
       "Lördag 11–17",
