@@ -339,7 +339,7 @@ export const STORES: Store[] = [
     slug: 'capanna-verde',
     name: "Capanna Verde",
     category: 'Butiker',
-    logo: "/capanna-verde-logo.pdf",
+    logo: "/capanna-verde-logo.png",
     url: "#",
     openingHours: [
       "Mån-sön 12–18"
