@@ -334,5 +334,24 @@ export const STORES: Store[] = [
       "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1000&auto=format&fit=crop"
     ],
     address: "Nytorgsgatan, Stockholm"
+  },
+  {
+    slug: 'capanna-verde',
+    name: "Capanna Verde",
+    category: 'Butiker',
+    logo: "/capanna-verde-logo.pdf",
+    url: "#",
+    openingHours: [
+      "Mån-sön 12–18"
+    ],
+    scale: 1.0,
+    description: "Capanna Verde är ett unikt tillskott till Nytorgsstråket.",
+    heroImage: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2000&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1520138902598-a28d54c0e61d?q=80&w=1000&auto=format&fit=crop"
+    ],
+    address: "Nytorgsgatan, Stockholm"
   }
 ];
