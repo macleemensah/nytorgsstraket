@@ -44,19 +44,15 @@ const Footer: React.FC = () => {
               </ul>
             </div>
             <div className="col-span-2 md:col-span-2">
-              <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium mb-6 text-white/40 font-din text-nowrap">Nyhetsbrev</h4>
-              <p className="text-sm font-extralight text-white/60 mb-6">Få de senaste uppdateringarna om vad som händer på gatan.</p>
-              <form className="relative">
-                <input
-                  type="email"
-                  placeholder="Din e-post"
-                  className="w-full bg-white/5 border-b border-white/20 py-3 px-0 focus:outline-none focus:border-brand-red transition-colors font-extralight text-sm"
-                />
-                <button type="submit" aria-label="Prenumerera" className="absolute right-0 top-1/2 -translate-y-1/2 text-white/40 hover:text-brand-red transition-colors">
-                  {/* @ts-expect-error - Custom element */}
-                  <iconify-icon icon="solar:arrow-right-linear" width="20" height="20"></iconify-icon>
-                </button>
-              </form>
+              <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium mb-6 text-white/40 font-din text-nowrap">Hitta hit</h4>
+              <p className="text-sm font-extralight text-white/60 mb-2 leading-relaxed">Nytorgsgatan 36–38</p>
+              <p className="text-sm font-extralight text-white/60 mb-6 leading-relaxed">118 40 Stockholm</p>
+              <a
+                href="mailto:info@nytorgsstraket.se"
+                className="text-sm font-extralight text-white/40 hover:text-brand-red transition-colors"
+              >
+                info@nytorgsstraket.se
+              </a>
             </div>
           </div>
         </div>

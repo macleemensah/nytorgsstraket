@@ -61,9 +61,7 @@ export const STORES: Store[] = [
     openingHours: [
       "Mån-fre 11–18",
       "Lördag 11–17",
-      "Söndag 11–16",
-      "Långfredag 11–16",
-      "Annandag påsk 11–16"
+      "Söndag 11–16"
     ],
     scale: 1.3,
     description: "Kärleken till det fina mathantverket, ett oklanderligt öga för estetik och en stund av glädje och nostalgi inslaget i cellofan. Pärlans konfektkokerskor kokar mjuk, ljuvlig gräddkola smaksatt med allt från vanilj och havssalt till lakrits eller passion.",
@@ -83,12 +81,7 @@ export const STORES: Store[] = [
     url: "https://www.apcstore.com",
     openingHours: [
       "Mån-lör 10:30–18:30",
-      "Söndag 11–16",
-      "Skärtorsdag 10:30–18:30",
-      "Långfredag 12:00–16:00",
-      "Påskafton 11:00–18:00",
-      "Påskdagen 12:00–16:00",
-      "Annandag påsk 12:00–16:00"
+      "Söndag 11–16"
     ],
     scale: 0.7,
     description: "A.P.C. står för Atelier de Production et de Création. Det franska varumärket grundades 1987 av Jean Touitou med fokus på minimalistisk design och en perfekt skuren denimkollektion i japanskt råtyg. Idag erbjuds en komplett herr- och damgarderob som utstrålar avslappnad elegans.",
@@ -211,11 +204,9 @@ export const STORES: Store[] = [
     logo: store654Logo,
     url: "https://654.se/",
     openingHours: [
-      "Skärtorsdag 11–17",
-      "Långfredag 12–17",
-      "Påskafton 11–17",
-      "Påskdagen 12–17",
-      "Annandag påsk 12–17"
+      "Mån-fre 11–18",
+      "Lördag 11–17",
+      "Söndag 12–16"
     ],
     scale: 0.85,
     description: "Utgåva av nischbrands, surfing, friluftsliv, kaffe och gemenskap – allt format av en djup passion. 6/5/4 är inte bara en kläd- och prylaffär; det är en kaffebar och en hub på Södermalm där de som älskar att ta med vildmarken till stan umgås och handlar.",
@@ -255,12 +246,7 @@ export const STORES: Store[] = [
     openingHours: [
       "Mån-fre 10–18",
       "Lördag 10–16",
-      "Söndag 11–16",
-      "Skärtorsdag 10–18",
-      "Långfredag Stängt",
-      "Påskafton 10–16",
-      "Påskdagen Stängt",
-      "Annandag påsk Stängt"
+      "Söndag 11–16"
     ],
     scale: 1.0,
     description: "Det grönskande hörnet på Nytorgsgatan. Bladverket sätter växterna, blommorna och säsongens naturliga toner i fokus. Handplockade snittblommor, rariteter till krukväxter och en noga kurerad kollektion av exklusiva krukor fyller hela butiken med liv och doft.",
@@ -324,11 +310,7 @@ export const STORES: Store[] = [
     openingHours: [
       "Mån-fre 11–18",
       "Lördag 11–17",
-      "Söndag 12–16",
-      "Skärtorsdag 11–18",
-      "Långfredag 12–16",
-      "Påskafton 11–17",
-      "Påskdagen 12–16"
+      "Söndag 12–16"
     ],
     scale: 1.0,
     description: "House of Tell erbjuder noga utvald inredning och design.",

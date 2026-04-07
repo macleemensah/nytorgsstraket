@@ -3,8 +3,9 @@ import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import Discover from '../components/Discover';
 import FeaturedPlaces from '../components/FeaturedPlaces';
-import About from '../components/About';
 import Events from '../components/Events';
+import About from '../components/About';
+import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
         <FeaturedPlaces />
         <Events />
         <About />
+        <Newsletter />
       </main>
       <Footer />
     </>
