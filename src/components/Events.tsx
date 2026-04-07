@@ -57,6 +57,11 @@ const Events: React.FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
+        if (!supabase) {
+          setLoading(false);
+          return;
+        }
+
         const { data, error } = await supabase
           .from('events')
           .select('*')
@@ -76,8 +81,10 @@ const Events: React.FC = () => {
     fetchEvents();
   }, []);
 
-  const featured = events.find((e) => e.is_featured) ?? events[0];
-  const rest = events.filter((e) => e.id !== featured.id).slice(0, 2);
+  const featured = events.find((e) => e.is_featured) ?? events[0] ?? FALLBACK_EVENTS[0];
+  const rest = events.filter((e) => e.id !== (featured?.id)).slice(0, 2);
+
+  if (!featured) return null; // Final safety bail-out if everything is empty
 
   return (
     <section id="events" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
