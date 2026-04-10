@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.png';
 
 const Navbar: React.FC = () => {
@@ -19,11 +20,17 @@ const Navbar: React.FC = () => {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   const navLinks = [
-    { label: 'Upptäck', href: '#discover' },
-    { label: 'Platser', href: '#featured' },
-    { label: 'Evenemang', href: '#events' },
-    { label: 'Om stråket', href: '#about' },
+    { label: t('nav.upptack'), href: '#discover' },
+    { label: t('nav.platser'), href: '#featured' },
+    { label: t('nav.evenemang'), href: '#events' },
+    { label: t('nav.om_straket'), href: '#about' },
   ];
 
   return (
@@ -62,18 +69,30 @@ const Navbar: React.FC = () => {
 
           {/* Language Switcher */}
           <div className="flex items-center gap-2 text-xs font-medium tracking-widest uppercase opacity-60">
-            <a href="#" className="opacity-100 font-bold">SV</a>
+            <button 
+              onClick={(e) => { e.preventDefault(); changeLanguage('sv'); }} 
+              className={`${i18n.language === 'sv' ? 'opacity-100 font-bold' : 'hover:opacity-100 transition-opacity cursor-pointer'}`}
+            >SV</button>
             <span className="opacity-40">/</span>
-            <a href="#" className="hover:opacity-100 transition-opacity">ENG</a>
+            <button 
+              onClick={(e) => { e.preventDefault(); changeLanguage('en'); }} 
+              className={`${i18n.language === 'en' ? 'opacity-100 font-bold' : 'hover:opacity-100 transition-opacity cursor-pointer'}`}
+            >ENG</button>
           </div>
         </div>
 
         {/* Mobile: Language + Hamburger */}
         <div className="md:hidden flex items-center gap-5">
           <div className="flex items-center gap-2 text-xs font-medium tracking-widest uppercase opacity-60">
-            <a href="#" className="opacity-100 font-bold">SV</a>
+            <button 
+              onClick={(e) => { e.preventDefault(); changeLanguage('sv'); }} 
+              className={`${i18n.language === 'sv' ? 'opacity-100 font-bold' : 'hover:opacity-100 transition-opacity cursor-pointer'}`}
+            >SV</button>
             <span className="opacity-40">/</span>
-            <a href="#" className="hover:opacity-100 transition-opacity">ENG</a>
+            <button 
+              onClick={(e) => { e.preventDefault(); changeLanguage('en'); }} 
+              className={`${i18n.language === 'en' ? 'opacity-100 font-bold' : 'hover:opacity-100 transition-opacity cursor-pointer'}`}
+            >ENG</button>
           </div>
           <button
             id="hamburger-button"
@@ -136,7 +155,7 @@ const Navbar: React.FC = () => {
           {/* Drawer Footer */}
           <div className="px-8 py-8 border-t border-white/10">
             <p className="text-xs uppercase tracking-widest text-white/30 font-din">
-              Nytorgsgatan 36–38 · Stockholm
+              {t('nav.address')}
             </p>
           </div>
         </div>

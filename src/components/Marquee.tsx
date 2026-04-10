@@ -24,6 +24,7 @@ const Marquee: React.FC = () => {
         {[...items, ...items].map((item, i) => (
           <span
             key={i}
+            aria-hidden={i >= items.length ? "true" : undefined}
             className="inline-flex items-center gap-5 px-6 text-white text-xs uppercase tracking-[0.2em] font-din font-medium"
           >
             {item}

@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { STORES } from '../data/stores';
 
 const getCategoryCount = (cat: string) =>
   STORES.filter((s) => s.category === cat).length;
 
 const Discover: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  
+  // Helper for 'platser' plural context if needed, but we can just use the mapped word
+  const platserTag = i18n.language === 'en' ? 'places' : 'platser';
+
   return (
     <section id="discover" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
         <div className="max-w-xl">
           <h2 className="text-3xl md:text-5xl font-orpheus tracking-tight font-light text-text-dark leading-tight">
-            En gata för alla smaker, <br className="hidden md:block" />
-            <span className="italic font-normal">ett torg för alla sinnen.</span>
+            {t('hero.subtitle')}
           </h2>
         </div>
         <div className="flex flex-col items-end">
-          <p className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-text-dark/40 mb-2 font-din">Utforska kategorier</p>
+          <p className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-text-dark/40 mb-2 font-din">{t('discover.title')}</p>
           <div className="w-12 h-[1px] bg-brand-red"></div>
         </div>
       </div>
@@ -31,9 +36,9 @@ const Discover: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
           <div className="absolute bottom-8 left-8 text-white flex flex-col gap-1">
-            <h3 className="text-3xl font-orpheus tracking-tight">Butiker</h3>
+            <h3 className="text-3xl font-orpheus tracking-tight">{t('footer.butiker')}</h3>
             <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-din">
-              {getCategoryCount('Butiker')} platser →
+              {getCategoryCount('Butiker')} {platserTag} →
             </span>
           </div>
         </Link>
@@ -48,9 +53,9 @@ const Discover: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-colors duration-500"></div>
             <div className="absolute bottom-6 left-6 text-white flex flex-col gap-1">
-              <h3 className="text-2xl font-orpheus tracking-tight">Kaféer</h3>
+              <h3 className="text-2xl font-orpheus tracking-tight">{t('footer.kafeer')}</h3>
               <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-din">
-                {getCategoryCount('Kaféer')} platser →
+                {getCategoryCount('Kaféer')} {platserTag} →
               </span>
             </div>
           </Link>
@@ -65,9 +70,9 @@ const Discover: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white flex flex-col gap-1">
-                <h3 className="text-xl font-orpheus tracking-tight">Kultur</h3>
+                <h3 className="text-xl font-orpheus tracking-tight">{t('footer.kultur')}</h3>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-din">
-                  {getCategoryCount('Kultur')} platser →
+                  {getCategoryCount('Kultur')} {platserTag} →
                 </span>
               </div>
             </Link>
@@ -80,9 +85,9 @@ const Discover: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white flex flex-col gap-1">
-                <h3 className="text-xl font-orpheus tracking-tight">Mat & Dryck</h3>
+                <h3 className="text-xl font-orpheus tracking-tight">{t('footer.mat')}</h3>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-din">
-                  {getCategoryCount('Mat & Dryck')} platser →
+                  {getCategoryCount('Mat & Dryck')} {platserTag} →
                 </span>
               </div>
             </Link>

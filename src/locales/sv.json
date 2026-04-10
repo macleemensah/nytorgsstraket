@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "upptack": "Upptäck",
+    "platser": "Platser",
+    "evenemang": "Evenemang",
+    "om_straket": "Om stråket",
+    "address": "Nytorgsgatan 36–38 · Stockholm"
+  },
+  "hero": {
+    "subtitle": "EN GATA FÖR ALLA SMAKER. ETT TORG FÖR ALLA SINNEN.",
+    "cta": "Upptäck gatan"
+  },
+  "discover": {
+    "title": "Utforska kategorier"
+  },
+  "featured": {
+    "title": "Utvalda platser",
+    "view_all": "Utforska alla platser",
+    "via_categories": "via våra kategorier"
+  },
+  "events": {
+    "kommande": "Kommande i kalendern",
+    "se_hela": "Se hela kalendern",
+    "hela_kalendern": "Hela Kalendern",
+    "subtitle": "Nytorgsstråket — Evenemang & Händelser"
+  },
+  "about": {
+    "label": "Om stråket",
+    "address": "Nytorgsgatan · Södermalm",
+    "title_span1": "Södermalms mest",
+    "title_span2": "levande stråk.",
+    "p1": "Nytorgsstråket är ett noga kurerat handels- och kulturstråk på Södermalm — ett område där internationella varumärken möter lokala händer, och där varje plats har valts ut med noggrant öga för kvalitet och karaktär.",
+    "p2": "Här hittar du allt från välkuraterade modebutiker och specialkaffe till prisbelönta restauranger, hantverk och kultur — samlade på ett kompakt promenadvänligt stråk mitt i hjärtat av SoFo.",
+    "signature": "Trevligt att stråkas!"
+  },
+  "newsletter": {
+    "label": "Nyhetsbrev",
+    "title_span1": "Håll dig uppdaterad",
+    "title_span2": "om stråket.",
+    "description": "Få de senaste nyheterna om öppettider, evenemang och nyheter från Nytorgsstråket direkt i din inkorg.",
+    "success": "Tack! Du är nu anmäld till nyhetsbrevet.",
+    "placeholder": "Din e-postadress",
+    "button": "Prenumerera",
+    "sending": "Skickar...",
+    "privacy": "Inga spam — avregistrera när som helst."
+  },
+  "footer": {
+    "description": "Södermalms mest levande gata där tradition möter samtida kultur.",
+    "utforska": "Utforska",
+    "butiker": "Butiker",
+    "mat": "Mat & Dryck",
+    "kafeer": "Kaféer",
+    "kultur": "Kultur",
+    "information": "Information",
+    "om_oss": "Om oss",
+    "kontakt": "Kontakt",
+    "hyresgaster": "För hyresgäster",
+    "hitta": "Hitta hit",
+    "rights": "Alla rättigheter förbehållna.",
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor"
+  },
+  "place": {
+    "back": "Tillbaka",
+    "not_found": "Platsen hittades inte",
+    "not_found_back": "Tillbaka till Nytorgsstråket",
+    "opening_hours": "Öppettider",
+    "find_us": "Hitta hit",
+    "visit_website": "Besök hemsida"
+  }
+}

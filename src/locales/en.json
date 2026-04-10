@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "upptack": "Discover",
+    "platser": "Places",
+    "evenemang": "Events",
+    "om_straket": "About The Area",
+    "address": "Nytorgsgatan 36–38 · Stockholm"
+  },
+  "hero": {
+    "subtitle": "A STREET FOR ALL TASTES. A SQUARE FOR ALL SENSES.",
+    "cta": "Discover the street"
+  },
+  "discover": {
+    "title": "Explore categories"
+  },
+  "featured": {
+    "title": "Featured places",
+    "view_all": "Explore all places",
+    "via_categories": "via our categories"
+  },
+  "events": {
+    "kommande": "Upcoming events",
+    "se_hela": "See full calendar",
+    "hela_kalendern": "Full Calendar",
+    "subtitle": "Nytorgsstråket — Events & Happenings"
+  },
+  "about": {
+    "label": "About the area",
+    "address": "Nytorgsgatan · Södermalm",
+    "title_span1": "Södermalm's most",
+    "title_span2": "vibrant street.",
+    "p1": "Nytorgsstråket is a carefully curated shopping and cultural street in Södermalm — an area where international brands meet local artisans, and where every venue has been selected with a meticulous eye for quality and character.",
+    "p2": "Here you will find everything from well-curated fashion boutiques and specialty coffee to award-winning restaurants, crafts, and culture — all gathered on a compact, pedestrian-friendly street right in the heart of SoFo.",
+    "signature": "Nice to stroll with you!"
+  },
+  "newsletter": {
+    "label": "Newsletter",
+    "title_span1": "Stay updated",
+    "title_span2": "about the street.",
+    "description": "Get the latest news regarding opening hours, events, and updates from Nytorgsstråket directly in your inbox.",
+    "success": "Thank you! You are now subscribed to the newsletter.",
+    "placeholder": "Your email address",
+    "button": "Subscribe",
+    "sending": "Sending...",
+    "privacy": "No spam — unsubscribe at any time."
+  },
+  "footer": {
+    "description": "Södermalm's most vibrant street where tradition meets contemporary culture.",
+    "utforska": "Explore",
+    "butiker": "Stores",
+    "mat": "Food & Drink",
+    "kafeer": "Cafés",
+    "kultur": "Culture",
+    "information": "Information",
+    "om_oss": "About us",
+    "kontakt": "Contact",
+    "hyresgaster": "For tenants",
+    "hitta": "Find us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "place": {
+    "back": "Back",
+    "not_found": "Place not found",
+    "not_found_back": "Back to Nytorgsstråket",
+    "opening_hours": "Opening hours",
+    "find_us": "Find us",
+    "visit_website": "Visit website"
+  }
+}

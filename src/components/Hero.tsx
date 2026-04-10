@@ -1,7 +1,8 @@
-
+import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.png';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <header className="relative h-screen w-full flex flex-col justify-center items-center text-center px-4 overflow-hidden">
       {/* Background image */}
@@ -29,8 +30,8 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Tagline */}
-        <p className="text-xl md:text-2xl font-medium italic max-w-xl mx-auto text-white leading-relaxed px-4 drop-shadow-md font-serif mb-10">
-          Upptäck de noga utvalda butikerna, kaféerna, restaurangerna och kulturen runt Nytorget.
+        <p className="text-xl md:text-2xl font-medium italic max-w-xl mx-auto text-white leading-relaxed px-4 drop-shadow-md font-serif mb-10 uppercase">
+          {t('hero.subtitle')}
         </p>
 
         {/* CTA Button */}
@@ -38,7 +39,7 @@ const Hero: React.FC = () => {
           href="#discover"
           className="group inline-flex items-center gap-3 px-8 py-3.5 border border-white/50 rounded-full text-white text-sm uppercase tracking-[0.15em] font-din font-medium hover:bg-white hover:text-text-dark transition-all duration-400 backdrop-blur-sm"
         >
-          Utforska butikerna
+          {t('hero.cta')}
           {/* @ts-expect-error - Custom element */}
           <iconify-icon icon="solar:arrow-right-linear" width="16" height="16"></iconify-icon>
         </a>
