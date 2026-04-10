@@ -15,13 +15,13 @@ const Footer: React.FC = () => {
               {t('footer.description')}
             </p>
             <div className="flex gap-4">
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-text-dark transition-colors">
+              <a href="https://www.instagram.com/nytorgsstraket/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-text-dark transition-colors">
                 {/* @ts-expect-error - Custom element */}
                 <iconify-icon icon="line-md:instagram" width="20" height="20"></iconify-icon>
               </a>
-              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-text-dark transition-colors">
+              <a href="https://www.tiktok.com/@nytorgsstraket" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-text-dark transition-colors">
                 {/* @ts-expect-error - Custom element */}
-                <iconify-icon icon="line-md:facebook" width="20" height="20"></iconify-icon>
+                <iconify-icon icon="line-md:tiktok" width="20" height="20"></iconify-icon>
               </a>
             </div>
           </div>
