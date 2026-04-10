@@ -12,20 +12,75 @@ interface Event {
   tag_color: string;
   is_featured: boolean;
   is_active: boolean;
+  content?: string;
+  external_url?: string;
 }
 
 // Fallback events shown if Supabase is not yet configured
 const FALLBACK_EVENTS: Event[] = [
   {
     id: 1,
-    date: '12 — 14 Oktober',
-    tag: 'Marknad',
-    title: 'Höstmarknad',
-    description: 'Lokala producenter samlas runt torget och erbjuder säsongens grönsaker, hantverksostar och nybakat bröd. En folkfest för alla sinnen.',
-    image_url: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop',
+    date: '14 — 16 Augusti',
+    tag: 'Festival',
+    title: 'Nytorgsfesten 2026',
+    description: 'Stockholms finaste kvartersfest är tillbaka! Tre dagar fyllda med karnevaltåg, glassfestival, loppis, musik och folkfest i hjärtat av Södermalm.',
+    image_url: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg',
     tag_color: '#f5c9bf',
     is_featured: true,
     is_active: true,
+    external_url: 'https://www.nytorgsfesten.se/',
+    content: `
+      <div class="space-y-10">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Nytorgsfesten har sin själ i alla fantastiska utställare, restauranger och kringliggande verksamheter som alltid blomstrar under denna helg så oavsett tidpunkt lovar vi att ni kommer ha en trevlig stund i Stockholms finaste kvarter.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Fredag 14 augusti</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>18:00</strong> Invigning med Karnevaltåg! Vi möts på gräsmattan Nytorget. Ta med instrument!</p>
+              <p><strong>18:00 – 22:00</strong> Glassfestival – Greta Garbos Torg</p>
+              <p><strong>18:00 – 22:00</strong> Hippie Market – Katarina Bangata</p>
+              <p><strong>16:00 – 22:00</strong> Tivoli – Skolgården</p>
+              <p><strong>18:00 – 22:00</strong> Mosquito Block Party! – Stora scen</p>
+              <p><strong>18:00 – 22:00</strong> DJ Camille – Latin Street</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Lördag 15 augusti</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>10:00 – 11:00</strong> Yoga – Nytorget</p>
+              <p><strong>12:00 – 22:00</strong> Glassfestival – Greta Garbos Torg</p>
+              <p><strong>12:00 – 22:00</strong> Hippie Market – Katarina Bangata</p>
+              <p><strong>12:00 – 22:00</strong> Tivoli – Skolgården</p>
+              <p><strong>12:00 – 18:00</strong> Jazz Corner & Art Street</p>
+              <p><strong>12:00 – 17:00</strong> Planket fotoutställning</p>
+              <p><strong>19:00 – 23:00</strong> Silent Disco – Gräsmattan</p>
+              <p><strong>18:00 – 22:00</strong> Eddy Cabrera – Stora scen</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Söndag 16 augusti</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>10:00 – 11:00</strong> Yoga – Nytorget</p>
+              <p><strong>12:00 – 17:00</strong> Planket fotoutställning</p>
+              <p><strong>12:00 – 22:00</strong> Glassfestival & Hippie Market</p>
+              <p><strong>12:00 – 22:00</strong> Tivoli – Skolgården</p>
+              <p><strong>12:00 – 18:00</strong> Art street by Egenart</p>
+              <p><strong>12:00 – 18:00</strong> Funnybones Circus hörnet</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#f4f3ef] p-6 rounded-sm border border-text-dark/5">
+          <h4 class="font-din uppercase tracking-widest text-text-dark text-xs mb-3">Loppis på festivalen</h4>
+          <p class="text-sm text-text-dark/70 leading-relaxed">I samband med Nytorgsfesten invid Nytorget på Katarina Södra Skolgård etablerar vi Södermalms största loppis. Det kommer även finnas Food Trucks, DJs, barnområde och ett litet Tivoli m.m. på skolgården.</p>
+        </div>
+      </div>
+    `,
   },
   {
     id: 2,
@@ -77,17 +132,24 @@ const Events: React.FC = () => {
   const { t } = useTranslation();
   const [events, setEvents] = useState<Event[]>(FALLBACK_EVENTS);
   const [loading, setLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   // Lock body scroll when modal is open
   useEffect(() => {
-    if (isModalOpen) {
+    if (isCalendarOpen || isDetailOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
-  }, [isModalOpen]);
+  }, [isCalendarOpen, isDetailOpen]);
+
+  const openDetail = (event: Event) => {
+    setSelectedEvent(event);
+    setIsDetailOpen(true);
+  };
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -153,7 +215,10 @@ const Events: React.FC = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {/* Featured large card */}
-          <div className="md:col-span-7 group relative overflow-hidden rounded-sm bg-[#e5e4e2] aspect-[4/3] md:aspect-auto md:h-[480px] flex flex-col justify-end">
+          <div 
+            onClick={() => openDetail(featured)}
+            className="md:col-span-7 group relative overflow-hidden rounded-sm bg-[#e5e4e2] aspect-[4/3] md:aspect-auto md:h-[480px] flex flex-col justify-end cursor-pointer"
+          >
             <img
               src={featured.image_url}
               alt={featured.title}
@@ -178,7 +243,11 @@ const Events: React.FC = () => {
           {/* Smaller cards */}
           <div className="md:col-span-5 flex flex-col gap-6 md:gap-8">
             {rest.map((event) => (
-              <div key={event.id} className="group relative overflow-hidden rounded-sm bg-[#e5e4e2] flex-1 min-h-[200px] md:min-h-0 flex flex-col justify-end">
+              <div 
+                key={event.id} 
+                onClick={() => openDetail(event)}
+                className="group relative overflow-hidden rounded-sm bg-[#e5e4e2] flex-1 min-h-[200px] md:min-h-0 flex flex-col justify-end cursor-pointer"
+              >
                 <img
                   src={event.image_url}
                   alt={event.title}
@@ -209,7 +278,7 @@ const Events: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 border-b border-text-dark/10 pb-6">
           <h3 className="text-3xl font-orpheus text-text-dark">{t('events.kommande')}</h3>
           <button 
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsCalendarOpen(true)}
             className="text-xs uppercase tracking-widest font-din hover:opacity-70 mt-4 md:mt-0 flex items-center gap-2 group transition-opacity cursor-pointer"
           >
             {t('events.se_hela')} 
@@ -228,6 +297,7 @@ const Events: React.FC = () => {
             return (
               <div 
                 key={`cal-${event.id}`} 
+                onClick={() => openDetail(event)}
                 className="flex flex-col md:flex-row md:items-center py-6 border-b border-text-dark/10 group hover:bg-[#e5e4e2]/30 transition-colors -mx-4 md:-mx-8 px-4 md:px-8 cursor-pointer rounded-sm"
               >
                 <div className="w-full md:w-32 shrink-0 flex flex-row md:flex-col items-baseline md:items-start mb-3 md:mb-0 gap-2 md:gap-0">
@@ -254,13 +324,12 @@ const Events: React.FC = () => {
         </div>
       </div>
 
-      {/* Full Calendar Modal Overlay */}
       <div 
-        className={`fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 transition-all duration-500 ${isModalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 transition-all duration-500 ${isCalendarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
-        <div className="absolute inset-0 bg-text-dark/40 backdrop-blur-md" onClick={() => setIsModalOpen(false)}></div>
+        <div className="absolute inset-0 bg-text-dark/40 backdrop-blur-md" onClick={() => setIsCalendarOpen(false)}></div>
         
-        <div className={`relative bg-bg-paper w-full max-w-4xl max-h-[90vh] md:max-h-[85vh] rounded-sm shadow-2xl flex flex-col overflow-hidden transition-transform duration-500 ease-out ${isModalOpen ? 'translate-y-0 scale-100' : 'translate-y-12 scale-95'}`}>
+        <div className={`relative bg-bg-paper w-full max-w-4xl max-h-[90vh] md:max-h-[85vh] rounded-sm shadow-2xl flex flex-col overflow-hidden transition-transform duration-500 ease-out ${isCalendarOpen ? 'translate-y-0 scale-100' : 'translate-y-12 scale-95'}`}>
           {/* Modal Header */}
           <div className="flex justify-between items-center p-6 md:p-8 border-b border-text-dark/10 bg-bg-paper z-10 shrink-0">
             <div>
@@ -268,7 +337,7 @@ const Events: React.FC = () => {
               <p className="text-[10px] md:text-xs uppercase tracking-widest font-din opacity-50 mt-2">{t('events.subtitle')}</p>
             </div>
             <button 
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => setIsCalendarOpen(false)}
               className="w-10 h-10 shrink-0 rounded-full border border-text-dark/10 flex items-center justify-center hover:bg-text-dark hover:text-white transition-colors cursor-pointer"
             >
               {/* @ts-expect-error - Custom element */}
@@ -311,6 +380,70 @@ const Events: React.FC = () => {
                 );
               })}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Event Detail Modal Overlay */}
+      <div 
+        className={`fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-6 transition-all duration-500 ${isDetailOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      >
+        <div className="absolute inset-0 bg-text-dark/60 backdrop-blur-md" onClick={() => setIsDetailOpen(false)}></div>
+        
+        <div className={`relative bg-bg-paper w-full max-w-3xl max-h-[90vh] md:max-h-[85vh] rounded-sm shadow-2xl flex flex-col overflow-hidden transition-transform duration-500 ease-out ${isDetailOpen ? 'translate-y-0 scale-100' : 'translate-y-12 scale-95'}`}>
+          {/* Close Button */}
+          <button 
+            onClick={() => setIsDetailOpen(false)}
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
+          >
+            {/* @ts-expect-error - Custom element */}
+            <iconify-icon icon="solar:close-linear" width="24" height="24"></iconify-icon>
+          </button>
+
+          {/* Modal Hero */}
+          <div className="relative h-48 md:h-64 shrink-0 overflow-hidden">
+            <img 
+              src={selectedEvent?.image_url} 
+              alt={selectedEvent?.title} 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
+              <span 
+                className="px-2.5 py-1 text-text-dark text-[10px] uppercase tracking-widest font-medium rounded-sm font-din mb-3 inline-block"
+                style={{ backgroundColor: selectedEvent?.tag_color }}
+              >
+                {selectedEvent?.tag}
+              </span>
+              <h2 className="text-3xl md:text-5xl font-orpheus text-white tracking-tight">{selectedEvent?.title}</h2>
+              <p className="text-white/60 font-din uppercase tracking-widest text-xs mt-2">{selectedEvent?.date}</p>
+            </div>
+          </div>
+
+          {/* Modal Content */}
+          <div className="p-6 md:p-10 overflow-y-auto hide-scroll flex-1">
+            {selectedEvent?.content ? (
+              <div dangerouslySetInnerHTML={{ __html: selectedEvent.content }} />
+            ) : (
+              <div className="space-y-6">
+                <p className="text-lg text-text-dark/80 font-light leading-relaxed">{selectedEvent?.description}</p>
+              </div>
+            )}
+
+            {selectedEvent?.external_url && (
+              <div className="mt-12 pt-8 border-t border-text-dark/10">
+                <a 
+                  href={selectedEvent.external_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-din text-brand-red hover:opacity-70 transition-opacity"
+                >
+                  Läs mer på officiell hemsida 
+                  {/* @ts-expect-error - Custom element */}
+                  <iconify-icon icon="solar:arrow-right-up-linear" width="16" height="16"></iconify-icon>
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
