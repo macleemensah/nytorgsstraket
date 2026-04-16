@@ -54,6 +54,11 @@ const FeaturedPlaces: React.FC = () => {
     });
   };
 
+  const featuredSlugs = ['lykke', 'parlans-konfektyr', 'apc', 'aesop', '654', 'capanna-verde'];
+  const featuredStores = featuredSlugs
+    .map(slug => STORES.find(s => s.slug === slug))
+    .filter((s): s is typeof STORES[0] => !!s);
+
   return (
     <section id="featured" className="py-32 bg-[#f4f3ef] text-text-dark overflow-hidden">
       {/* Boxed Header */}
@@ -88,7 +93,7 @@ const FeaturedPlaces: React.FC = () => {
         onMouseMove={handleMouseMove}
         className={`flex gap-4 md:gap-8 px-6 md:px-12 xl:px-[calc((100vw-1280px)/2+48px)] overflow-x-auto scroll-pl-6 md:scroll-pl-12 xl:scroll-pl-[calc((100vw-1280px)/2+48px)] scrollbar-hide pb-16 items-stretch select-none ${isDragging ? 'cursor-grabbing' : 'snap-x snap-mandatory cursor-grab'}`}
       >
-        {STORES.slice(0, 6).map((store) => {
+        {featuredStores.map((store) => {
           const catColor = getCategoryColor(store.category);
           return (
             <Link 
