@@ -37,6 +37,12 @@ import stadsmissionenHero from '../assets/stores/stadsmissionen/hero.webp';
 import stadsmissionenGallery1 from '../assets/stores/stadsmissionen/gallery1.jpg';
 import lykkeStoreHero from '../assets/stores/lykke-store/hero.webp';
 import lykkeStoreGallery1 from '../assets/stores/lykke-store/gallery1.webp';
+import parlansHero from '../assets/stores/parlans/hero.webp';
+import parlansGallery1 from '../assets/stores/parlans/gallery1.webp';
+import parlansGallery2 from '../assets/stores/parlans/gallery2.jpg';
+import apcStoreHero from '../assets/stores/apc-store/hero.webp';
+import apcStoreGallery1 from '../assets/stores/apc-store/gallery1.webp';
+import apcStoreGallery2 from '../assets/stores/apc-store/gallery2.webp';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -91,11 +97,11 @@ export const STORES: Store[] = [
     ],
     scale: 1.3,
     description: "Kärleken till det fina mathantverket, ett oklanderligt öga för estetik och en stund av glädje och nostalgi inslaget i cellofan. Pärlans konfektkokerskor kokar mjuk, ljuvlig gräddkola smaksatt med allt från vanilj och havssalt till lakrits eller passion.",
-    heroImage: "https://images.unsplash.com/photo-1601614397779-138374a52ac1?q=80&w=2000&auto=format&fit=crop",
+    heroImage: parlansHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1499195333224-3ce974e15f81?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520138902598-a28d54c0e61d?q=80&w=1000&auto=format&fit=crop"
+      parlansHero,
+      parlansGallery1,
+      parlansGallery2
     ],
     address: "Nytorgsgatan 38, Stockholm"
   },
@@ -111,11 +117,11 @@ export const STORES: Store[] = [
     ],
     scale: 0.7,
     description: "A.P.C. står för Atelier de Production et de Création. Det franska varumärket grundades 1987 av Jean Touitou med fokus på minimalistisk design och en perfekt skuren denimkollektion i japanskt råtyg. Idag erbjuds en komplett herr- och damgarderob som utstrålar avslappnad elegans.",
-    heroImage: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2000&auto=format&fit=crop",
+    heroImage: apcStoreHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1560243563-062bfc001d68?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1000&auto=format&fit=crop"
+      apcStoreHero,
+      apcStoreGallery1,
+      apcStoreGallery2
     ],
     address: "Nytorgsgatan 38, Stockholm"
   },
