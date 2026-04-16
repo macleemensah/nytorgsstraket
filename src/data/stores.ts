@@ -26,6 +26,10 @@ import store654Gallery3 from '../assets/stores/654/gallery3.jpg';
 import capannaVerdeHero from '../assets/stores/capanna-verde/hero.jpg';
 import capannaVerdeGallery1 from '../assets/stores/capanna-verde/gallery1.jpg';
 import capannaVerdeGallery2 from '../assets/stores/capanna-verde/gallery2.jpg';
+import klattermusenHero from '../assets/stores/klattermusen/hero.jpg';
+import klattermusenGallery1 from '../assets/stores/klattermusen/gallery1.jpg';
+import klattermusenGallery2 from '../assets/stores/klattermusen/gallery2.jpg';
+import klattermusenGallery3 from '../assets/stores/klattermusen/gallery3.jpg';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -197,19 +201,19 @@ export const STORES: Store[] = [
     name: "Klättermusen Verkstad",
     category: 'Butiker',
     logo: klattermusenLogo,
-    url: "https://www.klattermusen.com/",
+    url: "https://www.instagram.com/klattermusens.verkstad/",
     openingHours: [
       "Mån-fre 11–18",
       "Lördag 11–17",
       "Söndag 11–16"
     ],
     scale: 0.95,
-    description: "Sedan 1984 har Klättermusen utvecklat utrustning för klättrare som sätter maximal säkerhet för kropp och minimal påverkan på naturen i främsta rummet. I vår butik erbjuder vi reparera, utforska och prova vårt noggrant testade sortiment för enastående expeditioner.",
-    heroImage: "https://images.unsplash.com/photo-1522083165195-3424ed129620?q=80&w=2000&auto=format&fit=crop",
+    description: "Vi fungerar som en mötesplats för dagens hantverkare, kreatörer och friluftsentusiaster. Här kan du ta en kaffe och upptäcka en välkurerad miljö med vintage-friluftskläder, böcker, magasin och mycket mer.",
+    heroImage: klattermusenHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop"
+      klattermusenGallery1,
+      klattermusenGallery2,
+      klattermusenGallery3
     ],
     address: "Nytorgsgatan 38, Stockholm"
   },
