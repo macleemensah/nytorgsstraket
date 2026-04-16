@@ -24,7 +24,7 @@ const FALLBACK_EVENTS: Event[] = [
     tag: 'Festival',
     title: 'Nytorgsfesten 2026',
     description: 'Stockholms finaste kvartersfest är tillbaka! Tre dagar fyllda med karnevaltåg, glassfestival, loppis, musik och folkfest i hjärtat av Södermalm.',
-    image_url: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg',
+    image_url: 'https://www.nytorgsfesten.se/wp-content/uploads/2020/05/CBE3B4D3-B8BE-4023-8F19-6A278F09C6AB.jpg',
     tag_color: '#f5c9bf',
     is_featured: true,
     is_active: true,
