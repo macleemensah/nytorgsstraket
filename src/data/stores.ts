@@ -46,6 +46,12 @@ import apcStoreGallery2 from '../assets/stores/apc-store/gallery2.webp';
 import meatballsHero from '../assets/stores/meatballs/hero.jpg';
 import meatballsGallery1 from '../assets/stores/meatballs/gallery1.jpg';
 import meatballsGallery2 from '../assets/stores/meatballs/gallery2.jpg';
+import nytorget6Hero from '../assets/stores/nytorget6/hero.jpg';
+import nytorget6Gallery1 from '../assets/stores/nytorget6/gallery1.jpg';
+import nytorget6Gallery2 from '../assets/stores/nytorget6/gallery2.jpg';
+import urbanDeliHero from '../assets/stores/urban-deli/hero.jpg';
+import urbanDeliGallery1 from '../assets/stores/urban-deli/gallery1.jpg';
+import urbanDeliGallery2 from '../assets/stores/urban-deli/gallery2.jpg';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -161,11 +167,11 @@ export const STORES: Store[] = [
     ],
     scale: 0.95,
     description: "Urban Deli är en livlig kombination av restaurang, bar, saluhall och matbutik som erbjuder färska, noga utvalda råvaror i en pulserande atmosfär. Här möts södermalmsbor över en avslappnad middag, ett ostron i baren eller för att handla hem krispiga grönsaker och nybakat bröd.",
-    heroImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2000&auto=format&fit=crop",
+    heroImage: urbanDeliHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop"
+      urbanDeliHero,
+      urbanDeliGallery1,
+      urbanDeliGallery2
     ],
     address: "Nytorget 4, Stockholm"
   },
@@ -182,11 +188,11 @@ export const STORES: Store[] = [
     ],
     scale: 0.85,
     description: "Boka bord, kliv in – eller bli stammis och stanna hela kvällen! Nytorget 6 serverar modern och rustik europeisk mat med en stark gemenskapsanda och generös atmosfär. Menyn bjuder in till att dela mindre rätter eller njuta av fylliga huvudrätter långt in på småtimmarna.",
-    heroImage: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2000&auto=format&fit=crop",
+    heroImage: nytorget6Hero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop"
+      nytorget6Hero,
+      nytorget6Gallery1,
+      nytorget6Gallery2
     ],
     address: "Nytorget 6, Stockholm"
   },
