@@ -43,6 +43,9 @@ import parlansGallery2 from '../assets/stores/parlans/gallery2.jpg';
 import apcStoreHero from '../assets/stores/apc-store/hero.webp';
 import apcStoreGallery1 from '../assets/stores/apc-store/gallery1.webp';
 import apcStoreGallery2 from '../assets/stores/apc-store/gallery2.webp';
+import meatballsHero from '../assets/stores/meatballs/hero.jpg';
+import meatballsGallery1 from '../assets/stores/meatballs/gallery1.jpg';
+import meatballsGallery2 from '../assets/stores/meatballs/gallery2.jpg';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -200,11 +203,11 @@ export const STORES: Store[] = [
     ],
     scale: 0.85,
     description: "Stockholms och kanske världens första köttbullebutik med restaurang. Vår vision är att erbjuda vällagad, traditionell husmanskost med innovativa inslag. Välj bland klassiska köttbullar, veganska alternativ, viltkött och serveringar präglade av genuint, svenskt mathantverk.",
-    heroImage: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2000&auto=format&fit=crop",
+    heroImage: meatballsHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1606851094655-b25cb8bfb216?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop"
+      meatballsHero,
+      meatballsGallery1,
+      meatballsGallery2
     ],
     address: "Nytorgsgatan 30, Stockholm"
   },
