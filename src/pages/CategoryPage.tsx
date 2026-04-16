@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 const CATEGORY_MAP: Record<string, { title: StoreCategory; image: string }> = {
   'butiker': { title: 'Butiker', image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop" },
   'kafeer': { title: 'Kaféer', image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop" },
-  'kultur': { title: 'Kultur', image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" },
+  'kultur': { title: 'Kultur och platser', image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" },
   'mat-och-dryck': { title: 'Mat & Dryck', image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop" },
 };
 
@@ -15,7 +15,7 @@ const getCategoryColor = (category: string) => {
     case 'Kaféer': return '#afd4f1';
     case 'Mat & Dryck': return '#f5c9bf';
     case 'Butiker': return '#fff0a2';
-    case 'Kultur': return '#44ca4a';
+    case 'Kultur och platser': return '#44ca4a';
     default: return '#e5e4e2';
   }
 };

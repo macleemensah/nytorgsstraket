@@ -8,7 +8,7 @@ const getCategoryColor = (category: string) => {
     case 'Kaféer': return '#afd4f1';
     case 'Mat & Dryck': return '#f5c9bf';
     case 'Butiker': return '#fff0a2';
-    case 'Kultur': return '#44ca4a';
+    case 'Kultur och platser': return '#44ca4a';
     default: return '#e5e4e2';
   }
 };
@@ -110,7 +110,7 @@ const FeaturedPlaces: React.FC = () => {
               >
                 {store.category}
               </div>
-              <h3 className="text-2xl font-orpheus tracking-tight mb-3 group-hover:text-text-dark/70 transition-colors">{store.name}</h3>
+              <h3 className="text-xl md:text-2xl font-orpheus tracking-tight mb-3 group-hover:text-text-dark/70 transition-colors">{store.name}</h3>
               <p className="text-base text-text-dark/70 mb-5 line-clamp-2 leading-relaxed font-light">
                 {store.description}
               </p>
@@ -128,7 +128,7 @@ const FeaturedPlaces: React.FC = () => {
           href="#discover"
           className="snap-start shrink-0 w-[280px] md:w-[360px] group cursor-pointer flex flex-col justify-center items-center bg-[#e5e4e2] rounded-sm p-8 text-center aspect-[3/4] self-start border border-text-dark/10 hover:bg-text-dark hover:text-white transition-colors duration-500"
         >
-          <h3 className="text-3xl font-orpheus tracking-tight mb-4">{t('featured.view_all')}</h3>
+          <h3 className="text-2xl md:text-3xl font-orpheus tracking-tight mb-4">{t('featured.view_all')}</h3>
           <p className="text-sm font-light uppercase tracking-widest font-din opacity-70 mb-6">{t('featured.via_categories')}</p>
           <div className="w-12 h-12 rounded-full border border-current flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             {/* @ts-expect-error - Custom element */}

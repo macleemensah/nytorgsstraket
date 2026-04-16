@@ -31,9 +31,8 @@ const Newsletter: React.FC = () => {
         </p>
 
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-orpheus font-light tracking-tight text-white leading-tight mb-6">
-          {t('newsletter.title_span1')}<br />
-          <span className="italic font-normal text-brand-red">{t('newsletter.title_span2')}</span>
+        <h2 className="text-3xl md:text-4xl font-orpheus font-light tracking-tight text-white leading-tight mb-6">
+          {t('newsletter.title_span1')} {t('newsletter.title_span2')}
         </h2>
 
         {/* Subtext */}

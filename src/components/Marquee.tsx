@@ -1,26 +1,13 @@
 import React from 'react';
-
-const items = [
-  'Compact Shopping',
-  'Shop \'n Stroll',
-  'Nytorgsgatan 36–38',
-  'Södermalm · Stockholm',
-  'Boutique',
-  'Något att älska',
-  'SoFo',
-  'Compact Shopping',
-  'Shop \'n Stroll',
-  'Nytorgsgatan 36–38',
-  'Södermalm · Stockholm',
-  'Boutique',
-  'Något att älska',
-  'SoFo',
-];
+import { STORES } from '../data/stores';
 
 const Marquee: React.FC = () => {
+  // Only include store and place names from data
+  const items = STORES.map(s => s.name);
+
   return (
     <div className="w-full overflow-hidden bg-brand-red py-3 select-none">
-      <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap w-max">
+      <div className="flex animate-[marquee_60s_linear_infinite] whitespace-nowrap w-max">
         {[...items, ...items].map((item, i) => (
           <span
             key={i}

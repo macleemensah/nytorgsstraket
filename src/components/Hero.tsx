@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Tagline */}
-        <p className="text-xl md:text-2xl font-medium italic max-w-xl mx-auto text-white leading-relaxed px-4 drop-shadow-md font-serif mb-10 uppercase">
+        <p className="text-xl md:text-2xl font-light italic max-w-xl mx-auto text-white leading-relaxed px-4 drop-shadow-md font-serif mb-10 uppercase">
           {t('hero.subtitle')}
         </p>
 

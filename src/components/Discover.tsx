@@ -16,7 +16,7 @@ const Discover: React.FC = () => {
     <section id="discover" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
         <div className="max-w-xl">
-          <h2 className="text-3xl md:text-5xl font-orpheus tracking-tight font-light text-text-dark leading-tight">
+          <h2 className="text-3xl md:text-4xl font-orpheus tracking-tight font-light text-text-dark leading-tight">
             {t('hero.subtitle')}
           </h2>
         </div>
@@ -36,7 +36,7 @@ const Discover: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
           <div className="absolute bottom-8 left-8 text-white flex flex-col gap-1">
-            <h3 className="text-3xl font-orpheus tracking-tight">{t('footer.butiker')}</h3>
+            <h3 className="text-xl md:text-2xl font-orpheus tracking-tight">{t('footer.butiker')}</h3>
             <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-din">
               {getCategoryCount('Butiker')} {platserTag} →
             </span>
@@ -53,7 +53,7 @@ const Discover: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-colors duration-500"></div>
             <div className="absolute bottom-6 left-6 text-white flex flex-col gap-1">
-              <h3 className="text-2xl font-orpheus tracking-tight">{t('footer.kafeer')}</h3>
+              <h3 className="text-xl md:text-2xl font-orpheus tracking-tight">{t('footer.kafeer')}</h3>
               <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-din">
                 {getCategoryCount('Kaféer')} {platserTag} →
               </span>
@@ -70,9 +70,9 @@ const Discover: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white flex flex-col gap-1">
-                <h3 className="text-xl font-orpheus tracking-tight">{t('footer.kultur')}</h3>
+                <h3 className="text-xl md:text-2xl font-orpheus tracking-tight">{t('footer.kultur')}</h3>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-din">
-                  {getCategoryCount('Kultur')} {platserTag} →
+                  {getCategoryCount('Kultur och platser')} {platserTag} →
                 </span>
               </div>
             </Link>
@@ -85,7 +85,7 @@ const Discover: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white flex flex-col gap-1">
-                <h3 className="text-xl font-orpheus tracking-tight">{t('footer.mat')}</h3>
+                <h3 className="text-xl md:text-2xl font-orpheus tracking-tight">{t('footer.mat')}</h3>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-din">
                   {getCategoryCount('Mat & Dryck')} {platserTag} →
                 </span>

@@ -26,9 +26,8 @@ const About: React.FC = () => {
         <div className="order-1 md:order-2 flex flex-col justify-center">
           <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-text-dark/40 mb-6 font-din">{t('about.label')}</p>
 
-          <h2 className="text-4xl md:text-5xl font-orpheus font-light tracking-tight text-text-dark leading-tight mb-8">
-            {t('about.title_span1')}<br />
-            <span className="italic font-normal">{t('about.title_span2')}</span>
+          <h2 className="text-3xl md:text-4xl font-orpheus font-light tracking-tight text-text-dark leading-tight mb-8">
+            {t('about.title_span1')} {t('about.title_span2')}
           </h2>
 
           <div className="space-y-5 text-base text-text-dark/70 font-light leading-relaxed">

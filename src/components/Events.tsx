@@ -83,49 +83,89 @@ const FALLBACK_EVENTS: Event[] = [
     `,
   },
   {
-    id: 2,
-    date: '18 Oktober',
-    tag: 'Kultur',
-    title: 'Gallerinatt & Öppna ateljéer',
-    description: 'Kvällspromenad där du kan utforska oberoende gallerier och öppna konstnärsateljéer på sidogatorna.',
-    image_url: 'https://images.unsplash.com/photo-1544144433-d50aff500b91?q=80&w=2070&auto=format&fit=crop',
-    tag_color: '#afd4f1',
+    id: 6,
+    date: '16 April',
+    tag: 'Musik',
+    title: 'Lykke Live: Thilda U',
+    description: 'Thilda U levererar raka poplåtar som flirtar med disco och R&B. Releasespelning för nya singeln Old Magazine.',
+    image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070&auto=format&fit=crop',
+    tag_color: '#fff0a2',
     is_featured: false,
     is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/thilda-u',
   },
   {
-    id: 3,
-    date: 'Varje söndag',
+    id: 7,
+    date: '17 April',
     tag: 'Musik',
-    title: 'Söndagsjazz',
-    description: 'Intima livejazzframträdanden på utvalda vinbarer och restauranger. Perfekt för en avslappnad eftermiddag.',
+    title: 'Lykke Live: Moa Bondesson Band',
+    description: 'Ett dynamiskt och personligt sound där influenser från pop, rock och country möts. Fri entré.',
+    image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2067&auto=format&fit=crop',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/moa-bondesson-band',
+  },
+  {
+    id: 8,
+    date: '23 April',
+    tag: 'Musik',
+    title: 'Lykke Live: Isak Uddström',
+    description: 'Isak Uddström från Idol 2023 bjuder på en intim och känslosam popkonsert med influenser från svensk pop.',
+    image_url: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86faa3?q=80&w=2070&auto=format&fit=crop',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/isak-uddstrom',
+  },
+  {
+    id: 9,
+    date: '01 Maj',
+    tag: 'Musik',
+    title: 'Lykke Live: Ivy Bae',
+    description: 'Indie-folk med rå sårbarhet och hypnotisk närvaro. Releasekonsert för två nya singlar.',
+    image_url: 'https://images.unsplash.com/photo-1453053702148-18e3828c4bb1?q=80&w=2070&auto=format&fit=crop',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/ivy-bae',
+  },
+  {
+    id: 10,
+    date: '08 Maj',
+    tag: 'Musik',
+    title: 'Lykke Live: Natalie Reigo',
+    description: 'Popartist och låtskrivare med stark röst. Releasefest för hennes nya singel "HELL OF A RIDE".',
+    image_url: 'https://images.unsplash.com/photo-1601643157091-ce5c665179ab?q=80&w=2072&auto=format&fit=crop',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/natalie-reigo',
+  },
+  {
+    id: 11,
+    date: '15 Maj',
+    tag: 'Musik',
+    title: 'Lykke Live: Orange Room',
+    description: 'Unga neo-soul-bandet Orange Room presenterar sin nya EP med influenser av R&B-jazz, hiphop och fusion.',
     image_url: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=2064&auto=format&fit=crop',
     tag_color: '#fff0a2',
     is_featured: false,
     is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/orange-room',
   },
   {
-    id: 4,
-    date: '25 Oktober',
-    tag: 'Mat & Dryck',
-    title: 'Naturvinsprovning',
-    description: 'En resa genom Europas mest spännande naturviner under ledning av lokala sommelierer.',
-    image_url: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2070&auto=format&fit=crop',
-    tag_color: '#d4e6c3',
+    id: 12,
+    date: '22 Maj',
+    tag: 'Musik',
+    title: 'Lykke Live: Ziggy Maxwell',
+    description: 'Live Recording Session för det kommande debutalbumet. Alternativ pop, elektroniska landskap och filmiska arrangemang.',
+    image_url: 'https://images.unsplash.com/photo-1493225457223-953e5d1e2e92?q=80&w=2070&auto=format&fit=crop',
+    tag_color: '#fff0a2',
     is_featured: false,
     is_active: true,
-  },
-  {
-    id: 5,
-    date: '02 November',
-    tag: 'Konst',
-    title: 'Vernissage: Ny Nordisk Form',
-    description: 'Samlingsutställning med up-and-coming designers från hela Norden inom möbler och keramik.',
-    image_url: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2070&auto=format&fit=crop',
-    tag_color: '#e5e4e2',
-    is_featured: false,
-    is_active: true,
-  },
+    external_url: 'https://www.lykkenytorget.se/lykke-live/ziggy-maxwell',
+  }
 ];
 
 const Events: React.FC = () => {
@@ -235,7 +275,7 @@ const Events: React.FC = () => {
                 </span>
                 <span className="text-xs uppercase tracking-widest text-white/60 font-din">{featured.date}</span>
               </div>
-              <h3 className="text-3xl md:text-4xl font-orpheus tracking-tight mb-3">{featured.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-orpheus tracking-tight mb-3">{featured.title}</h3>
               <p className="text-sm text-white/70 font-light leading-relaxed max-w-md">{featured.description}</p>
             </div>
           </div>
@@ -276,7 +316,7 @@ const Events: React.FC = () => {
       {/* Event Calendar List */}
       <div className="mt-20 md:mt-32">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 border-b border-text-dark/10 pb-6">
-          <h3 className="text-3xl font-orpheus text-text-dark">{t('events.kommande')}</h3>
+          <h3 className="text-2xl md:text-3xl font-orpheus text-text-dark">{t('events.kommande')}</h3>
           <button 
             onClick={() => setIsCalendarOpen(true)}
             className="text-xs uppercase tracking-widest font-din hover:opacity-70 mt-4 md:mt-0 flex items-center gap-2 group transition-opacity cursor-pointer"
@@ -333,7 +373,7 @@ const Events: React.FC = () => {
           {/* Modal Header */}
           <div className="flex justify-between items-center p-6 md:p-8 border-b border-text-dark/10 bg-bg-paper z-10 shrink-0">
             <div>
-              <h2 className="text-3xl md:text-4xl font-orpheus tracking-tight">{t('events.hela_kalendern')}</h2>
+              <h2 className="text-2xl md:text-3xl font-orpheus tracking-tight">{t('events.hela_kalendern')}</h2>
               <p className="text-[10px] md:text-xs uppercase tracking-widest font-din opacity-50 mt-2">{t('events.subtitle')}</p>
             </div>
             <button 
@@ -415,7 +455,7 @@ const Events: React.FC = () => {
               >
                 {selectedEvent?.tag}
               </span>
-              <h2 className="text-3xl md:text-5xl font-orpheus text-white tracking-tight">{selectedEvent?.title}</h2>
+              <h2 className="text-3xl md:text-4xl font-orpheus text-white tracking-tight">{selectedEvent?.title}</h2>
               <p className="text-white/60 font-din uppercase tracking-widest text-xs mt-2">{selectedEvent?.date}</p>
             </div>
           </div>
