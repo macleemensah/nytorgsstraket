@@ -64,7 +64,7 @@ const Discover: React.FC = () => {
             {/* Culture */}
             <Link to="/kategori/kultur" className="relative group overflow-hidden bg-[#e5e4e2] block h-full rounded-sm">
               <img
-                src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg"
+                src="https://www.nytorgsfesten.se/wp-content/uploads/2020/05/IMG_6808-slider.jpg"
                 alt="Kultur"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale group-hover:grayscale-0"
               />
