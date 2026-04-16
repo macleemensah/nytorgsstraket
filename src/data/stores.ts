@@ -30,6 +30,13 @@ import klattermusenHero from '../assets/stores/klattermusen/hero.jpg';
 import klattermusenGallery1 from '../assets/stores/klattermusen/gallery1.jpg';
 import klattermusenGallery2 from '../assets/stores/klattermusen/gallery2.jpg';
 import klattermusenGallery3 from '../assets/stores/klattermusen/gallery3.jpg';
+import bladverketHero from '../assets/stores/bladverket/hero.webp';
+import bladverketGallery1 from '../assets/stores/bladverket/gallery1.webp';
+import bladverketGallery2 from '../assets/stores/bladverket/gallery2.jpg';
+import stadsmissionenHero from '../assets/stores/stadsmissionen/hero.webp';
+import stadsmissionenGallery1 from '../assets/stores/stadsmissionen/gallery1.jpg';
+import lykkeStoreHero from '../assets/stores/lykke-store/hero.webp';
+import lykkeStoreGallery1 from '../assets/stores/lykke-store/gallery1.webp';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -64,11 +71,10 @@ export const STORES: Store[] = [
     ],
     scale: 0.85,
     description: "Lykke Nytorget är vårt hjärta och vardagsrum på Södermalm. Vi erbjuder specialkaffe från vårt egna rosteri, fantastiskt bröd, frukost hela dagen och god lunch. På kvällen förvandlas kaffebaren till ett skönt häng med hantverksöl, naturvin och mindre rätter.",
-    heroImage: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop",
+    heroImage: lykkeStoreHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=1000&auto=format&fit=crop"
+      lykkeStoreHero,
+      lykkeStoreGallery1
     ],
     address: "Nytorgsgatan 38, Stockholm"
   },
@@ -271,11 +277,11 @@ export const STORES: Store[] = [
     ],
     scale: 1.0,
     description: "Det grönskande hörnet på Nytorgsgatan. Bladverket sätter växterna, blommorna och säsongens naturliga toner i fokus. Handplockade snittblommor, rariteter till krukväxter och en noga kurerad kollektion av exklusiva krukor fyller hela butiken med liv och doft.",
-    heroImage: "https://images.unsplash.com/photo-1507290439931-a861cf2376fb?q=80&w=2000&auto=format&fit=crop",
+    heroImage: bladverketHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1455621481073-d5bc1c40e3cb?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1463936555620-2a0a5368a186?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1461301214746-1e109215d6d3?q=80&w=1000&auto=format&fit=crop"
+      bladverketHero,
+      bladverketGallery1,
+      bladverketGallery2
     ],
     address: "Nytorgsgatan 23A, Stockholm"
   },
@@ -308,19 +314,18 @@ export const STORES: Store[] = [
     logo: stadsmissionenLogo,
     url: "https://www.stadsmissionen.se",
     openingHours: [
-      "Mån-fre 10–19",
-      "Lördag 10–18",
-      "Söndag 11–17"
+      "Mån-fre 11–18",
+      "Lördag 11–17",
+      "Söndag 12–16"
     ],
-    scale: 0.75,
-    description: "Ett stenkast från pulsen på Södermalm erbjuder Stockholms Stadsmissions second hand en noga kurerad mix av vintagekläder, retrofynd och prylar för hemmet. En fantastisk möjlighet att hitta guldkorn till garderoben samtidigt som du stöttar ett viktigt socialt och miljömässigt arbete.",
-    heroImage: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop",
+    scale: 0.9,
+    description: "Stockholms Stadsmission på Nytorgsgatan är en noga utvald secondhandbutik med fokus på mode och inredning. Här kan du fynda allt från unika vintageplagg till moderna märkeskläder, samtidigt som du bidrar till Stadsmissionens sociala arbete för ett mänskligare samhälle.",
+    heroImage: stadsmissionenHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1489987707023-afc6328ce7ef?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1601334861962-e64e9a30fa59?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1588665793666-4e5c531e285a?q=80&w=1000&auto=format&fit=crop"
+      stadsmissionenHero,
+      stadsmissionenGallery1
     ],
-    address: "Nytorgsgatan 36, Stockholm"
+    address: "Nytorgsgatan 44, Stockholm"
   },
   {
     slug: 'house-of-tell',
