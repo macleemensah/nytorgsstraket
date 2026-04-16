@@ -391,5 +391,22 @@ export const STORES: Store[] = [
       "https://images.unsplash.com/photo-1463936555620-2a0a5368a186?q=80&w=1000&auto=format&fit=crop"
     ],
     address: "Nytorgsgatan/Åsögatan, Södermalm"
+  },
+  {
+    slug: 'nytorgsfesten',
+    name: "Nytorgsfesten",
+    category: 'Kultur och platser',
+    logo: "https://www.nytorgsfesten.se/wp-content/uploads/2023/02/BILD-2-nytorgsfesten-hemsida.png",
+    url: "https://www.nytorgsfesten.se/",
+    openingHours: ["14-16 augusti 2026"],
+    scale: 1.0,
+    description: "Stockholms finaste kvartersfest är tillbaka! Tre dagar fyllda med karnevaltåg, glassfestival, loppis, musik och folkfest i hjärtat av Södermalm. Nytorgsfesten har sin själ i alla fantastiska utställare, restauranger och kringliggande verksamheter som alltid blomstrar under denna helg så oavsett tidpunkt lovar vi att ni kommer ha en trevlig stund i Stockholms finaste kvarter.",
+    heroImage: "https://www.nytorgsfesten.se/wp-content/uploads/2020/05/IMG_6808-slider.jpg",
+    galleryImages: [
+      "https://www.nytorgsfesten.se/wp-content/uploads/2020/05/IMG_6808-slider.jpg",
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000&auto=format&fit=crop"
+    ],
+    address: "Nytorget, Södermalm"
   }
 ];
