@@ -42,6 +42,7 @@
   --color-selection: #e5e4e2;
 
   --font-orpheus: "Cormorant Garamond", serif;
+  --font-lindstaye: "Lindstaye", cursive;
   /* DIN Condensed first — falls back to Barlow Condensed until files are added */
   --font-din: "DIN Condensed", "Barlow Condensed", sans-serif;
 }

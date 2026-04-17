@@ -101,13 +101,19 @@ export default function PlaceDetail() {
 
             {/* Mobile Info Card — shows ABOVE gallery on mobile, hidden on desktop */}
             <div className="block lg:hidden bg-white/50 backdrop-blur-md p-8 border border-text-dark/5">
-              <div className="flex justify-center mb-10 h-20">
-                <img
-                  src={store.logo}
-                  alt={`${store.name} Logo`}
-                  className={`max-h-full object-contain ${['Stadsmissionen', 'Nytorget 6', 'Meatballs for the People', 'Bladverket'].includes(store.name) ? 'brightness-0 opacity-80' : ''}`}
-                  style={{ transform: `scale(${store.scale})` }}
-                />
+              <div className="flex justify-center items-center mb-10 h-20">
+                {store.logo === "/logo.png" ? (
+                  <span className="font-lindstaye text-4xl text-text-dark text-center leading-tight">
+                    {store.name}
+                  </span>
+                ) : (
+                  <img
+                    src={store.logo}
+                    alt={`${store.name} Logo`}
+                    className={`max-h-full object-contain ${['Stadsmissionen', 'Nytorget 6', 'Meatballs for the People', 'Bladverket'].includes(store.name) ? 'brightness-0 opacity-80' : ''}`}
+                    style={{ transform: `scale(${store.scale})` }}
+                  />
+                )}
               </div>
               <div className="space-y-6 font-din tracking-wide">
                 <div>
@@ -155,13 +161,19 @@ export default function PlaceDetail() {
 
           {/* Sticky Sidebar — desktop only */}
           <div className="hidden lg:block w-full lg:w-1/3 lg:sticky lg:top-32 bg-white/50 backdrop-blur-md p-8 md:p-12 border border-text-dark/5">
-            <div className="flex justify-center mb-12 h-24">
-              <img
-                src={store.logo}
-                alt={`${store.name} Logo`}
-                className={`max-h-full object-contain ${['Stadsmissionen', 'Nytorget 6', 'Meatballs for the People', 'Bladverket'].includes(store.name) ? 'brightness-0 opacity-80' : ''}`}
-                style={{ transform: `scale(${store.scale})` }}
-              />
+            <div className="flex justify-center items-center mb-12 h-24">
+              {store.logo === "/logo.png" ? (
+                <span className="font-lindstaye text-5xl text-text-dark text-center leading-tight">
+                  {store.name}
+                </span>
+              ) : (
+                <img
+                  src={store.logo}
+                  alt={`${store.name} Logo`}
+                  className={`max-h-full object-contain ${['Stadsmissionen', 'Nytorget 6', 'Meatballs for the People', 'Bladverket'].includes(store.name) ? 'brightness-0 opacity-80' : ''}`}
+                  style={{ transform: `scale(${store.scale})` }}
+                />
+              )}
             </div>
 
             <div className="space-y-8 font-din tracking-wide">
