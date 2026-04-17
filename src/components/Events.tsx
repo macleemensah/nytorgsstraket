@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
-import matKulturImg from '../assets/places/mat-kultur-festival.png';
+import matKulturImg from '../assets/places/mat-kultur-poster.jpg';
 
 interface Event {
   id: number;
