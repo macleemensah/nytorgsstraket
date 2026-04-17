@@ -292,7 +292,7 @@ const Events: React.FC = () => {
           .limit(20);
 
         if (data && data.length > 0) {
-          const filtered = (data as { end_date?: string }[]).filter(e => {
+          const filtered = (data as Event[]).filter(e => {
             if (!e.end_date) return true;
             return new Date(e.end_date) >= now;
           });
