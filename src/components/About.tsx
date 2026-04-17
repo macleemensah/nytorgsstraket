@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import aboutImage from '../assets/about-straket.png';
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ const About: React.FC = () => {
         {/* Image */}
         <div className="relative overflow-hidden rounded-sm aspect-[4/3] md:aspect-auto md:h-[560px] order-2 md:order-1">
           <img
-            src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg"
+            src={aboutImage}
             alt="Nytorgsstråket gatan"
             className="w-full h-full object-cover"
           />
