@@ -284,14 +284,14 @@ const Events: React.FC = () => {
           return;
         }
 
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('events')
           .select('*')
           .eq('is_active', true)
           .order('is_featured', { ascending: false })
           .limit(20);
 
-        if (!error && data && data.length > 0) {
+        if (data && data.length > 0) {
           const filtered = data.filter(e => {
             if (!e.end_date) return true;
             return new Date(e.end_date) >= now;
