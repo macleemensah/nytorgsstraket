@@ -35,6 +35,7 @@ const Discover: React.FC = () => {
           <img
             src={parlansHero}
             alt="Butiker"
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
@@ -52,6 +53,7 @@ const Discover: React.FC = () => {
             <img
               src={lykkeHero}
               alt="Kaféer"
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-colors duration-500"></div>
@@ -69,6 +71,7 @@ const Discover: React.FC = () => {
               <img
                 src="https://www.nytorgsfesten.se/wp-content/uploads/2020/05/IMG_6808-slider.jpg"
                 alt="Kultur"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
@@ -84,6 +87,7 @@ const Discover: React.FC = () => {
               <img
                 src={urbanDeliHero}
                 alt="Mat & Dryck"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>

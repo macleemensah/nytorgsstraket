@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import PlaceDetail from './pages/PlaceDetail';
 import CategoryPage from './pages/CategoryPage';
 import UnderConstruction from './components/UnderConstruction';
+import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
   return (
     <div className="min-h-screen bg-bg-paper text-text-dark font-din selection:bg-selection selection:text-text-dark antialiased">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/plats/:slug" element={<PlaceDetail />} />

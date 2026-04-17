@@ -13,6 +13,7 @@ const About: React.FC = () => {
           <img
             src={aboutImage}
             alt="Nytorgsstråket gatan"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
           {/* Caption */}

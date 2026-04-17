@@ -365,6 +365,7 @@ const Events: React.FC = () => {
             <img
               src={featured.image_url}
               alt={featured.title}
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -394,6 +395,7 @@ const Events: React.FC = () => {
                 <img
                   src={event.image_url}
                   alt={event.title}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
@@ -547,7 +549,8 @@ const Events: React.FC = () => {
           <div className="relative h-48 md:h-64 shrink-0 overflow-hidden">
             <img 
               src={selectedEvent?.image_url} 
-              alt={selectedEvent?.title} 
+              alt={selectedEvent?.title}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>

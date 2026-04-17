@@ -1,7 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { STORES, type StoreCategory } from '../data/stores';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const CATEGORY_MAP: Record<string, { title: StoreCategory; image: string }> = {
   'butiker': { title: 'Butiker', image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop" },
@@ -24,6 +26,19 @@ export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const categoryConfig = CATEGORY_MAP[slug || ''];
 
+  useEffect(() => {
+    // Wait briefly for the standard ScrollToTop to fire, then scroll down to the grid
+    const timer = setTimeout(() => {
+      const vh = window.innerHeight;
+      window.scrollTo({
+        top: vh * 0.45, // Scroll down just past the hero text
+        behavior: 'smooth'
+      });
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, [slug]);
+
   if (!categoryConfig) {
     return (
       <div className="min-h-screen bg-bg-paper flex flex-col items-center justify-center">
@@ -42,6 +57,12 @@ export default function CategoryPage() {
 
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
+      <SEO 
+        title={`${categoryConfig.title} på Nytorgsstråket | Södermalm`}
+        description={`Upptäck alla fantastiska ${categoryConfig.title.toLowerCase()} längs Nytorgsstråket på Södermalm.`}
+        canonical={`/kategori/${slug}`}
+        image={categoryConfig.image}
+      />
       <Navbar />
       
       {/* Category Hero Image */}

@@ -107,6 +107,7 @@ const FeaturedPlaces: React.FC = () => {
                   className="w-full h-full object-cover transition duration-1000 ease-out group-hover:scale-105"
                   src={store.heroImage}
                   alt={store.name}
+                  loading="lazy"
                 />
               </div>
               <div

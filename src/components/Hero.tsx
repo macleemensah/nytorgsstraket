@@ -11,6 +11,7 @@ const Hero: React.FC = () => {
         <img
           src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg"
           alt="Nytorget Atmosphere"
+          fetchPriority="high"
           className="w-full h-full object-cover opacity-70 scale-105 animate-pulse-slow lg:animate-[pulse_20s_ease-in-out_infinite_alternate]"
           style={{ filter: 'saturate(0.8)' }}
         />

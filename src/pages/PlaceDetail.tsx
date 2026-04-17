@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { STORES } from '../data/stores';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 export default function PlaceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,8 +25,45 @@ export default function PlaceDetail() {
 
   const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(store.address)}`;
 
+  const isPlace = store.category === 'Kultur och platser';
+  const schemaType = isPlace ? 'TouristAttraction' : 'LocalBusiness';
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": schemaType,
+    "name": store.name,
+    "image": [
+      store.heroImage,
+      ...store.galleryImages
+    ],
+    "url": `https://nytorgsstraket.se/plats/${store.slug}`,
+    "telephone": "",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": store.address,
+      "addressLocality": "Stockholm",
+      "postalCode": "11640",
+      "addressCountry": "SE"
+    },
+    ...(!isPlace && {
+      "openingHoursSpecification": store.openingHours.map(hourStr => {
+        return {
+          "@type": "OpeningHoursSpecification",
+          "description": hourStr
+        };
+      })
+    })
+  };
+
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
+      <SEO 
+        title={`${store.name} | Nytorgsstråket`}
+        description={store.description.substring(0, 160)}
+        canonical={`/plats/${store.slug}`}
+        image={store.heroImage}
+        schema={schema}
+      />
       <Navbar />
 
       {/* Hero Image */}

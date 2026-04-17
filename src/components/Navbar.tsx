@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.png';
 
@@ -27,10 +28,10 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { label: t('nav.upptack'), href: '#discover' },
-    { label: t('nav.platser'), href: '#featured' },
-    { label: t('nav.evenemang'), href: '#events' },
-    { label: t('nav.om_straket'), href: '#about' },
+    { label: t('nav.upptack'), href: '/#discover' },
+    { label: t('nav.platser'), href: '/#featured' },
+    { label: t('nav.evenemang'), href: '/#events' },
+    { label: t('nav.om_straket'), href: '/#about' },
   ];
 
   return (
@@ -44,26 +45,26 @@ const Navbar: React.FC = () => {
       >
         {/* Logo */}
         <div className="flex items-center">
-          <a href="#" className="transition-transform duration-300 hover:scale-105">
+          <Link to="/" className="transition-transform duration-300 hover:scale-105">
             <img
               src={logo}
               alt="Nytorgsstråket"
               className={`w-auto transition-all duration-500 ${scrolled ? 'h-7 md:h-8 brightness-0' : 'h-8 md:h-10'}`}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-12">
           <div className="flex gap-10 text-sm font-bold tracking-[0.08em] uppercase">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="hover:opacity-60 transition-opacity duration-300"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -140,15 +141,15 @@ const Navbar: React.FC = () => {
           {/* Drawer Links */}
           <nav className="flex flex-col px-8 py-10 gap-2 flex-1">
             {navLinks.map((link, i) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => setMenuOpen(false)}
                 className="font-orpheus text-4xl tracking-tight py-4 border-b border-white/10 hover:text-brand-red transition-colors duration-300"
                 style={{ transitionDelay: menuOpen ? `${i * 60}ms` : '0ms' }}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
