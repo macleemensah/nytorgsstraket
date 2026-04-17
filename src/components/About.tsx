@@ -42,7 +42,7 @@ const About: React.FC = () => {
 
           {/* Slogans */}
           <div className="mt-10 flex flex-wrap gap-3">
-            {['Compact Shopping', 'Shop \'n Stroll', 'Boutique'].map((s) => (
+            {['SoFo', 'Nytorget', 'Södermalm'].map((s) => (
               <span
                 key={s}
                 className="px-4 py-2 border border-text-dark/15 rounded-full text-xs uppercase tracking-widest font-din font-medium text-text-dark/50"
