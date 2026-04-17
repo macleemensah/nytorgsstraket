@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { STORES } from '../data/stores';
+import parlansHero from '../assets/stores/parlans/hero.webp';
+import lykkeHero from '../assets/stores/lykke-store/hero.webp';
+import urbanDeliHero from '../assets/stores/urban-deli/hero.jpg';
 
 const getCategoryCount = (cat: string) =>
   STORES.filter((s) => s.category === cat).length;
@@ -30,7 +33,7 @@ const Discover: React.FC = () => {
         {/* Shops — large card */}
         <Link to="/kategori/butiker" className="md:col-span-7 relative group overflow-hidden bg-[#e5e4e2] block h-64 md:h-full rounded-sm">
           <img
-            src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop"
+            src={parlansHero}
             alt="Butiker"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
@@ -47,7 +50,7 @@ const Discover: React.FC = () => {
           {/* Cafés */}
           <Link to="/kategori/kafeer" className="relative group overflow-hidden bg-[#e5e4e2] block h-64 md:h-full rounded-sm">
             <img
-              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop"
+              src={lykkeHero}
               alt="Kaféer"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
             />
@@ -79,7 +82,7 @@ const Discover: React.FC = () => {
 
             <Link to="/kategori/mat-och-dryck" className="relative group overflow-hidden bg-[#e5e4e2] block h-full rounded-sm">
               <img
-                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop"
+                src={urbanDeliHero}
                 alt="Mat & Dryck"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
               />
