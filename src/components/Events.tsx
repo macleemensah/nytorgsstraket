@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
+import matKulturImg from '../assets/places/mat-kultur-festival.png';
 
 interface Event {
   id: number;
   date: string;
+  end_date?: string; // ISO format YYYY-MM-DD
   tag: string;
   title: string;
   description: string;
@@ -21,6 +23,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 1,
     date: '14 — 16 Augusti',
+    end_date: '2026-08-16',
     tag: 'Festival',
     title: 'Nytorgsfesten 2026',
     description: 'Stockholms finaste kvartersfest är tillbaka! Tre dagar fyllda med karnevaltåg, glassfestival, loppis, musik och folkfest i hjärtat av Södermalm.',
@@ -83,8 +86,75 @@ const FALLBACK_EVENTS: Event[] = [
     `,
   },
   {
+    id: 13,
+    date: '23 — 26 April',
+    end_date: '2026-04-26',
+    tag: 'Mat & Kultur',
+    title: 'Mat- & Kulturfestivalen',
+    description: 'Fyra dagar av ekologisk mat, kultur och gemenskap. Radici och Klättermusens Verkstad skapar en levande mötesplats med säsongsbaserad mat, marknad, hantverk och workshops.',
+    image_url: matKulturImg,
+    tag_color: '#d4e6d9',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://mat-kulturfestivalen.confetti.events/',
+    content: `
+      <div class="space-y-8">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Välkommen till fyra dagar av ekologisk mat, kultur och gemenskap. Tillsammans med Klättermusens Verkstad skapar Radici en levande mötesplats där du kan äta, lära, skapa och umgås.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2 mb-4">Torsdag 23 April</h4>
+              <div class="space-y-3 text-sm">
+                <p><strong>09:00</strong> Löpning med Torsdagsrundan</p>
+                <p><strong>10:00</strong> Frukost från Svedjan Bageri</p>
+                <p><strong>11:00</strong> Lunch: Mujadara (Ris & gröna linser) från Mazra’a</p>
+                <p><strong>15:00</strong> Radici-lådan lanseras</p>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2 mb-4">Fredag 24 April</h4>
+              <div class="space-y-3 text-sm">
+                <p><strong>11:00</strong> Peter Andersson (restaurang Volt) serverar gröt</p>
+                <p><strong>15:00</strong> Provsmakning från Tove Nilssons nya bok ”Örter”</p>
+                <p><strong>17:00</strong> Italodisco, funk & hip-hop med Gubbstil</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2 mb-4">Lördag 25 April</h4>
+              <div class="space-y-3 text-sm">
+                <p><strong>10:00</strong> Sanctum / Mindful Movement i Axel Landquist Park</p>
+                <p><strong>11:00</strong> Koinobori Workshop för barn med Acne JR</p>
+                <p><strong>12:00</strong> Lunch: Pasta by Jen (färsk handgjord pasta)</p>
+                <p><strong>16:00</strong> DJs från Bageriet spelar</p>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2 mb-4">Söndag 26 April</h4>
+              <div class="space-y-3 text-sm">
+                <p><strong>10:00</strong> Run Club: Södermalm runt med Klättermusen</p>
+                <p><strong>11:00</strong> Plantera din egen tomatplanta med Hanna Hofman Bang</p>
+                <p><strong>15:00</strong> Avslutningsfest med Pizza & livemusik (Nasmadrone)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#f4f3ef] p-6 rounded-sm border border-text-dark/5 text-sm text-text-dark/70 italic">
+          Kom som du är – stanna länge. Fri entré till festivalområdet.
+        </div>
+      </div>
+    `
+  },
+  {
     id: 6,
     date: '16 April',
+    end_date: '2026-04-16',
     tag: 'Musik',
     title: 'Lykke Live: Thilda U',
     description: 'Thilda U levererar raka poplåtar som flirtar med disco och R&B. Releasespelning för nya singeln Old Magazine.',
@@ -97,6 +167,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 7,
     date: '17 April',
+    end_date: '2026-04-17',
     tag: 'Musik',
     title: 'Lykke Live: Moa Bondesson Band',
     description: 'Ett dynamiskt och personligt sound där influenser från pop, rock och country möts. Fri entré.',
@@ -109,6 +180,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 8,
     date: '23 April',
+    end_date: '2026-04-23',
     tag: 'Musik',
     title: 'Lykke Live: Isak Uddström',
     description: 'Isak Uddström från Idol 2023 bjuder på en intim och känslosam popkonsert med influenser från svensk pop.',
@@ -121,6 +193,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 9,
     date: '01 Maj',
+    end_date: '2026-05-01',
     tag: 'Musik',
     title: 'Lykke Live: Ivy Bae',
     description: 'Indie-folk med rå sårbarhet och hypnotisk närvaro. Releasekonsert för två nya singlar.',
@@ -133,6 +206,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 10,
     date: '08 Maj',
+    end_date: '2026-05-08',
     tag: 'Musik',
     title: 'Lykke Live: Natalie Reigo',
     description: 'Popartist och låtskrivare med stark röst. Releasefest för hennes nya singel "HELL OF A RIDE".',
@@ -145,6 +219,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 11,
     date: '15 Maj',
+    end_date: '2026-05-15',
     tag: 'Musik',
     title: 'Lykke Live: Orange Room',
     description: 'Unga neo-soul-bandet Orange Room presenterar sin nya EP med influenser av R&B-jazz, hiphop och fusion.',
@@ -157,6 +232,7 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: 12,
     date: '22 Maj',
+    end_date: '2026-05-22',
     tag: 'Musik',
     title: 'Lykke Live: Ziggy Maxwell',
     description: 'Live Recording Session för det kommande debutalbumet. Alternativ pop, elektroniska landskap och filmiska arrangemang.',
@@ -194,7 +270,16 @@ const Events: React.FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+
         if (!supabase) {
+          // Filter fallback events if Supabase is missing
+          const filteredFallback = FALLBACK_EVENTS.filter(e => {
+            if (!e.end_date) return true;
+            return new Date(e.end_date) >= now;
+          });
+          setEvents(filteredFallback);
           setLoading(false);
           return;
         }
@@ -204,13 +289,31 @@ const Events: React.FC = () => {
           .select('*')
           .eq('is_active', true)
           .order('is_featured', { ascending: false })
-          .limit(10);
+          .limit(20);
 
         if (!error && data && data.length > 0) {
-          setEvents(data);
+          const filtered = data.filter(e => {
+            if (!e.end_date) return true;
+            return new Date(e.end_date) >= now;
+          });
+          setEvents(filtered);
+        } else {
+          // Fallback filtering if no data from Supabase
+          const filteredFallback = FALLBACK_EVENTS.filter(e => {
+            if (!e.end_date) return true;
+            return new Date(e.end_date) >= now;
+          });
+          setEvents(filteredFallback);
         }
       } catch {
-        // No Supabase config yet — fallback events are shown
+        // No Supabase config yet — fallback events are filtered and shown
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        const filteredFallback = FALLBACK_EVENTS.filter(e => {
+          if (!e.end_date) return true;
+          return new Date(e.end_date) >= now;
+        });
+        setEvents(filteredFallback);
       } finally {
         setLoading(false);
       }
