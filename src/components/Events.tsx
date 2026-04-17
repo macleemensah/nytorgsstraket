@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
-import matKulturImg from '../assets/places/mat-kultur-poster.jpg';
+import matKulturImg from '../assets/places/mat-kultur-poster-official.png';
 
 interface Event {
   id: number;
@@ -29,7 +29,7 @@ const FALLBACK_EVENTS: Event[] = [
     description: 'Stockholms finaste kvartersfest är tillbaka! Tre dagar fyllda med karnevaltåg, glassfestival, loppis, musik och folkfest i hjärtat av Södermalm.',
     image_url: 'https://www.nytorgsfesten.se/wp-content/uploads/2020/05/CBE3B4D3-B8BE-4023-8F19-6A278F09C6AB.jpg',
     tag_color: '#f5c9bf',
-    is_featured: true,
+    is_featured: false,
     is_active: true,
     external_url: 'https://www.nytorgsfesten.se/',
     content: `
@@ -90,11 +90,11 @@ const FALLBACK_EVENTS: Event[] = [
     date: '23 — 26 April',
     end_date: '2026-04-26',
     tag: 'Mat & Kultur',
-    title: 'Mat- & Kulturfestivalen',
-    description: 'Fyra dagar av ekologisk mat, kultur och gemenskap. Radici och Klättermusens Verkstad skapar en levande mötesplats med säsongsbaserad mat, marknad, hantverk och workshops.',
+    title: 'MAT- & KULTURFESTIVALEN',
+    description: 'RADICI x Klättermusens Verkstad / Södermalm',
     image_url: matKulturImg,
     tag_color: '#d4e6d9',
-    is_featured: false,
+    is_featured: true,
     is_active: true,
     external_url: 'https://mat-kulturfestivalen.confetti.events/',
     content: `
