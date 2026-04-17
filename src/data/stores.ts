@@ -52,6 +52,13 @@ import nytorget6Gallery2 from '../assets/stores/nytorget6/gallery2.jpg';
 import urbanDeliHero from '../assets/stores/urban-deli/hero.jpg';
 import urbanDeliGallery1 from '../assets/stores/urban-deli/gallery1.jpg';
 import urbanDeliGallery2 from '../assets/stores/urban-deli/gallery2.jpg';
+import psMatsalHero from '../assets/stores/ps-matsal/hero.jpg';
+import psMatsalGallery1 from '../assets/stores/ps-matsal/gallery1.jpg';
+import psMatsalGallery2 from '../assets/stores/ps-matsal/gallery2.jpg';
+import psMatsalGallery3 from '../assets/stores/ps-matsal/gallery3.jpg';
+import retroHero from '../assets/stores/retro/hero.webp';
+import retroGallery1 from '../assets/stores/retro/gallery1.jpg';
+import retroGallery2 from '../assets/stores/retro/gallery2.png';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -271,11 +278,12 @@ export const STORES: Store[] = [
     ],
     scale: 1.2,
     description: "En hemlig pärla undangömd på Nytorgsgatan – en liten matsal influerad av modern gastronomi från det nya svenska köket. Vi serverar en lekfull och ofta skiftande avsmakningsmeny, tillagad direkt framför gästernas ögon, parade med spännande viner.",
-    heroImage: "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?q=80&w=2000&auto=format&fit=crop",
+    heroImage: psMatsalHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1000&auto=format&fit=crop"
+      psMatsalHero,
+      psMatsalGallery1,
+      psMatsalGallery2,
+      psMatsalGallery3
     ],
     address: "Nytorgsgatan 42, Stockholm"
   },
@@ -314,11 +322,11 @@ export const STORES: Store[] = [
     ],
     scale: 1.0,
     description: "Sportbar, krog och en mötesplats där du alltid är välkommen att svänga förbi oavsett tillfälle. Retro bjuder in till en härlig, stökig och prisvärd atmosfär för den perfekta afterworken. Hos oss ser du Premier League och stora matcher omringad av högljudda fans.",
-    heroImage: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?q=80&w=2000&auto=format&fit=crop",
+    heroImage: retroHero,
     galleryImages: [
-      "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1582103222325-568eb219ca66?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=1000&auto=format&fit=crop"
+      retroHero,
+      retroGallery1,
+      retroGallery2
     ],
     address: "Nytorgsgatan 42, Stockholm"
   },
