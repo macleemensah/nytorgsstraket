@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/react";
 import HomePage from './pages/HomePage';
 import PlaceDetail from './pages/PlaceDetail';
 import CategoryPage from './pages/CategoryPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 import UnderConstruction from './components/UnderConstruction';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
@@ -36,6 +38,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/plats/:slug" element={<PlaceDetail />} />
           <Route path="/kategori/:slug" element={<CategoryPage />} />
+          <Route path="/integritetspolicy" element={<PrivacyPage />} />
+          <Route path="/anvandarvillkor" element={<TermsPage />} />
         </Routes>
       </BrowserRouter>
       <Analytics />

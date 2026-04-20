@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
@@ -64,8 +65,8 @@ const Footer: React.FC = () => {
             &copy; {year} Nytorgsstråket. {t('footer.rights')}
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest text-white/20 font-medium font-din">
-            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
+            <Link to="/integritetspolicy" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
+            <Link to="/anvandarvillkor" className="hover:text-white transition-colors">{t('footer.terms')}</Link>
           </div>
         </div>
       </div>
