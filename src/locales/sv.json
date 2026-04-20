@@ -11,7 +11,8 @@
     "cta": "Upptäck stråket"
   },
   "discover": {
-    "title": "Utforska kategorier"
+    "title": "Utforska Stråket",
+    "subtitle": "DIN GUIDE TILL SHOPPING OCH KAFÉER I SOFO. ETT LEVANDE KVARTER RUNT NYTORGSGATAN PÅ SÖDERMALM."
   },
   "featured": {
     "title": "Utvalda platser",
@@ -27,10 +28,10 @@
   "about": {
     "label": "Om stråket",
     "address": "Nytorgsgatan · Södermalm",
-    "title_span1": "Södermalms mest",
-    "title_span2": "levande stråk.",
-    "p1": "Nytorgsstråket är ett gaturum längs Nytorgsgatan på Södermalm. På femton minuters promenad kan du ta en espresso, fylla på garderoben hos ett oberoende modevarumärke och äta middag på ett ställe du inte ångrar.",
-    "p2": "Vi är inte ett köpcentrum. Vi är ett kvarter med karaktär, med butiker, kaféer och restauranger som valt den här gatan för att de hör hemma här.",
+    "title_span1": "Södermalms bästa",
+    "title_span2": "shopping och kaféer.",
+    "p1": "Nytorgsstråket är hjärtat av Nytorgsgatan i SoFo på Södermalm. Under en promenad längs detta stråk kan du uppleva några av Stockholms bästa kaféer, unik shopping från oberoende butiker, och restauranger i toppklass.",
+    "p2": "Vi är inget vanligt köpcentrum. Vi är ett genuint kvarter fyllt med karaktär — upptäck ett handplockat utbud av butiker, mat och kultur som gör Södermalm så levande.",
     "signature": "Trevligt att stråkas!"
   },
   "newsletter": {
@@ -45,7 +46,7 @@
     "privacy": "Inga spam — avregistrera när som helst."
   },
   "footer": {
-    "description": "Södermalms mest levande gata där tradition möter samtida kultur.",
+    "description": "Din guide till den bästa shoppingen, maten och kaféerna längs Nytorgsgatan i SoFo, Södermalm.",
     "utforska": "Utforska",
     "butiker": "Butiker",
     "mat": "Mat & Dryck",

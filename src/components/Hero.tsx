@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.png';
+import heroImage from '../assets/hero.jpg';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -9,7 +10,7 @@ const Hero: React.FC = () => {
       {/* Background image */}
       <div className="absolute inset-0 bg-text-dark">
         <img
-          src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg"
+          src={heroImage}
           alt="Nytorget Atmosphere"
           fetchPriority="high"
           className="w-full h-full object-cover opacity-70 scale-105 animate-pulse-slow lg:animate-[pulse_20s_ease-in-out_infinite_alternate]"

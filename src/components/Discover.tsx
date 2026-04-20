@@ -20,7 +20,7 @@ const Discover: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
         <div className="max-w-xl">
           <h2 className="text-3xl md:text-4xl font-orpheus tracking-tight font-light text-text-dark leading-tight">
-            {t('hero.subtitle')}
+            {t('discover.subtitle')}
           </h2>
         </div>
         <div className="flex flex-col items-end">

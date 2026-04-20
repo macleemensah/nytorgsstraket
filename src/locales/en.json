@@ -11,7 +11,8 @@
     "cta": "Discover the stråk"
   },
   "discover": {
-    "title": "Explore categories"
+    "title": "Explore the Stråk",
+    "subtitle": "YOUR GUIDE TO SHOPPING AND CAFES IN SOFO. A VIBRANT NEIGHBORHOOD AROUND NYTORGSGATAN, SÖDERMALM."
   },
   "featured": {
     "title": "Featured places",
@@ -27,10 +28,10 @@
   "about": {
     "label": "About the area",
     "address": "Nytorgsgatan · Södermalm",
-    "title_span1": "Södermalm's most",
-    "title_span2": "vibrant street.",
-    "p1": "Nytorgsstråket is a carefully curated shopping and cultural street in Södermalm — an area where international brands meet local artisans, and where every venue has been selected with a meticulous eye for quality and character.",
-    "p2": "Here you will find everything from well-curated fashion boutiques and specialty coffee to award-winning restaurants, crafts, and culture — all gathered on a compact, pedestrian-friendly street right in the heart of SoFo.",
+    "title_span1": "Södermalm's best",
+    "title_span2": "shopping and cafes.",
+    "p1": "Nytorgsstråket is the heart of Nytorgsgatan in SoFo, Södermalm. Here you'll find a carefully curated selection of Stockholm's best local shopping, specialty cafes, and award-winning restaurants.",
+    "p2": "Experience authentic SoFo Stockholm — an area where international brands meet local artisans, all gathered on a pedestrian-friendly street known for its unique culture and vibrant atmosphere.",
     "signature": "Nice to stroll with you!"
   },
   "newsletter": {
@@ -45,7 +46,7 @@
     "privacy": "No spam — unsubscribe at any time."
   },
   "footer": {
-    "description": "Södermalm's most vibrant street where tradition meets contemporary culture.",
+    "description": "Your guide to the best shopping, food, and cafes along Nytorgsgatan and SoFo in Södermalm, Stockholm.",
     "utforska": "Explore",
     "butiker": "Stores",
     "mat": "Food & Drink",
