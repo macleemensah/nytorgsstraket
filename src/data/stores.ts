@@ -29,7 +29,7 @@ import capannaVerdeGallery2 from '../assets/stores/capanna-verde/gallery2.jpg';
 import klattermusenHero from '../assets/stores/klattermusen/hero.jpg';
 import klattermusenGallery1 from '../assets/stores/klattermusen/gallery1.jpg';
 import klattermusenGallery2 from '../assets/stores/klattermusen/gallery2.jpg';
-import klattermusenGallery3 from '../assets/stores/klattermusen/gallery3.jpg';
+import klattermusenGallery3 from '../assets/stores/klattermusen/gallery3_new.jpg';
 import bladverketHero from '../assets/stores/bladverket/hero.webp';
 import bladverketGallery1 from '../assets/stores/bladverket/gallery1.webp';
 import bladverketGallery2 from '../assets/stores/bladverket/gallery2.jpg';
@@ -226,7 +226,7 @@ export const STORES: Store[] = [
   },
   {
     slug: 'klattermusen',
-    name: "Klättermusen Verkstad",
+    name: "Klättermusens Verkstad",
     category: 'Butiker',
     logo: klattermusenLogo,
     url: "https://www.instagram.com/klattermusens.verkstad/",
@@ -243,7 +243,7 @@ export const STORES: Store[] = [
       klattermusenGallery2,
       klattermusenGallery3
     ],
-    address: "Nytorgsgatan 38, Stockholm"
+    address: "Nytorgsgatan 36, Stockholm"
   },
   {
     slug: '654',
