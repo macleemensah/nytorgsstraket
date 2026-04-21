@@ -7,9 +7,9 @@ const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-text-dark text-white pt-32 pb-12 px-6">
+    <footer className="bg-text-dark text-white pt-16 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-16">
           <div className="md:col-span-4">
             <h2 className="text-3xl font-orpheus tracking-tighter mb-8">Nytorgsstråket.</h2>
             <p className="text-lg text-white/60 font-light leading-relaxed mb-8 max-w-xs">
@@ -43,7 +43,6 @@ const Footer: React.FC = () => {
                 <li><a href="#about" className="hover:text-brand-red transition-colors">{t('footer.om_oss')}</a></li>
                 <li><a href="#events" className="hover:text-brand-red transition-colors">{t('nav.evenemang')}</a></li>
                 <li><a href="mailto:info@nytorgsstraket.se" className="hover:text-brand-red transition-colors">{t('footer.kontakt')}</a></li>
-                <li><a href="#" className="hover:text-brand-red transition-colors">{t('footer.hyresgaster')}</a></li>
               </ul>
             </div>
             <div className="col-span-2 md:col-span-2">
