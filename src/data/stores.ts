@@ -26,10 +26,9 @@ import store654Gallery3 from '../assets/stores/654/gallery3.jpg';
 import capannaVerdeHero from '../assets/stores/capanna-verde/hero.jpg';
 import capannaVerdeGallery1 from '../assets/stores/capanna-verde/gallery1.jpg';
 import capannaVerdeGallery2 from '../assets/stores/capanna-verde/gallery2.jpg';
-import klattermusenHero from '../assets/stores/klattermusen/hero.jpg';
-import klattermusenGallery1 from '../assets/stores/klattermusen/gallery1.jpg';
-import klattermusenGallery2 from '../assets/stores/klattermusen/gallery2.jpg';
-import klattermusenGallery3 from '../assets/stores/klattermusen/gallery3_new.jpg';
+import klattermusenBild1 from '../assets/stores/klattermusen/bild1.jpg';
+import klattermusenBild2 from '../assets/stores/klattermusen/bild2.jpg';
+import klattermusenBild3 from '../assets/stores/klattermusen/bild3.jpg';
 import bladverketHero from '../assets/stores/bladverket/hero.webp';
 import bladverketGallery1 from '../assets/stores/bladverket/gallery1.webp';
 import bladverketGallery2 from '../assets/stores/bladverket/gallery2.jpg';
@@ -237,11 +236,10 @@ export const STORES: Store[] = [
     ],
     scale: 0.95,
     description: "Vi fungerar som en mötesplats för dagens hantverkare, kreatörer och friluftsentusiaster. Här kan du ta en kaffe och upptäcka en välkurerad miljö med vintage-friluftskläder, böcker, magasin och mycket mer.",
-    heroImage: klattermusenHero,
+    heroImage: klattermusenBild1,
     galleryImages: [
-      klattermusenGallery1,
-      klattermusenGallery2,
-      klattermusenGallery3
+      klattermusenBild2,
+      klattermusenBild3
     ],
     address: "Nytorgsgatan 36, Stockholm"
   },
