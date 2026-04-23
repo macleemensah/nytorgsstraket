@@ -13,21 +13,35 @@ async function getRoutes() {
   const storeFilePath = resolve('src/data/stores.ts');
   const storeContent = fs.readFileSync(storeFilePath, 'utf-8');
   
-  // Extract slugs using regex
-  const slugRegex = /slug:\s*['"]([^'"]+)['"]/g;
-  const slugs = [];
-  let match;
-  while ((match = slugRegex.exec(storeContent)) !== null) {
-    slugs.push(match[1]);
+  // Extract store slugs using regex
+  const storeSlugRegex = /slug:\s*['"]([^'"]+)['"]/g;
+  const storeSlugs = [];
+  let storeMatch;
+  while ((storeMatch = storeSlugRegex.exec(storeContent)) !== null) {
+    storeSlugs.push(storeMatch[1]);
+  }
+
+  // Extract event slugs using regex from EventsPage.tsx
+  const eventsFilePath = resolve('src/pages/EventsPage.tsx');
+  let eventSlugs = [];
+  if (fs.existsSync(eventsFilePath)) {
+    const eventsContent = fs.readFileSync(eventsFilePath, 'utf-8');
+    const eventSlugRegex = /slug:\s*generateSlug\(['"]([^'"]+)['"]\)/g;
+    let eventMatch;
+    while ((eventMatch = eventSlugRegex.exec(eventsContent)) !== null) {
+      eventSlugs.push(eventMatch[1].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''));
+    }
   }
 
   const routes = [
     '/',
+    '/evenemang',
     '/kategori/butiker',
     '/kategori/kafeer',
     '/kategori/kultur',
     '/kategori/mat-och-dryck',
-    ...slugs.map(slug => `/plats/${slug}`)
+    ...storeSlugs.map(slug => `/plats/${slug}`),
+    ...eventSlugs.map(slug => `/evenemang/${slug}`)
   ];
 
   return routes;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import matKulturImg from '../assets/places/mat-kultur-poster-official.png';
 
@@ -422,13 +423,13 @@ const Events: React.FC = () => {
       <div className="mt-20 md:mt-32">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 border-b border-text-dark/10 pb-6">
           <h3 className="text-2xl md:text-3xl font-orpheus text-text-dark">{t('events.kommande')}</h3>
-          <button 
-            onClick={() => setIsCalendarOpen(true)}
-            className="text-xs uppercase tracking-widest font-din hover:opacity-70 mt-4 md:mt-0 flex items-center gap-2 group transition-opacity cursor-pointer"
+          <Link 
+            to="/evenemang"
+            className="text-xs uppercase tracking-widest font-din hover:opacity-70 mt-4 md:mt-0 flex items-center gap-2 group transition-opacity cursor-pointer text-text-dark"
           >
             {t('events.se_hela')} 
             <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
-          </button>
+          </Link>
         </div>
         
         <div className="flex flex-col">

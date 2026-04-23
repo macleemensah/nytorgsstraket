@@ -6,6 +6,8 @@ import PlaceDetail from './pages/PlaceDetail';
 import CategoryPage from './pages/CategoryPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import EventsPage from './pages/EventsPage';
+import EventDetail from './pages/EventDetail';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/plats/:slug" element={<PlaceDetail />} />
           <Route path="/kategori/:slug" element={<CategoryPage />} />
+          <Route path="/evenemang" element={<EventsPage />} />
+          <Route path="/evenemang/:slug" element={<EventDetail />} />
           <Route path="/integritetspolicy" element={<PrivacyPage />} />
           <Route path="/anvandarvillkor" element={<TermsPage />} />
         </Routes>

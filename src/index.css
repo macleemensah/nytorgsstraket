@@ -33,6 +33,15 @@
   font-style: normal;
 }
 
+/* ─── Orpheus Pro (self-hosted) ───────────────────────────────────────────── */
+@font-face {
+  font-family: "Orpheus Pro";
+  src: url("/fonts/Orpheus Pro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─── Google Fonts fallback (used until DIN Condensed files are present) ── */
 
 @theme {
@@ -41,7 +50,7 @@
   --color-text-dark: #1c1c1a;
   --color-selection: #e5e4e2;
 
-  --font-orpheus: "Cormorant Garamond", serif;
+  --font-orpheus: "Orpheus Pro", "Cormorant Garamond", serif;
   --font-lindstaye: "Lindstaye", cursive;
   /* DIN Condensed first — falls back to Barlow Condensed until files are added */
   --font-din: "DIN Condensed", "Barlow Condensed", sans-serif;

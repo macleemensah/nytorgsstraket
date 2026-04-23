@@ -213,6 +213,38 @@ export default function PlaceDetail() {
           </div>
 
         </div>
+
+        {/* Related Places Section */}
+        <div className="mt-24 pt-16 border-t border-text-dark/10">
+          <div className="flex justify-between items-end mb-8">
+            <h2 className="text-3xl md:text-4xl font-orpheus text-text-dark">Fler platser i samma kategori</h2>
+            <Link to={`/kategori/${store.category.toLowerCase().replace(' & ', '-och-').replace(' och ', '-och-').replace(' ', '-')}`} className="text-xs uppercase tracking-widest font-din hover:text-brand-red transition-colors hidden md:block">
+              Se alla i {store.category} →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {STORES.filter(s => s.category === store.category && s.slug !== store.slug).slice(0, 3).map((relatedStore) => (
+              <Link key={relatedStore.slug} to={`/plats/${relatedStore.slug}`} className="group block cursor-pointer">
+                <div className="overflow-hidden aspect-[4/3] mb-4 rounded-sm bg-selection relative">
+                  <img 
+                    className="w-full h-full object-cover transition duration-1000 ease-out group-hover:scale-105" 
+                    src={relatedStore.heroImage} 
+                    alt={relatedStore.name} 
+                  />
+                </div>
+                <h3 className="text-xl font-orpheus tracking-tight mb-2 group-hover:text-text-dark/70 transition-colors">{relatedStore.name}</h3>
+                <span className="text-xs font-medium uppercase tracking-widest flex items-center gap-2 text-text-dark/60 group-hover:text-text-dark transition-colors font-din">
+                  Läs mer 
+                  {/* @ts-expect-error - Custom element */}
+                  <iconify-icon icon="solar:arrow-right-up-linear" width="14" height="14"></iconify-icon>
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link to={`/kategori/${store.category.toLowerCase().replace(' & ', '-och-').replace(' och ', '-och-').replace(' ', '-')}`} className="text-xs uppercase tracking-widest font-din hover:text-brand-red transition-colors block md:hidden mt-8 text-center border border-text-dark/20 py-3">
+            Se alla i {store.category}
+          </Link>
+        </div>
       </main>
 
       <Footer />
