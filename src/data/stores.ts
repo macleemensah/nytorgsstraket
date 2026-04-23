@@ -58,6 +58,10 @@ import psMatsalGallery3 from '../assets/stores/ps-matsal/gallery3.jpg';
 import retroHero from '../assets/stores/retro/hero.webp';
 import retroGallery1 from '../assets/stores/retro/gallery1.jpg';
 import retroGallery2 from '../assets/stores/retro/gallery2.png';
+import lusineBleueHero from '../assets/stores/lusine-bleue/bild1.jpg';
+import lusineBleueGallery1 from '../assets/stores/lusine-bleue/bild2.jpg';
+import lusineBleueGallery2 from '../assets/stores/lusine-bleue/bild3.webp';
+import lusineBleueLogo from '../assets/stores/lusine-bleue/logo.webp';
 
 
 export type StoreCategory = 'Butiker' | 'Kaféer' | 'Kultur och platser' | 'Mat & Dryck';
@@ -387,6 +391,27 @@ export const STORES: Store[] = [
       capannaVerdeGallery2
     ],
     address: "Nytorgsgatan, Stockholm"
+  },
+  {
+    slug: 'lusine-bleue',
+    name: "L'Usine Bleue",
+    category: 'Butiker',
+    logo: lusineBleueLogo,
+    url: "https://lusinebleue.com/",
+    openingHours: [
+      "Måndag–fredag 11–18",
+      "Lördag 11–17",
+      "Söndag 12–16"
+    ],
+    scale: 0.95,
+    description: "Franska arbetskläder i moleskinn är kärnan i L'Usine Bleue – ett exceptionellt slitstarkt tyg, fött ur nödvändighet. Innan billig syntet användes dessa kläder av generationer av arbetare, bönder och hantverkare. För oss representerar de den viktigaste delen av hållbarhet – tidlösa plagg som helt enkelt håller.",
+    heroImage: lusineBleueHero,
+    galleryImages: [
+      lusineBleueHero,
+      lusineBleueGallery1,
+      lusineBleueGallery2
+    ],
+    address: "Nytorgsgatan 36, Stockholm"
   },
   {
     slug: 'nytorget',
