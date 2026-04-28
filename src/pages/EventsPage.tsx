@@ -8,6 +8,8 @@ import { supabase } from '../lib/supabase';
 // For MVP fallback, we export FALLBACK_EVENTS from Events component or duplicate here
 // Let's create a shared data logic or duplicate the fallback here for simplicity.
 import matKulturImg from '../assets/places/mat-kultur-poster-official.png';
+import klattermusenBild1 from '../assets/stores/klattermusen/bild1.jpg';
+import klattermusenBild3 from '../assets/stores/klattermusen/bild3.jpg';
 
 // Re-defining the interface for the page
 export interface EventData {
@@ -262,6 +264,33 @@ export const FALLBACK_EVENTS_DATA: EventData[] = [
     is_featured: false,
     is_active: true,
     external_url: 'https://www.lykkenytorget.se/lykke-live/ziggy-maxwell',
+  },
+  {
+    id: 14,
+    slug: generateSlug('Daricci Ceramic Workshop'),
+    date: '03 Maj',
+    end_date: '2026-05-03',
+    tag: 'Kultur',
+    title: 'Daricci Ceramic Workshop',
+    description: 'Daricci Ceramic Workshop på Klättermusens Verkstad. 13:00-16:00. Mer info och anmälan via Instagram (@dariccistudio).',
+    image_url: klattermusenBild1,
+    tag_color: '#f5c9bf',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://instagram.com/dariccistudio',
+  },
+  {
+    id: 15,
+    slug: generateSlug('Mineral TV: Trail Community Film Night'),
+    date: '06 Maj',
+    end_date: '2026-05-06',
+    tag: 'Kultur',
+    title: 'Mineral TV: Trail Community Film Night',
+    description: 'Mineral TV: Trail Community Film Night på Klättermusens Verkstad. 17:00-20:00.',
+    image_url: klattermusenBild3,
+    tag_color: '#d4e6d9',
+    is_featured: false,
+    is_active: true,
   }
 ];
 
