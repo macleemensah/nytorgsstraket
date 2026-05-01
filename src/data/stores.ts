@@ -399,12 +399,11 @@ export const STORES: Store[] = [
     logo: lusineBleueLogo,
     url: "https://lusinebleue.com/",
     openingHours: [
-      "Måndag–fredag 11–18",
-      "Lördag 11–17",
-      "Söndag 12–16"
+      "Mån-fre 11.00-18.00",
+      "Lör-sön 12.00-17.00"
     ],
     scale: 0.95,
-    description: "Franska arbetskläder i moleskinn är kärnan i L'Usine Bleue – ett exceptionellt slitstarkt tyg, fött ur nödvändighet. Innan billig syntet användes dessa kläder av generationer av arbetare, bönder och hantverkare. För oss representerar de den viktigaste delen av hållbarhet – tidlösa plagg som helt enkelt håller.",
+    description: "L’Usine Bleue har Europas största sortiment av Fransk workwear – egentillverkat och handplockat från franska tillverkare. Här hittar du de randiga tröjorna, linneskjortorna och de klassiska, blå arbetarjackorna.",
     heroImage: lusineBleueHero,
     galleryImages: [
       lusineBleueHero,
