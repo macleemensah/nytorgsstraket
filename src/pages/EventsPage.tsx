@@ -291,6 +291,62 @@ export const FALLBACK_EVENTS_DATA: EventData[] = [
     tag_color: '#d4e6d9',
     is_featured: false,
     is_active: true,
+  },
+  {
+    id: 16,
+    slug: generateSlug('Lykke Live: Monkeys With Internet'),
+    date: '07 Maj',
+    end_date: '2026-05-07',
+    tag: 'Musik',
+    title: 'Lykke Live: Monkeys With Internet',
+    description: 'Alt-pop där berättandet står i centrum – rakt, nära och med en ton som rör sig mellan skarp humor och sårbarhet.',
+    image_url: 'https://images.squarespace-cdn.com/content/v1/634e98c4f6b5087c011f9aeb/1776342093380-NAEJO427OUHFVE9QMOLP/MONKEYS+WITH+INTERNET.png',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/monkeys-with-internet',
+  },
+  {
+    id: 17,
+    slug: generateSlug('Lykke Live: Samira Manners & Frida Green'),
+    date: '21 Maj',
+    end_date: '2026-05-21',
+    tag: 'Musik',
+    title: 'Lykke Live: Samira Manners & Frida Green',
+    description: 'En intim och efterlängtad spelning fylld med kärlek till musiken, akustisk pop och starka röster.',
+    image_url: 'https://images.squarespace-cdn.com/content/v1/634e98c4f6b5087c011f9aeb/1776700719380-2PWGWGUQUFDPY29OX7FW/SAMIRA+MANNERS.png',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/samira-manners-frida-green',
+  },
+  {
+    id: 18,
+    slug: generateSlug('Lykke Live: Elin Wiigh'),
+    date: '28 Maj',
+    end_date: '2026-05-28',
+    tag: 'Musik',
+    title: 'Lykke Live: Elin Wiigh',
+    description: 'Elin Wiigh släpper sin debut-EP ”Allt jag bär på” och bjuder på en underhållande terapisession i popformat.',
+    image_url: 'https://images.squarespace-cdn.com/content/v1/634e98c4f6b5087c011f9aeb/1776618998288-0BXKFEAP0N1YG7EOGL5D/ELIN+WIIGH+1.png',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/elin-wiigh',
+  },
+  {
+    id: 19,
+    slug: generateSlug('Lykke Live: Tintenfish'),
+    date: '29 Maj',
+    end_date: '2026-05-29',
+    tag: 'Musik',
+    title: 'Lykke Live: Tintenfish',
+    description: 'Up and coming artist inom alternativ R&B. Exklusiv konsert med osläppta låtar från kommande debut-EP.',
+    image_url: 'https://images.squarespace-cdn.com/content/v1/634e98c4f6b5087c011f9aeb/1777295208029-S1AJO0YINOORILKDIOGX/TINTENFISH.png',
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.lykkenytorget.se/lykke-live/tintenfish',
   }
 ];
 
@@ -305,9 +361,21 @@ export default function EventsPage() {
         const now = new Date();
         now.setHours(0, 0, 0, 0);
 
+        const sortEvents = (evs: EventData[]) => {
+          return [...evs].sort((a, b) => {
+            if (a.id === 1) return -1;
+            if (b.id === 1) return 1;
+            if (a.is_featured && !b.is_featured) return -1;
+            if (!a.is_featured && b.is_featured) return 1;
+            if (!a.end_date) return 1;
+            if (!b.end_date) return -1;
+            return new Date(a.end_date).getTime() - new Date(b.end_date).getTime();
+          });
+        };
+
         if (!supabase) {
           const filtered = FALLBACK_EVENTS_DATA.filter(e => !e.end_date || new Date(e.end_date) >= now);
-          setEvents(filtered);
+          setEvents(sortEvents(filtered));
           return;
         }
 
@@ -315,21 +383,32 @@ export default function EventsPage() {
           .from('events')
           .select('*')
           .eq('is_active', true)
-          .order('is_featured', { ascending: false });
+          .limit(50);
 
         if (data && data.length > 0) {
           const formatted = (data as EventData[]).map(e => ({ ...e, slug: e.slug || generateSlug(e.title) }));
           const filtered = formatted.filter(e => !e.end_date || new Date(e.end_date) >= now);
-          setEvents(filtered);
+          setEvents(sortEvents(filtered));
         } else {
           const filtered = FALLBACK_EVENTS_DATA.filter(e => !e.end_date || new Date(e.end_date) >= now);
-          setEvents(filtered);
+          setEvents(sortEvents(filtered));
         }
       } catch {
         const now = new Date();
         now.setHours(0, 0, 0, 0);
+        const sortEvents = (evs: EventData[]) => {
+          return [...evs].sort((a, b) => {
+            if (a.id === 1) return -1;
+            if (b.id === 1) return 1;
+            if (a.is_featured && !b.is_featured) return -1;
+            if (!a.is_featured && b.is_featured) return 1;
+            if (!a.end_date) return 1;
+            if (!b.end_date) return -1;
+            return new Date(a.end_date).getTime() - new Date(b.end_date).getTime();
+          });
+        };
         const filtered = FALLBACK_EVENTS_DATA.filter(e => !e.end_date || new Date(e.end_date) >= now);
-        setEvents(filtered);
+        setEvents(sortEvents(filtered));
       } finally {
         setLoading(false);
       }
