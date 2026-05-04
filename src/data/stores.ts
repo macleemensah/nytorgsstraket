@@ -317,13 +317,13 @@ export const STORES: Store[] = [
     logo: retroLogo,
     url: "https://www.retrobar.se",
     openingHours: [
-      "Mån-tor 16–00",
-      "Fredag 15–01",
+      "Mån-tis 15–23",
+      "Ons-fre 15–01",
       "Lördag 13–01",
       "Söndag 13–23"
     ],
     scale: 1.0,
-    description: "Sportbar, krog och en mötesplats där du alltid är välkommen att svänga förbi oavsett tillfälle. Retro bjuder in till en härlig, stökig och prisvärd atmosfär för den perfekta afterworken. Hos oss ser du Premier League och stora matcher omringad av högljudda fans.",
+    description: "Välkommen till Retro Bar och Restaurang SoFo! Retro är en bar och restaurang som har ambitionen att vara den självklara mötesplatsen för alla. Här ska vänner, familjer, kollegor, par och bekanta kunna umgås i en trevlig och avslappnad miljö med bra service. En trevlig afterwork med kollegorna, en god middag med familjen eller fräscha drinkar i baren – Retro kan vara början på en rolig utekväll, eller varför inte hela utekvällen? Våra barer erbjuder ett bra barhäng med välkomnande och kunnig personal. Välkommen in!",
     heroImage: retroHero,
     galleryImages: [
       retroHero,
