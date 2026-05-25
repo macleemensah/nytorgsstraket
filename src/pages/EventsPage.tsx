@@ -347,6 +347,54 @@ export const FALLBACK_EVENTS_DATA: EventData[] = [
     is_featured: false,
     is_active: true,
     external_url: 'https://www.lykkenytorget.se/lykke-live/tintenfish',
+  },
+  {
+    id: 20,
+    slug: generateSlug('Klättermusen Stockholm - Elevation Run'),
+    date: '29 Maj',
+    end_date: '2026-05-29',
+    tag: 'Löpning',
+    title: 'Klättermusen Stockholm - Elevation Run',
+    description: 'Morgonlöpning till Stora Skuggan med frukost efteråt. Sista rundan från Norrlandsgatan innan flytten till Kungsgatan. 10k, 06:00 min/km.',
+    image_url: klattermusenBild1,
+    tag_color: '#d4e6d9',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://www.eventbrite.se/e/klattermusen-stockholm-elevation-run-tickets-1990158377280?aff=odcleoeventsincollection',
+    content: `
+      <div class="space-y-8">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Klättermusen bjuder in till en energisk morgonlöpning på trail – ett perfekt sätt att kickstarta dagen. Detta är sista rundan från deras butik på Norrlandsgatan innan flytten till nya lokaler på Kungsgatan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Runinfo</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>Plats</strong> Norrlandsgatan 11, Stockholm</p>
+              <p><strong>Distans</strong> 10 km</p>
+              <p><strong>Tempo</strong> 06:00 min/km</p>
+              <p><strong>Väska</strong> Bag drop tillgänglig</p>
+              <p><strong>Frukost</strong> Ingår – på huset</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Schema</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>07:30</strong> Samling vid butiken</p>
+              <p><strong>07:40</strong> Starten går</p>
+              <p><strong>08:40</strong> Tillbaka i butiken</p>
+              <p><strong>08:40 →</strong> Frukost & mingel</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#f4f3ef] p-6 rounded-sm border border-text-dark/5 text-sm text-text-dark/70">
+          Rutten går från butiken och ut till Stora Skuggan för trail-löpning i vacker natur. Boka din plats via Eventbrite – kostnadsfritt.
+        </div>
+      </div>
+    `,
   }
 ];
 
