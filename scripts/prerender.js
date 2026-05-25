@@ -63,7 +63,7 @@ async function generateStaticFiles() {
   console.log('[prerender] ✓ Generated sitemap.xml');
 
   // --- Generate robots.txt ---
-  const robots = `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml\n`;
+  const robots = `User-agent: *\nAllow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nUser-agent: PetalBot\nDisallow: /\n\nUser-agent: Amazonbot\nDisallow: /\n\nUser-agent: MJ12bot\nDisallow: /\n\nUser-agent: AhrefsBot\nDisallow: /\n\nUser-agent: SemrushBot\nDisallow: /\n\nUser-agent: DotBot\nDisallow: /\n\nUser-agent: BLEXBot\nDisallow: /\n\nSitemap: ${BASE_URL}/sitemap.xml\n`;
   fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), robots);
   console.log('[prerender] ✓ Generated robots.txt');
 
