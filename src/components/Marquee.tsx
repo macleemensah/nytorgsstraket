@@ -2,8 +2,8 @@ import React from 'react';
 import { STORES } from '../data/stores';
 
 const Marquee: React.FC = () => {
-  // Only include store and place names from data
-  const items = STORES.map(s => s.name);
+  // Only include store and place names from data, excluding closed ones
+  const items = STORES.filter(s => !s.isClosed).map(s => s.name);
 
   return (
     <div className="w-full overflow-hidden bg-brand-red py-3 select-none">

@@ -54,7 +54,7 @@ const FeaturedPlaces: React.FC = () => {
     });
   };
 
-  const featuredSlugs = ['lykke', 'parlans-konfektyr', 'apc', 'aesop', '654', 'capanna-verde'];
+  const featuredSlugs = ['lykke', 'parlans-konfektyr', 'apc', '654', 'capanna-verde', 'nytorget-6'];
   const featuredStores = featuredSlugs
     .map(slug => STORES.find(s => s.slug === slug))
     .filter((s): s is typeof STORES[0] => !!s);
