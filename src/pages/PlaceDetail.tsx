@@ -91,8 +91,13 @@ export default function PlaceDetail() {
               <span className="block text-brand-red font-din uppercase tracking-widest text-sm mb-4">
                 {store.category}
               </span>
-              <h1 className="text-5xl md:text-7xl font-orpheus text-text-dark tracking-tight mb-8">
+              <h1 className="text-5xl md:text-7xl font-orpheus text-text-dark tracking-tight mb-8 flex flex-wrap items-center gap-4">
                 {store.name}
+                {store.isClosed && (
+                  <span className="text-sm font-din uppercase tracking-widest bg-brand-red text-white px-3 py-1 rounded-sm mt-2 md:mt-4">
+                    Stängt
+                  </span>
+                )}
               </h1>
               <p className="text-lg md:text-xl text-text-dark/80 font-light leading-relaxed max-w-2xl">
                 {store.description}
@@ -119,9 +124,13 @@ export default function PlaceDetail() {
                 <div>
                   <h3 className="text-xs uppercase tracking-widest text-text-dark/40 mb-3">{t('place.opening_hours')}</h3>
                   <div className="space-y-1 text-text-dark/80">
-                    {store.openingHours.map((hour, idx) => (
-                      <p key={idx}>{hour}</p>
-                    ))}
+                    {store.isClosed ? (
+                      <p className="text-brand-red font-medium">Stängt permanent</p>
+                    ) : (
+                      store.openingHours.map((hour, idx) => (
+                        <p key={idx}>{hour}</p>
+                      ))
+                    )}
                     {store.extra && <p className="text-brand-red mt-2 leading-tight">{store.extra}</p>}
                   </div>
                 </div>
@@ -180,9 +189,13 @@ export default function PlaceDetail() {
               <div>
                 <h3 className="text-xs uppercase tracking-widest text-text-dark/40 mb-3">{t('place.opening_hours')}</h3>
                 <div className="space-y-1 text-text-dark/80">
-                  {store.openingHours.map((hour, idx) => (
-                    <p key={idx}>{hour}</p>
-                  ))}
+                  {store.isClosed ? (
+                    <p className="text-brand-red font-medium">Stängt permanent</p>
+                  ) : (
+                    store.openingHours.map((hour, idx) => (
+                      <p key={idx}>{hour}</p>
+                    ))
+                  )}
                   {store.extra && <p className="text-brand-red mt-2 leading-tight">{store.extra}</p>}
                 </div>
               </div>

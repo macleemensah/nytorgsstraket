@@ -116,7 +116,14 @@ const FeaturedPlaces: React.FC = () => {
               >
                 {store.category}
               </div>
-              <h3 className="text-xl md:text-2xl font-orpheus tracking-tight mb-3 group-hover:text-text-dark/70 transition-colors">{store.name}</h3>
+              <h3 className="text-xl md:text-2xl font-orpheus tracking-tight mb-3 group-hover:text-text-dark/70 transition-colors flex flex-wrap items-center gap-2">
+                {store.name}
+                {store.isClosed && (
+                  <span className="text-[10px] font-din uppercase tracking-widest bg-brand-red text-white px-2 py-0.5 rounded-sm">
+                    Stängt
+                  </span>
+                )}
+              </h3>
               <p className="text-base text-text-dark/70 mb-5 line-clamp-2 leading-relaxed font-light">
                 {store.description}
               </p>

@@ -18,14 +18,14 @@ export default function HomePage() {
 
   const faqItemsSv = [
     { q: "Vilka kaféer finns det längs Nytorgsgatan?", a: "Lykke på Nytorgsgatan 38 har specialkaffe från eget rosteri och frukost hela dagen. Capanna Verde serverar handgjord italiensk gelato. 6/5/4 erbjuder ekologiskt kaffe i sin surf- och livsstilsbutik." },
-    { q: "Vilka butiker finns på Nytorgsgatan i SoFo?", a: "A.P.C., Aesop, House of Tell, Pärlans Konfektyr, Klättermusen Verkstad, Bladverket och Stadsmissionen är några av butikerna längs stråket." },
+    { q: "Vilka butiker finns på Nytorgsgatan i SoFo?", a: "A.P.C., House of Tell, Pärlans Konfektyr, Klättermusen Verkstad, Bladverket och Stadsmissionen är några av butikerna längs stråket." },
     { q: "Vilka restauranger finns nära Nytorget på Södermalm?", a: "Urban Deli, Nytorget 6, Meatballs for the People, PS Matsal och Retro erbjuder allt från saluhall till intim avsmakningsmeny." },
     { q: "Vad händer under Nytorgsfesten?", a: "Nytorgsfesten är Stockholms finaste kvartersfest, 14–16 augusti 2026, med karnevaltåg, glassfestival, loppis och livemusik." },
     { q: "Finns det hållbara alternativ längs Nytorgsstråket?", a: "Stadsmissionen, Klättermusen Verkstad och Bladverket är exempel på aktörer med fokus på hållbarhet och etik." }
   ];
   const faqItemsEn = [
     { q: "What cafes are there along Nytorgsgatan?", a: "Lykke at Nytorgsgatan 38 has specialty coffee and all-day breakfast. Capanna Verde serves artisan Italian gelato. 6/5/4 offers organic coffee inside their surf and lifestyle store." },
-    { q: "What stores are on Nytorgsgatan in SoFo?", a: "A.P.C., Aesop, House of Tell, Pärlans Konfektyr, Klättermusen Verkstad, Bladverket and Stadsmissionen are among the stores along the stråk." },
+    { q: "What stores are on Nytorgsgatan in SoFo?", a: "A.P.C., House of Tell, Pärlans Konfektyr, Klättermusen Verkstad, Bladverket and Stadsmissionen are among the stores along the stråk." },
     { q: "What restaurants are near Nytorget in Södermalm?", a: "Urban Deli, Nytorget 6, Meatballs for the People, PS Matsal and Retro offer everything from a food hall to an intimate tasting menu." },
     { q: "What happens during Nytorgsfesten?", a: "Nytorgsfesten is Stockholm's finest neighborhood festival, 14–16 August 2026, with carnival processions, a gelato festival, flea market and live music." },
     { q: "Are there sustainable options along Nytorgsstråket?", a: "Stadsmissionen, Klättermusen Verkstad and Bladverket are examples of venues with a focus on sustainability and ethics." }

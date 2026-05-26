@@ -8,7 +8,7 @@ const FAQ_SV = [
   },
   {
     q: "Vilka butiker finns på Nytorgsgatan i SoFo?",
-    a: "Stråket erbjuder ett brett och noga kurerat utbud: A.P.C. för minimalistiskt franskt mode, Aesop för premiumprodukter för hud och hår, House of Tell med Céline, The Row och Acne Studios, Pärlans Konfektyr för handgjord kolakonfekt, Klättermusen Verkstad för vintage friluftskläder, Bladverket för snittblommor och krukväxter, samt Stadsmissionen för vintage- och secondhandfynd."
+    a: "Stråket erbjuder ett brett och noga kurerat utbud: A.P.C. för minimalistiskt franskt mode, House of Tell med Céline, The Row och Acne Studios, Pärlans Konfektyr för handgjord kolakonfekt, Klättermusen Verkstad för vintage friluftskläder, Bladverket för snittblommor och krukväxter, samt Stadsmissionen för vintage- och secondhandfynd."
   },
   {
     q: "Vilka restauranger finns nära Nytorget på Södermalm?",
@@ -31,7 +31,7 @@ const FAQ_EN = [
   },
   {
     q: "What stores are on Nytorgsgatan in SoFo?",
-    a: "The street offers a carefully curated mix: A.P.C. for minimalist French fashion, Aesop for premium skin and hair products, House of Tell with Céline, The Row and Acne Studios, Pärlans Konfektyr for handmade caramel confectionery, Klättermusen Verkstad for vintage outdoor gear, Bladverket for cut flowers and plants, and Stadsmissionen for vintage and secondhand fashion."
+    a: "The street offers a carefully curated mix: A.P.C. for minimalist French fashion, House of Tell with Céline, The Row and Acne Studios, Pärlans Konfektyr for handmade caramel confectionery, Klättermusen Verkstad for vintage outdoor gear, Bladverket for cut flowers and plants, and Stadsmissionen for vintage and secondhand fashion."
   },
   {
     q: "What restaurants are near Nytorget in Södermalm?",

@@ -43,7 +43,7 @@ Incorporate these core concepts, slogans, and structural ideas where appropriate
 - *"Boutique"*
 
 **Associated Promenade Brands:**
-Acne Studios, Aesop, A.P.C., Pärlans, House of Tell, Lysine Bleu, Lykke.
+Acne Studios, A.P.C., Pärlans, House of Tell, Lysine Bleu, Lykke.
 
 ---
 > **Note to Developers:** This file acts as our source of truth. Whenever we configure Tailwind CSS, set up our global CSS fonts, or build new UI components, we will reference these specific typefaces (Orpheus Pro, DIN Condensed, Lindstaye) and styling rules to ensure the website matches the wild postings and physical branding.

@@ -79,6 +79,7 @@ export interface Store {
   heroImage: string;
   galleryImages: string[];
   address: string;
+  isClosed?: boolean;
 }
 
 export const STORES: Store[] = [
@@ -150,20 +151,17 @@ export const STORES: Store[] = [
     category: 'Butiker',
     logo: aesopLogo,
     url: "https://www.aesop.com",
-    openingHours: [
-      "Mån-fre 11–18",
-      "Lördag 11–17",
-      "Söndag 12–16"
-    ],
+    openingHours: [],
     scale: 1.2,
-    description: "Aesop SoFo är designad i samarbete med den lokala arkitektbyrån In Praise of Shadows. Butiken är utformad för att framkalla känslan av ett genuint 'vardagsrum' som speglar områdets gemytliga atmosfär. Interiören ramas in av en historisk teakfasad och är klädd i ljusa toner av alfanér som följer butikens mjuka, böljande väggar. Träets ådring och taktila form skapar ett samspel mellan ljus och skugga, accentuerat av hyllor i patinerad mässing.",
+    description: "Aesop SoFo har tyvärr stängt sin butik permanent. Tidigare var butiken designad i samarbete med den lokala arkitektbyrån In Praise of Shadows, utformad för att framkalla känslan av ett genuint 'vardagsrum' som speglade områdets gemytliga atmosfär.",
     heroImage: aesopHero,
     galleryImages: [
       aesopHero,
       aesopGallery1,
       aesopGallery2
     ],
-    address: "Nytorgsgatan 36A, Stockholm"
+    address: "Nytorgsgatan 36A, Stockholm",
+    isClosed: true
   },
   {
     slug: 'urban-deli',
