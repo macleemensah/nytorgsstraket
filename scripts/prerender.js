@@ -53,10 +53,12 @@ async function generateStaticFiles() {
   const routes = await getRoutes();
 
   // --- Generate sitemap.xml ---
+  const today = new Date().toISOString().split('T')[0]; // e.g. "2026-06-09"
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
   for (const route of routes) {
-    const priority = route === '/' ? '1.0' : '0.8';
-    sitemap += `  <url>\n    <loc>${BASE_URL}${route}</loc>\n    <priority>${priority}</priority>\n  </url>\n`;
+    const priority = route === '/' ? '1.0' : route.startsWith('/plats/') ? '0.9' : '0.8';
+    const changefreq = route === '/' ? 'weekly' : route.startsWith('/evenemang') ? 'daily' : 'monthly';
+    sitemap += `  <url>\n    <loc>${BASE_URL}${route}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
   }
   sitemap += `</urlset>`;
   fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
