@@ -110,8 +110,9 @@ export default function EventDetail() {
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
       <SEO 
-        title={`${event.title} | Nytorgsstråket Evenemang`}
-        description={event.description}
+        title={`${event.title} | Nytorget SoFo Södermalm`}
+        description={event.description.substring(0, 160)}
+        keywords={`${event.title}, ${event.tag}, evenemang nytorget, sofo evenemang, södermalm, nytorgsstråket`}
         canonical={`/evenemang/${slug}`}
         image={event.image_url}
         schema={schema}

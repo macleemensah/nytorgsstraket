@@ -36,18 +36,42 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "name": "Nytorgsstråket",
+        "url": "https://nytorgsstraket.se",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nytorgsstraket.se/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
         "@type": "ShoppingCenter",
         "name": "Nytorgsstråket",
+        "alternateName": ["Nytorget", "SoFo Stockholm"],
         "description": isSv 
-          ? "Stockholms mest levande shoppingstråk på Södermalm. Unika butiker, kaféer och mat & dryck i SoFo."
-          : "Stockholm's most vibrant shopping street in Södermalm. Unique stores, cafes, and dining in SoFo.",
+          ? "Stockholms mest levande shoppingstråk vid Nytorget i SoFo, Södermalm. Unika butiker, kaféer och restauranger på Nytorgsgatan."
+          : "Stockholm's most vibrant shopping street by Nytorget in SoFo, Södermalm. Unique stores, cafes, and restaurants on Nytorgsgatan.",
+        "url": "https://nytorgsstraket.se",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Nytorgsgatan",
           "addressLocality": "Stockholm",
           "postalCode": "11640",
           "addressCountry": "SE"
-        }
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 59.3163,
+          "longitude": 18.0726
+        },
+        "hasMap": "https://maps.google.com/?q=Nytorgsgatan+Stockholm",
+        "areaServed": [
+          { "@type": "Place", "name": "Nytorget" },
+          { "@type": "Place", "name": "SoFo" },
+          { "@type": "Place", "name": "Södermalm" },
+          { "@type": "Place", "name": "Stockholm" }
+        ]
       },
       {
         "@type": "FAQPage",
@@ -63,10 +87,11 @@ export default function HomePage() {
   return (
     <>
       <SEO 
-        title={isSv ? "Nytorgsstråket | Södermalms Bästa Shopping & Kaféer" : "Nytorgsstråket | Södermalm's Best Shopping & Cafes"}
+        title={isSv ? "Nytorgsstråket | Shopping & Kaféer vid Nytorget i SoFo, Södermalm" : "Nytorgsstråket | Shopping & Cafes by Nytorget in SoFo, Södermalm"}
         description={isSv 
-          ? "Upptäck Nytorgsstråket i SoFo. En unik samling av handplockade butiker, mysiga kaféer och populära restauranger på Nytorgsgatan, Södermalm."
-          : "Discover Nytorgsstråket in SoFo. A unique collection of hand-picked boutiques, cozy cafes, and popular restaurants on Nytorgsgatan, Södermalm."}
+          ? "Upptäck Nytorgsstråket vid Nytorget i SoFo, Södermalm. Handplockade butiker, mysiga kaféer och populära restauranger på Nytorgsgatan i hjärtat av Stockholm."
+          : "Discover Nytorgsstråket by Nytorget in SoFo, Södermalm. Hand-picked boutiques, cozy cafes and popular restaurants on Nytorgsgatan in the heart of Stockholm."}
+        keywords="nytorget, sofo, södermalm, nytorgsgatan, nytorgsstråket, stockholm shopping, butiker södermalm, kaféer nytorget, restauranger sofo"
         canonical="/"
         schema={schema}
       />

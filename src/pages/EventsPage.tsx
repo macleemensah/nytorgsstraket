@@ -464,12 +464,38 @@ export default function EventsPage() {
     fetchEvents();
   }, []);
 
+  const eventsSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Evenemang på Nytorgsstråket",
+    "description": "Aktuella evenemang, livemusik, festivaler och upplevelser vid Nytorget i SoFo, Södermalm.",
+    "url": "https://nytorgsstraket.se/evenemang",
+    "hasPart": events.map(e => ({
+      "@type": "Event",
+      "name": e.title,
+      "description": e.description,
+      "url": `https://nytorgsstraket.se/evenemang/${e.slug}`,
+      "location": {
+        "@type": "Place",
+        "name": "Nytorgsstråket, Nytorget",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Nytorgsgatan",
+          "addressLocality": "Stockholm",
+          "addressCountry": "SE"
+        }
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
       <SEO 
-        title="Evenemang på Nytorgsstråket | Södermalm"
-        description="Upptäck alla aktuella evenemang, livemusik, loppisar och festivaler längs Nytorgsstråket."
+        title="Evenemang vid Nytorget | SoFo Södermalm Stockholm"
+        description="Aktuella evenemang, livemusik, loppisar och festivaler vid Nytorget i SoFo, Södermalm. Upplev det bästa av Nytorgsstråket."
+        keywords="evenemang nytorget, events sofo, stockholm evenemang, nytorgsfesten, musik södermalm, festival nytorgsgatan"
         canonical="/evenemang"
+        schema={eventsSchema}
       />
       <Navbar />
 

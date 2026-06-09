@@ -60,6 +60,7 @@ export default function PlaceDetail() {
       <SEO 
         title={`${store.name} | Nytorgsstråket`}
         description={store.description.substring(0, 160)}
+        keywords={`${store.name}, ${store.category}, Nytorget, Nytorgsgatan, Södermalm, Stockholm shopping, Nytorgsstråket`}
         canonical={`/plats/${store.slug}`}
         image={store.heroImage}
         schema={schema}
@@ -162,7 +163,7 @@ export default function PlaceDetail() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {store.galleryImages.map((img, idx) => (
                 <div key={idx} className={`aspect-square overflow-hidden bg-[#e5e4e2] ${idx === 2 ? 'sm:col-span-2 aspect-[21/9]' : ''}`}>
-                  <img src={img} alt={`${store.name} interior ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  <img src={img} alt={`${store.name} interior ${idx + 1}`} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
               ))}
             </div>
@@ -239,11 +240,12 @@ export default function PlaceDetail() {
             {STORES.filter(s => s.category === store.category && s.slug !== store.slug).slice(0, 3).map((relatedStore) => (
               <Link key={relatedStore.slug} to={`/plats/${relatedStore.slug}`} className="group block cursor-pointer">
                 <div className="overflow-hidden aspect-[4/3] mb-4 rounded-sm bg-selection relative">
-                  <img 
-                    className="w-full h-full object-cover transition duration-1000 ease-out group-hover:scale-105" 
-                    src={relatedStore.heroImage} 
-                    alt={relatedStore.name} 
-                  />
+                    <img 
+                      className="w-full h-full object-cover transition duration-1000 ease-out group-hover:scale-105" 
+                      src={relatedStore.heroImage} 
+                      alt={relatedStore.name} 
+                      loading="lazy"
+                    />
                 </div>
                 <h3 className="text-xl font-orpheus tracking-tight mb-2 group-hover:text-text-dark/70 transition-colors">{relatedStore.name}</h3>
                 <span className="text-xs font-medium uppercase tracking-widest flex items-center gap-2 text-text-dark/60 group-hover:text-text-dark transition-colors font-din">

@@ -55,13 +55,41 @@ export default function CategoryPage() {
   const categoryStores = STORES.filter(s => s.category === categoryConfig.title);
   const catColor = getCategoryColor(categoryConfig.title);
 
+  const categoryKeywords: Record<string, string> = {
+    'butiker': 'butiker nytorget, shopping sofo, mode södermalm, nytorgsgatan butiker, klädbutiker stockholm',
+    'kafeer': 'kaféer nytorget, kaffe sofo, fika södermalm, bästa kaféer stockholm, nytorgsgatan café',
+    'kultur': 'kultur nytorget, konst sofo, uppleva södermalm, kulturella platser stockholm',
+    'mat-och-dryck': 'restauranger nytorget, mat sofo, bästa mat södermalm, middag nytorgsgatan, äta stockholm',
+  };
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${categoryConfig.title} på Nytorgsstråket`,
+    "description": `Utforska alla ${categoryConfig.title.toLowerCase()} vid Nytorget i SoFo på Södermalm.`,
+    "url": `https://nytorgsstraket.se/kategori/${slug}`,
+    "hasPart": categoryStores.map(store => ({
+      "@type": "LocalBusiness",
+      "name": store.name,
+      "url": `https://nytorgsstraket.se/plats/${store.slug}`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": store.address,
+        "addressLocality": "Stockholm",
+        "addressCountry": "SE"
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
       <SEO 
-        title={`${categoryConfig.title} på Nytorgsstråket | Södermalm`}
-        description={`Upptäck alla fantastiska ${categoryConfig.title.toLowerCase()} längs Nytorgsstråket på Södermalm.`}
+        title={`${categoryConfig.title} vid Nytorget | SoFo Södermalm`}
+        description={`Utforska alla ${categoryConfig.title.toLowerCase()} längs Nytorgsstråket vid Nytorget i SoFo, Södermalm. Handplockade favoriter i hjärtat av Stockholm.`}
+        keywords={categoryKeywords[slug || ''] || `${categoryConfig.title}, nytorget, sofo, södermalm, nytorgsgatan`}
         canonical={`/kategori/${slug}`}
         image={categoryConfig.image}
+        schema={collectionSchema}
       />
       <Navbar />
       
@@ -93,7 +121,8 @@ export default function CategoryPage() {
                   <img 
                     className="w-full h-full object-cover transition duration-1000 ease-out group-hover:scale-105" 
                     src={store.heroImage} 
-                    alt={store.name} 
+                    alt={`${store.name} — ${categoryConfig.title} vid Nytorget, SoFo Södermalm`} 
+                    loading="lazy"
                   />
                 </div>
                 <div 
