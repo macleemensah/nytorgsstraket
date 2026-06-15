@@ -13,6 +13,11 @@ export default function PlaceDetail() {
   if (!store) {
     return (
       <div className="min-h-screen bg-bg-paper flex flex-col items-center justify-center">
+        <SEO 
+          title={`${t('place.not_found', 'Platsen hittades inte')} | Nytorgsstråket`} 
+          description="Sidan du letar efter kunde inte hittas." 
+          noindex={true} 
+        />
         <Navbar />
         <h1 className="text-4xl font-orpheus text-text-dark mt-32">{t('place.not_found')}</h1>
         <Link to="/" className="mt-8 px-6 py-2 border border-text-dark/20 uppercase tracking-widest text-xs font-din hover:bg-text-dark hover:text-white transition-colors">

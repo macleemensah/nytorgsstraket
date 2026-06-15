@@ -8,9 +8,10 @@ interface SEOProps {
   schema?: Record<string, any>;
   image?: string;
   keywords?: string;
+  noindex?: boolean;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema, image, keywords }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema, image, keywords, noindex }) => {
   const siteUrl = 'https://nytorgsstraket.se';
   const ogImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
 
@@ -19,6 +20,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema, image,
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

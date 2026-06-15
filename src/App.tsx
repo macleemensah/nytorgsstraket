@@ -8,6 +8,7 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import EventsPage from './pages/EventsPage';
 import EventDetail from './pages/EventDetail';
+import NotFoundPage from './pages/NotFoundPage';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/evenemang/:slug" element={<EventDetail />} />
           <Route path="/integritetspolicy" element={<PrivacyPage />} />
           <Route path="/anvandarvillkor" element={<TermsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
       <Analytics />
