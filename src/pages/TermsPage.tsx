@@ -16,7 +16,7 @@ const TermsPage: React.FC = () => {
         description={isSv ? 'Läs Nytorgsstråkets användarvillkor för webbplatsen.' : 'Read Nytorgsstråket\'s terms of use for the website.'}
         canonical="/anvandarvillkor"
       />
-      <Navbar />
+      <Navbar theme="dark" />
       <main className="bg-bg-paper min-h-screen pt-32 pb-24 px-6">
         <div className="max-w-2xl mx-auto">
           <Link

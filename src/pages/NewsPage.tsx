@@ -6,15 +6,35 @@ import SEO from '../components/SEO';
 import { newsPosts } from '../data/news';
 
 const NewsPage: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Hem",
+        "item": "https://nytorgsstraket.se/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Aktuellt",
+        "item": "https://nytorgsstraket.se/aktuellt"
+      }
+    ]
+  };
+
   return (
-    <div className="min-h-screen bg-bg-paper flex flex-col">
+    <div className="min-h-screen bg-[#f9f8f6] flex flex-col">
       <SEO 
-        title="Aktuellt | Senaste nytt på Nytorgsstråket i SoFo"
-        description="Läs det senaste för att ta del av nyheter, händelser och inspiration från Nytorgsstråket och våra hyresgäster i hjärtat av Södermalm."
+        title="Aktuellt | Senaste Nytt & Inspiration | Nytorgsstråket"
+        description="Följ med bakom kulisserna på Nytorgsstråket. Läs om nya butiker, inspirerande intervjuer och det senaste från SoFo, Södermalm."
         keywords="Aktuellt, nyheter, senaste nytt, nytorget, sofo, södermalm, stockholm, inspiration"
         canonical="/aktuellt"
+        schema={schema}
       />
-      <Navbar />
+      <Navbar theme="dark" />
 
       <main className="flex-grow pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">Nytt på stråket</h1>

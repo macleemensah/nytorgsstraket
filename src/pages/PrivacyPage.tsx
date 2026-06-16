@@ -16,7 +16,7 @@ const PrivacyPage: React.FC = () => {
         description={isSv ? 'Läs om hur Nytorgsstråket hanterar dina personuppgifter.' : 'Read about how Nytorgsstråket handles your personal data.'}
         canonical="/integritetspolicy"
       />
-      <Navbar />
+      <Navbar theme="dark" />
       <main className="bg-bg-paper min-h-screen pt-32 pb-24 px-6">
         <div className="max-w-2xl mx-auto">
           <Link

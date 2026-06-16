@@ -5,15 +5,35 @@ import SEO from '../components/SEO';
 import NytorgetGuide from '../components/NytorgetGuide';
 
 const GuidePage: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Hem",
+        "item": "https://nytorgsstraket.se/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guide",
+        "item": "https://nytorgsstraket.se/om-nytorget"
+      }
+    ]
+  };
+
   return (
-    <div className="min-h-screen bg-bg-paper flex flex-col">
+    <div className="min-h-screen bg-[#f9f8f6] flex flex-col">
       <SEO 
-        title="Om Nytorget | Din kompletta guide till SoFo Södermalm"
-        description="Läs vår kompletta guide om Nytorget i SoFo, Södermalm. Upptäck historien, stämningen och allt som Nytorgsstråket har att erbjuda i hjärtat av Stockholm."
+        title="Om Nytorget | En Komplett Guide till SoFos Hjärta"
+        description="Utforska Nytorget på Södermalm. Upptäck historien, lekparken, gräsytorna och de bästa platserna runtomkring Stockholms mest levande torg."
         keywords="Nytorget, SoFo, Södermalm, guide, Nytorgsstråket, Stockholm, historia"
         canonical="/om-nytorget"
+        schema={schema}
       />
-      <Navbar />
+      <Navbar theme="dark" />
 
       <main className="flex-grow pt-24 pb-16">
         <NytorgetGuide />

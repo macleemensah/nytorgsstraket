@@ -97,6 +97,7 @@ export default function PlaceDetail() {
         keywords={`${store.name}, ${store.category}, Nytorget, Nytorgsgatan, Södermalm, Stockholm shopping, Nytorgsstråket`}
         canonical={`/plats/${store.slug}`}
         image={store.heroImage}
+        preloadImage={store.heroImage}
         schema={combinedSchema}
       />
       <Navbar />

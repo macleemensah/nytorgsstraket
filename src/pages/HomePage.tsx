@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 
 import { useTranslation } from 'react-i18next';
 import SEO from '../components/SEO';
+import heroImage from '../assets/hero.png';
 
 export default function HomePage() {
   const { i18n } = useTranslation();
@@ -130,6 +131,7 @@ export default function HomePage() {
         keywords="nytorget, sofo, södermalm, nytorgsgatan, nytorgsstråket, stockholm shopping, butiker södermalm, kaféer nytorget, restauranger sofo"
         canonical="/"
         schema={schema}
+        preloadImage={heroImage}
       />
       <Navbar />
       <main>

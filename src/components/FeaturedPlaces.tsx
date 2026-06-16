@@ -54,13 +54,13 @@ const FeaturedPlaces: React.FC = () => {
     });
   };
 
-  const featuredSlugs = ['lykke', 'parlans-konfektyr', 'apc', '654', 'capanna-verde', 'nytorget-6'];
+  const featuredSlugs = ['nytorget', 'lykke', 'parlans-konfektyr', 'apc', '654', 'capanna-verde', 'nytorget-6'];
   const featuredStores = featuredSlugs
     .map(slug => STORES.find(s => s.slug === slug))
     .filter((s): s is typeof STORES[0] => !!s);
 
   return (
-    <section id="featured" className="py-32 bg-[#f4f3ef] text-text-dark overflow-hidden">
+    <section id="featured" className="py-32 bg-[#f4f3ef] text-text-dark overflow-hidden" data-nosnippet>
       {/* Boxed Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <h2 className="text-3xl md:text-4xl font-orpheus tracking-tight font-light">{t('featured.title')}</h2>
@@ -98,7 +98,7 @@ const FeaturedPlaces: React.FC = () => {
           return (
             <Link 
               key={store.slug} 
-              to={`/plats/${store.slug}`} 
+              to={store.overrideUrl || `/plats/${store.slug}`} 
               onClick={(e) => dragged && e.preventDefault()}
               className="snap-start shrink-0 w-[80vw] sm:w-[280px] md:w-[360px] group cursor-pointer block"
             >

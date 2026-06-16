@@ -7,16 +7,18 @@ interface SEOProps {
   canonical?: string;
   schema?: Record<string, any>;
   image?: string;
+  preloadImage?: string;
   keywords?: string;
   noindex?: boolean;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema, image, keywords, noindex }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema, image, preloadImage, keywords, noindex }) => {
   const siteUrl = 'https://nytorgsstraket.se';
   const ogImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
 
   return (
     <Helmet>
+      {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}

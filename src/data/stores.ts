@@ -80,6 +80,7 @@ export interface Store {
   galleryImages: string[];
   address: string;
   isClosed?: boolean;
+  overrideUrl?: string;
 }
 
 export const STORES: Store[] = [
@@ -425,7 +426,8 @@ export const STORES: Store[] = [
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1000&auto=format&fit=crop"
     ],
-    address: "Nytorget, Södermalm"
+    address: "Nytorget, Södermalm",
+    overrideUrl: "/om-nytorget"
   },
   {
     slug: 'axel-landquists-park',

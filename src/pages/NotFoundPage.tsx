@@ -11,7 +11,7 @@ export default function NotFoundPage() {
         description="Sidan du letar efter kunde inte hittas. Återvänd till startsidan." 
         noindex={true} 
       />
-      <Navbar />
+      <Navbar theme="dark" />
       <main className="flex-grow flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-6xl md:text-8xl font-orpheus text-text-dark mb-6">404</h1>
         <h2 className="text-2xl md:text-3xl font-orpheus text-text-dark mb-8">

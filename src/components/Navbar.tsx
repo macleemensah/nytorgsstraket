@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.png';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  theme?: 'light' | 'dark';
+}
+
+const Navbar: React.FC<NavbarProps> = ({ theme = 'light' }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,7 +37,6 @@ const Navbar: React.FC = () => {
     { label: t('nav.evenemang'), href: '/#events' },
     { label: t('nav.aktuellt'), href: '/aktuellt' },
     { label: t('nav.guide'), href: '/om-nytorget' },
-    { label: t('nav.om_straket'), href: '/#about' },
   ];
 
   return (
@@ -42,7 +45,7 @@ const Navbar: React.FC = () => {
         className={`fixed top-0 w-full z-50 px-6 py-6 md:px-12 flex justify-between items-center transition-all duration-500 ${
           scrolled
             ? 'bg-bg-paper/95 backdrop-blur-sm shadow-sm text-text-dark py-4'
-            : 'bg-transparent text-white'
+            : theme === 'dark' ? 'bg-transparent text-text-dark' : 'bg-transparent text-white'
         }`}
       >
         {/* Logo */}
@@ -51,24 +54,25 @@ const Navbar: React.FC = () => {
             <img
               src={logo}
               alt="Nytorgsstråket"
-              className={`w-auto transition-all duration-500 ${scrolled ? 'h-7 md:h-8 brightness-0' : 'h-8 md:h-10'}`}
+              className={`w-auto transition-all duration-500 ${scrolled || theme === 'dark' ? 'h-7 md:h-8 brightness-0' : 'h-8 md:h-10'}`}
             />
           </Link>
         </div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-12">
-          <div className="flex gap-10 text-sm font-bold tracking-[0.08em] uppercase">
+          <ul role="list" className="flex gap-10 text-sm font-bold tracking-[0.08em] uppercase">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className="hover:opacity-60 transition-opacity duration-300"
-              >
-                {link.label}
-              </Link>
+              <li key={link.href}>
+                <Link
+                  to={link.href}
+                  className="hover:opacity-60 transition-opacity duration-300"
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Language Switcher */}
           <div className="flex items-center gap-2 text-xs font-medium tracking-widest uppercase opacity-60">
@@ -142,17 +146,20 @@ const Navbar: React.FC = () => {
 
           {/* Drawer Links */}
           <nav className="flex flex-col px-8 py-10 gap-2 flex-1">
-            {navLinks.map((link, i) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="font-orpheus text-4xl tracking-tight py-4 border-b border-white/10 hover:text-brand-red transition-colors duration-300"
-                style={{ transitionDelay: menuOpen ? `${i * 60}ms` : '0ms' }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            <ul role="list" className="flex flex-col gap-2">
+              {navLinks.map((link, i) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block font-orpheus text-4xl tracking-tight py-4 border-b border-white/10 hover:text-brand-red transition-colors duration-300"
+                    style={{ transitionDelay: menuOpen ? `${i * 60}ms` : '0ms' }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
           {/* Drawer Footer */}

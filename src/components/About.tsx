@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import aboutImage from '../assets/about-straket.png';
 
 const About: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section id="about" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
@@ -56,11 +56,20 @@ const About: React.FC = () => {
           {/* Lindstaye quote */}
           <div className="mt-10 pt-8 border-t border-text-dark/10">
             <p
-              className="text-3xl text-brand-red leading-tight"
+              className="text-3xl text-brand-red leading-tight mb-8"
               style={{ fontFamily: "'Lindstaye', cursive" }}
             >
               {t('about.signature')}
             </p>
+            
+            <a 
+              href="/om-nytorget"
+              className="group inline-flex items-center gap-3 px-8 py-3.5 border border-text-dark/20 rounded-full text-text-dark text-xs uppercase tracking-[0.15em] font-din font-medium hover:bg-text-dark hover:text-white transition-all duration-400"
+            >
+              {i18n.language === 'sv' ? 'Läs hela guiden till Nytorget' : 'Read the full guide to Nytorget'}
+              {/* @ts-expect-error - Custom element */}
+              <iconify-icon icon="solar:arrow-right-linear" width="16" height="16"></iconify-icon>
+            </a>
           </div>
         </div>
       </div>
