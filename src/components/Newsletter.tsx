@@ -7,18 +7,42 @@ const Newsletter: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    // Note: Since we are using standard form action POST for Web3Forms, 
+    // we don't need to preventDefault if we want them to handle the redirect.
+    // However, to do it seamlessly without leaving the page, we could use fetch.
+    // Let's implement fetch for Web3Forms to keep the user on the page.
     e.preventDefault();
     if (!email) return;
 
     setIsLoading(true);
-    
-    // TODO: Connect this to your future backend or email service (e.g., Mailchimp, Resend, Supabase)
-    // Simulated API call delay for UX:
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsLoading(false);
-    setSubmitted(true);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: 'YOUR_WEB3FORMS_ACCESS_KEY_HERE', // <-- USER MUST REPLACE THIS
+        email: email,
+        subject: 'Ny prenumerant till Nytorgsstråkets Nyhetsbrev',
+        from_name: 'Nytorgsstråket Hemsida'
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      setIsLoading(false);
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        alert('Något gick fel. Försök igen senare.');
+      }
+    })
+    .catch(() => {
+      setIsLoading(false);
+      alert('Kunde inte ansluta till servern.');
+    });
   };
 
   return (

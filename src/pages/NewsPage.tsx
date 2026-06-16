@@ -37,8 +37,8 @@ const NewsPage: React.FC = () => {
       <Navbar theme="dark" />
 
       <main className="flex-grow pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">Nytt på stråket</h1>
-        <p className="text-lg md:text-xl text-text-muted text-center max-w-2xl mx-auto mb-16">
+        <h1 className="text-4xl md:text-6xl font-orpheus font-light tracking-tight mb-4 text-center">Nytt på stråket</h1>
+        <p className="text-lg md:text-xl text-text-muted font-light text-center max-w-2xl mx-auto mb-16">
           Senaste nytt, händelser och inspiration från Nytorgsstråket och våra hyresgäster.
         </p>
 

@@ -38,12 +38,19 @@
     "globals": "^17.4.0",
     "puppeteer": "^22.0.0",
     "puppeteer-core": "^25.1.0",
+    "react-snap": "^1.23.0",
     "sharp": "^0.35.1",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.2.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.57.2",
     "vite": "^8.0.3",
-    "vite-plugin-image-optimizer": "^2.0.3"
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-prerender": "^1.0.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "puppeteer"
+    ]
   }
 }
