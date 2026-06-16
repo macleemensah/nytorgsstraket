@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { STORES, type StoreCategory } from '../data/stores';
+import { type StoreCategory } from '../data/stores';
+import { useSanityStores } from '../lib/useSanityStores';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
@@ -25,6 +26,9 @@ const getCategoryColor = (category: string) => {
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const categoryConfig = CATEGORY_MAP[slug || ''];
+  const { stores: categoryStores } = useSanityStores(
+    categoryConfig ? categoryConfig.title : undefined
+  );
 
   useEffect(() => {
     // Wait briefly for the standard ScrollToTop to fire, then scroll down to the grid
@@ -57,7 +61,6 @@ export default function CategoryPage() {
     );
   }
 
-  const categoryStores = STORES.filter(s => s.category === categoryConfig.title);
   const catColor = getCategoryColor(categoryConfig.title);
 
   const categoryKeywords: Record<string, string> = {

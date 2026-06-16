@@ -3,7 +3,18 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import { newsPosts } from '../data/news';
+import { newsPosts as hardcodedNews } from '../data/news';
+import { client, urlFor } from '../lib/sanity';
+
+interface SanityNews {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  date: string;
+  image: any;
+  excerpt: string;
+  tags: string[];
+}
 
 const NewsPage: React.FC = () => {
   const schema = {
@@ -25,6 +36,32 @@ const NewsPage: React.FC = () => {
     ]
   };
 
+  const [news, setNews] = React.useState<any[]>(hardcodedNews);
+
+  React.useEffect(() => {
+    client
+      .fetch<SanityNews[]>(
+        `*[_type == "news"] | order(date desc) {
+          _id, title, slug, date, image, excerpt, tags
+        }`
+      )
+      .then((data) => {
+        if (data && data.length > 0) {
+          const formatted = data.map((item) => ({
+            id: item._id,
+            title: item.title,
+            slug: item.slug.current,
+            date: item.date,
+            imageUrl: item.image ? urlFor(item.image).url() : '',
+            excerpt: item.excerpt,
+            tags: item.tags || [],
+          }));
+          setNews(formatted);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#f9f8f6] flex flex-col">
       <SEO 
@@ -43,22 +80,24 @@ const NewsPage: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsPosts.map(post => (
+          {news.map(post => (
             <Link 
               key={post.id} 
               to={`/aktuellt/${post.slug}`}
               className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                <img 
-                  src={post.imageUrl} 
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                {post.imageUrl && (
+                  <img 
+                    src={post.imageUrl} 
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold uppercase tracking-wider text-primary">{post.tags[0]}</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">{post.tags?.[0]}</span>
                   <span className="text-xs text-text-muted">• {post.date}</span>
                 </div>
                 <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{post.title}</h2>
