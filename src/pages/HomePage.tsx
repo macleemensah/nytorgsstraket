@@ -74,6 +74,42 @@ export default function HomePage() {
         ]
       },
       {
+        "@type": ["TouristAttraction", "Place"],
+        "name": "Nytorget",
+        "description": "Nytorget är ett historiskt och levande torg beläget i hjärtat av SoFo på Södermalm i Stockholm. Känd för sina gräsytor, populära lekpark och omgivande kaféer och restauranger.",
+        "url": "https://nytorgsstraket.se",
+        "sameAs": [
+          "https://sv.wikipedia.org/wiki/Nytorget",
+          "https://www.wikidata.org/wiki/Q10605051"
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 59.3163,
+          "longitude": 18.0726
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Nytorget",
+          "addressLocality": "Stockholm",
+          "postalCode": "11640",
+          "addressCountry": "SE"
+        },
+        "publicAccess": true,
+        "isAccessibleForFree": true,
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Lekplats",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Gräsytor för picknick",
+            "value": true
+          }
+        ]
+      },
+      {
         "@type": "FAQPage",
         "mainEntity": faqItems.map(({ q, a }) => ({
           "@type": "Question",

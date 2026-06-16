@@ -9,6 +9,9 @@ import TermsPage from './pages/TermsPage';
 import EventsPage from './pages/EventsPage';
 import EventDetail from './pages/EventDetail';
 import NotFoundPage from './pages/NotFoundPage';
+import GuidePage from './pages/GuidePage';
+import NewsPage from './pages/NewsPage';
+import NewsDetail from './pages/NewsDetail';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
@@ -23,6 +26,9 @@ function App() {
           <Route path="/kategori/:slug" element={<CategoryPage />} />
           <Route path="/evenemang" element={<EventsPage />} />
           <Route path="/evenemang/:slug" element={<EventDetail />} />
+          <Route path="/om-nytorget" element={<GuidePage />} />
+          <Route path="/aktuellt" element={<NewsPage />} />
+          <Route path="/aktuellt/:slug" element={<NewsDetail />} />
           <Route path="/integritetspolicy" element={<PrivacyPage />} />
           <Route path="/anvandarvillkor" element={<TermsPage />} />
           <Route path="*" element={<NotFoundPage />} />

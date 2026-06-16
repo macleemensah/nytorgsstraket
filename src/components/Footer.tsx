@@ -40,8 +40,10 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium mb-6 text-white/40 font-din text-nowrap">{t('footer.information')}</h4>
               <ul className="space-y-4 font-extralight text-sm">
-                <li><a href="#about" className="hover:text-brand-red transition-colors">{t('footer.om_oss')}</a></li>
-                <li><a href="#events" className="hover:text-brand-red transition-colors">{t('nav.evenemang')}</a></li>
+                <li><a href="/#about" className="hover:text-brand-red transition-colors">{t('footer.om_oss')}</a></li>
+                <li><Link to="/om-nytorget" className="hover:text-brand-red transition-colors">{t('nav.guide')}</Link></li>
+                <li><Link to="/aktuellt" className="hover:text-brand-red transition-colors">{t('nav.aktuellt')}</Link></li>
+                <li><Link to="/evenemang" className="hover:text-brand-red transition-colors">{t('nav.evenemang')}</Link></li>
                 <li><a href="mailto:info@nytorgsstraket.se" className="hover:text-brand-red transition-colors">{t('footer.kontakt')}</a></li>
               </ul>
             </div>

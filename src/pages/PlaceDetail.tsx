@@ -60,15 +60,44 @@ export default function PlaceDetail() {
     })
   };
 
+  const categorySlug = store.category.toLowerCase().replace(' & ', '-och-').replace(' och ', '-och-').replace(' ', '-');
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Hem",
+        "item": "https://nytorgsstraket.se/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": store.category,
+        "item": `https://nytorgsstraket.se/kategori/${categorySlug}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": store.name,
+        "item": `https://nytorgsstraket.se/plats/${store.slug}`
+      }
+    ]
+  };
+
+  const combinedSchema = [schema, breadcrumbSchema];
+
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
       <SEO 
-        title={`${store.name} | Nytorgsstråket`}
+        title={`${store.name} vid Nytorget | SoFo Södermalm`}
         description={store.description.substring(0, 160)}
         keywords={`${store.name}, ${store.category}, Nytorget, Nytorgsgatan, Södermalm, Stockholm shopping, Nytorgsstråket`}
         canonical={`/plats/${store.slug}`}
         image={store.heroImage}
-        schema={schema}
+        schema={combinedSchema}
       />
       <Navbar />
 

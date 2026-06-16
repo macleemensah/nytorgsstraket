@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,7 +24,7 @@ async function getRoutes() {
     storeSlugs.push(storeMatch[1]);
   }
 
-  // Extract event slugs using regex from EventsPage.tsx
+  // Extract event slugs using regex from EventsPage.tsx (fallback data)
   const eventsFilePath = resolve('src/pages/EventsPage.tsx');
   let eventSlugs = [];
   if (fs.existsSync(eventsFilePath)) {
@@ -33,15 +36,64 @@ async function getRoutes() {
     }
   }
 
+  // Fetch dynamic events from Supabase REST API
+  if (fs.existsSync(resolve('.env.local'))) {
+    dotenv.config({ path: resolve('.env.local') });
+  } else {
+    dotenv.config();
+  }
+
+  const supabaseUrl = process.env.VITE_SUPABASE_URL;
+  const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY;
+
+  if (supabaseUrl && supabaseKey) {
+    try {
+      console.log('[prerender] Fetching dynamic events from Supabase...');
+      const response = await fetch(`${supabaseUrl}/rest/v1/events?is_active=eq.true&select=slug,title`, {
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`
+        }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        for (const row of data) {
+          const dbSlug = row.slug || row.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+          if (dbSlug && !eventSlugs.includes(dbSlug)) {
+            eventSlugs.push(dbSlug);
+          }
+        }
+        console.log(`[prerender] Added ${data.length} dynamic events to route map.`);
+      }
+    } catch (err) {
+      console.error('[prerender] Failed to fetch events from Supabase:', err.message);
+    }
+  }
+
+  // Extract news slugs
+  const newsFilePath = resolve('src/data/news.ts');
+  let newsSlugs = [];
+  if (fs.existsSync(newsFilePath)) {
+    const newsContent = fs.readFileSync(newsFilePath, 'utf-8');
+    const newsSlugRegex = /slug:\s*['"]([^'"]+)['"]/g;
+    let newsMatch;
+    while ((newsMatch = newsSlugRegex.exec(newsContent)) !== null) {
+      newsSlugs.push(newsMatch[1]);
+    }
+  }
+
   const routes = [
     '/',
+    '/om-nytorget',
+    '/aktuellt',
     '/evenemang',
     '/kategori/butiker',
     '/kategori/kafeer',
     '/kategori/kultur',
     '/kategori/mat-och-dryck',
     ...storeSlugs.map(slug => `/plats/${slug}`),
-    ...eventSlugs.map(slug => `/evenemang/${slug}`)
+    ...eventSlugs.map(slug => `/evenemang/${slug}`),
+    ...newsSlugs.map(slug => `/aktuellt/${slug}`)
   ];
 
   return routes;
@@ -71,8 +123,6 @@ async function generateStaticFiles() {
 
   // --- Try Puppeteer pre-rendering (optional, non-blocking) ---
   try {
-    const puppeteerModule = await import('puppeteer');
-    const puppeteer = puppeteerModule.default;
     const express = (await import('express')).default;
 
     console.log('[prerender] Attempting Puppeteer pre-rendering...');
@@ -86,10 +136,30 @@ async function generateStaticFiles() {
 
     const server = app.listen(PORT);
     
-    const browser = await puppeteer.launch({ 
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-    });
+    let browser;
+    try {
+      const puppeteerModule = await import('puppeteer');
+      const puppeteer = puppeteerModule.default;
+      browser = await puppeteer.launch({ 
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+      });
+    } catch (localErr) {
+      console.log('[prerender] Standard puppeteer failed, trying serverless chromium...');
+      const sparticuzModule = await import('@sparticuz/chromium');
+      const sparticuz = sparticuzModule.default;
+      const puppeteerCoreModule = await import('puppeteer-core');
+      const puppeteerCore = puppeteerCoreModule.default;
+      
+      browser = await puppeteerCore.launch({
+        args: sparticuz.args,
+        defaultViewport: sparticuz.defaultViewport,
+        executablePath: await sparticuz.executablePath(),
+        headless: sparticuz.headless,
+        ignoreHTTPSErrors: true,
+      });
+    }
+    
     const page = await browser.newPage();
 
     // Unlock the dev mode by setting localStorage

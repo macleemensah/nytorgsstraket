@@ -86,6 +86,28 @@ export default function CategoryPage() {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Hem",
+        "item": "https://nytorgsstraket.se/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": categoryConfig.title,
+        "item": `https://nytorgsstraket.se/kategori/${slug}`
+      }
+    ]
+  };
+
+  // Combine schemas
+  const combinedSchema = [collectionSchema, breadcrumbSchema];
+
   return (
     <div className="min-h-screen bg-bg-paper flex flex-col">
       <SEO 
@@ -94,7 +116,7 @@ export default function CategoryPage() {
         keywords={categoryKeywords[slug || ''] || `${categoryConfig.title}, nytorget, sofo, södermalm, nytorgsgatan`}
         canonical={`/kategori/${slug}`}
         image={categoryConfig.image}
-        schema={collectionSchema}
+        schema={combinedSchema}
       />
       <Navbar />
       

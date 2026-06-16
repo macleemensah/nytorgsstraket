@@ -31,6 +31,8 @@ const Navbar: React.FC = () => {
     { label: t('nav.upptack'), href: '/#discover' },
     { label: t('nav.platser'), href: '/#featured' },
     { label: t('nav.evenemang'), href: '/#events' },
+    { label: t('nav.aktuellt'), href: '/aktuellt' },
+    { label: t('nav.guide'), href: '/om-nytorget' },
     { label: t('nav.om_straket'), href: '/#about' },
   ];
 
