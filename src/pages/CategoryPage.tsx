@@ -26,7 +26,7 @@ const getCategoryColor = (category: string) => {
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const categoryConfig = CATEGORY_MAP[slug || ''];
-  const { stores: categoryStores } = useSanityStores(
+  const { stores: categoryStores, isLoading } = useSanityStores(
     categoryConfig ? categoryConfig.title : undefined
   );
 
@@ -143,7 +143,19 @@ export default function CategoryPage() {
       </div>
 
       <main className="flex-grow max-w-7xl mx-auto px-6 py-16 md:py-24 w-full">
-        {categoryStores.length > 0 ? (
+        {isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 mt-8">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="aspect-[3/4] mb-6 rounded-sm bg-text-dark/10" />
+                <div className="h-4 w-20 rounded bg-text-dark/10 mb-3" />
+                <div className="h-7 w-3/4 rounded bg-text-dark/10 mb-3" />
+                <div className="h-4 w-full rounded bg-text-dark/10 mb-2" />
+                <div className="h-4 w-2/3 rounded bg-text-dark/10" />
+              </div>
+            ))}
+          </div>
+        ) : categoryStores.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 mt-8" data-nosnippet>
             {categoryStores.map((store) => (
               <Link key={store.slug} to={store.overrideUrl || `/plats/${store.slug}`} className="group block cursor-pointer">
