@@ -39,7 +39,7 @@ export default function NytorgetGuide() {
             <h3 className="text-xs uppercase tracking-widest text-text-dark/40 mb-4 font-din">Hitta till Nytorget</h3>
             <div className="aspect-square w-full bg-selection mb-6 rounded-sm overflow-hidden">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x465f77fa8f609a63%3A0xe54e1a0d33e57f58!2sNytorget!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.25!2d18.077357!3d59.315534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77fa8f609a63%3A0xe54e1a0d33e57f58!2sNytorget%2C%20Stockholm!5e0!3m2!1ssv!2sse!4v1718636400000!5m2!1ssv!2sse" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

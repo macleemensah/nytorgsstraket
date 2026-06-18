@@ -86,13 +86,28 @@ const NewsPage: React.FC = () => {
               to={`/aktuellt/${post.slug}`}
               className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                {post.imageUrl && (
+              <div className="aspect-[4/3] w-full overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #f0ece4 0%, #e8e2d8 100%)' }}>
+                {post.imageUrl ? (
                   <img 
                     src={post.imageUrl} 
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    {/* Subtle decorative lines */}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
+                      <rect x="8" y="8" width="32" height="32" rx="2" stroke="#2d2d2a" strokeWidth="1.5"/>
+                      <path d="M8 30 L18 20 L26 28 L32 22 L40 30" stroke="#2d2d2a" strokeWidth="1.5" strokeLinejoin="round"/>
+                      <circle cx="32" cy="18" r="4" stroke="#2d2d2a" strokeWidth="1.5"/>
+                    </svg>
+                    <span
+                      className="text-xs uppercase tracking-[0.2em] font-din"
+                      style={{ color: '#2d2d2a', opacity: 0.4 }}
+                    >
+                      Kommer snart
+                    </span>
+                  </div>
                 )}
               </div>
               <div className="p-6">

@@ -21,7 +21,7 @@ export const newsPosts: NewsPost[] = [
       <p class="mb-4">Vi kommer att lyfta fram våra fantastiska hyresgäster, dela med oss av nyheter och ge er en unik inblick i vad som gör SoFo och Nytorget till en av Stockholms mest levande platser.</p>
       <p>Håll utkik efter kommande inlägg där vi dyker ner i spännande samarbeten och lokala initiativ!</p>
     `,
-    imageUrl: '/assets/bild1.jpg',
+    imageUrl: '',
     date: '2026-06-16',
     author: 'Nytorgsstråket',
     tags: ['Nyhet', 'Nytorget']
@@ -53,7 +53,7 @@ export const newsPosts: NewsPost[] = [
       </div>
       <script async src="//www.instagram.com/embed.js"></script>
     `,
-    imageUrl: '/assets/bild2.jpg',
+    imageUrl: '',
     date: '2026-06-14',
     author: 'Nytorgsstråket',
     tags: ['Instagram', 'Second Hand']
