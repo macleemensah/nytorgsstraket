@@ -168,76 +168,84 @@ const NewsPage: React.FC = () => {
 
         {news.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {news.map(post => (
-              <Link 
-                key={post.id} 
-                to={post.type === 'instagram' ? `/plats/${post.slug}` : `/aktuellt/${post.slug}`}
-                className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
-              >
-                <div className="aspect-[4/3] w-full overflow-hidden relative bg-[#f5ece4]" style={{ background: 'linear-gradient(135deg, #f0ece4 0%, #e8e2d8 100%)' }}>
-                  {post.imageUrl ? (
-                    <img 
-                      src={post.imageUrl} 
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
-                        <rect x="8" y="8" width="32" height="32" rx="2" stroke="#2d2d2a" strokeWidth="1.5"/>
-                        <path d="M8 30 L18 20 L26 28 L32 22 L40 30" stroke="#2d2d2a" strokeWidth="1.5" strokeLinejoin="round"/>
-                        <circle cx="32" cy="18" r="4" stroke="#2d2d2a" strokeWidth="1.5"/>
-                      </svg>
-                      <span className="text-xs uppercase tracking-[0.2em] font-din" style={{ color: '#2d2d2a', opacity: 0.4 }}>
-                        Kommer snart
-                      </span>
-                    </div>
-                  )}
-                  
-                  {post.type === 'instagram' && (
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm w-8 h-8 rounded-full shadow-sm flex items-center justify-center text-[#e1306c]">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      {post.type === 'instagram' ? (
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-gradient-to-r from-[#fdf4f5] to-[#fef0f6] text-[#e1306c] border border-[#fbdde5]">
-                          {post.tags?.[0]}
+            {news.map(post => {
+              const isExternal = post.type === 'instagram' && !post.slug;
+              const CardWrapper = isExternal ? 'a' : Link;
+              const wrapperProps = isExternal
+                ? { href: post.externalUrl, target: '_blank', rel: 'noopener noreferrer' }
+                : { to: post.type === 'instagram' ? `/plats/${post.slug}` : `/aktuellt/${post.slug}` };
+
+              return (
+                <CardWrapper
+                  key={post.id}
+                  {...(wrapperProps as any)}
+                  className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+                >
+                  <div className="aspect-[4/3] w-full overflow-hidden relative bg-[#f5ece4]" style={{ background: 'linear-gradient(135deg, #f0ece4 0%, #e8e2d8 100%)' }}>
+                    {post.imageUrl ? (
+                      <img 
+                        src={post.imageUrl} 
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
+                          <rect x="8" y="8" width="32" height="32" rx="2" stroke="#2d2d2a" strokeWidth="1.5"/>
+                          <path d="M8 30 L18 20 L26 28 L32 22 L40 30" stroke="#2d2d2a" strokeWidth="1.5" strokeLinejoin="round"/>
+                          <circle cx="32" cy="18" r="4" stroke="#2d2d2a" strokeWidth="1.5"/>
+                        </svg>
+                        <span className="text-xs uppercase tracking-[0.2em] font-din" style={{ color: '#2d2d2a', opacity: 0.4 }}>
+                          Kommer snart
                         </span>
-                      ) : (
-                        <span className="text-xs font-bold uppercase tracking-wider text-primary">
-                          {post.tags?.[0]}
-                        </span>
-                      )}
-                      <span className="text-xs text-text-muted">• {post.date}</span>
+                      </div>
+                    )}
+                    
+                    {post.type === 'instagram' && (
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm w-8 h-8 rounded-full shadow-sm flex items-center justify-center text-[#e1306c]">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        {post.type === 'instagram' ? (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-gradient-to-r from-[#fdf4f5] to-[#fef0f6] text-[#e1306c] border border-[#fbdde5]">
+                            {post.tags?.[0]}
+                          </span>
+                        ) : (
+                          <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                            {post.tags?.[0]}
+                          </span>
+                        )}
+                        <span className="text-xs text-text-muted">• {post.date}</span>
+                      </div>
+                      
+                      <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h2>
+                      <p className="text-text-muted text-sm line-clamp-3 leading-relaxed font-light mb-4">
+                        {post.excerpt}
+                      </p>
                     </div>
                     
-                    <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </h2>
-                    <p className="text-text-muted text-sm line-clamp-3 leading-relaxed font-light mb-4">
-                      {post.excerpt}
-                    </p>
+                    {post.type === 'instagram' && (
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-text-muted flex items-center gap-1.5 mt-auto group-hover:text-[#e1306c] transition-colors font-din">
+                        {isExternal ? 'Visa på Instagram' : 'Se butikssida'}
+                        {/* @ts-expect-error - Custom element */}
+                        <iconify-icon icon="solar:arrow-right-linear" width="14" height="14"></iconify-icon>
+                      </div>
+                    )}
                   </div>
-                  
-                  {post.type === 'instagram' && (
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-text-muted flex items-center gap-1.5 mt-auto group-hover:text-[#e1306c] transition-colors font-din">
-                      Se butikssida
-                      {/* @ts-expect-error - Custom element */}
-                      <iconify-icon icon="solar:arrow-right-linear" width="14" height="14"></iconify-icon>
-                    </div>
-                  )}
-                </div>
-              </Link>
-            ))}
+                </CardWrapper>
+              );
+            })}
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-32 gap-6">
