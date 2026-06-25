@@ -24,12 +24,19 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema, image,
       {keywords && <meta name="keywords" content={keywords} />}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       
-      {/* Open Graph / Facebook */}
+      {/* Open Graph */}
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Nytorgsstråket" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       {canonical && <meta property="og:url" content={`${siteUrl}${canonical}`} />}
       <meta property="og:image" content={ogImage} />
+
+      {/* Twitter / X */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
 
       {/* Canonical URL */}
       {canonical && <link rel="canonical" href={`${siteUrl}${canonical}`} />}

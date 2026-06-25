@@ -42,7 +42,6 @@ export default function PlaceDetail() {
       ...store.galleryImages
     ],
     "url": `https://nytorgsstraket.se/plats/${store.slug}`,
-    "telephone": "",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": store.address,
@@ -50,13 +49,8 @@ export default function PlaceDetail() {
       "postalCode": "11640",
       "addressCountry": "SE"
     },
-    ...(!isPlace && {
-      "openingHoursSpecification": store.openingHours.map(hourStr => {
-        return {
-          "@type": "OpeningHoursSpecification",
-          "description": hourStr
-        };
-      })
+    ...(!isPlace && store.openingHours.length > 0 && {
+      "openingHours": store.openingHours
     })
   };
 

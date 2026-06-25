@@ -39,12 +39,7 @@ export default function HomePage() {
       {
         "@type": "WebSite",
         "name": "Nytorgsstråket",
-        "url": "https://nytorgsstraket.se",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://nytorgsstraket.se/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "url": "https://nytorgsstraket.se"
       },
       {
         "@type": "ShoppingCenter",
@@ -54,6 +49,10 @@ export default function HomePage() {
           ? "Stockholms mest levande shoppingstråk vid Nytorget i SoFo, Södermalm. Unika butiker, kaféer och restauranger på Nytorgsgatan."
           : "Stockholm's most vibrant shopping street by Nytorget in SoFo, Södermalm. Unique stores, cafes, and restaurants on Nytorgsgatan.",
         "url": "https://nytorgsstraket.se",
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q140329758",
+          "https://sv.wikipedia.org/wiki/Nytorgsstråket"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Nytorgsgatan",

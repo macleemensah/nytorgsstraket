@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "crons": [
     {
       "path": "/api/cron/sync-events",
@@ -6,7 +8,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!api|assets|_next|sitemap\\.xml|robots\\.txt|favicon\\.png|og-image\\.jpg).*)", "destination": "/index.html" }
+    { "source": "/((?!api|assets|sitemap\\.xml|robots\\.txt|favicon\\.png|og-image\\.jpg).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

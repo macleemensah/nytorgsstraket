@@ -156,7 +156,7 @@ export default function CategoryPage() {
             ))}
           </div>
         ) : categoryStores.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 mt-8" data-nosnippet>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 mt-8">
             {categoryStores.map((store) => (
               <Link key={store.slug} to={store.overrideUrl || `/plats/${store.slug}`} className="group block cursor-pointer">
                 <div className="overflow-hidden aspect-[3/4] mb-6 rounded-sm bg-selection relative">
