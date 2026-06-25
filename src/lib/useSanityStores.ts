@@ -14,6 +14,7 @@ export interface SanityStore {
   websiteUrl?: string;
   locationMapUrl?: string;
   tags?: string[];
+  instagramHandle?: string;
 }
 
 // Maps a Sanity store to the format used by the existing app
@@ -31,6 +32,7 @@ function mapSanityStore(item: SanityStore) {
     tags: item.tags || [],
     isClosed: false,
     overrideUrl: undefined,
+    instagramHandle: item.instagramHandle,
   };
 }
 
@@ -48,7 +50,7 @@ export function useSanityStores(category?: string) {
     client
       .fetch<SanityStore[]>(
         `*[_type == "store" ${categoryFilter}] | order(title asc) {
-          _id, title, slug, category, description, address, openHours, image, websiteUrl, locationMapUrl, tags
+          _id, title, slug, category, description, address, openHours, image, websiteUrl, locationMapUrl, tags, instagramHandle
         }`
       )
       .then((data) => {

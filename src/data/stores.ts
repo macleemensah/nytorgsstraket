@@ -81,6 +81,7 @@ export interface Store {
   address: string;
   isClosed?: boolean;
   overrideUrl?: string;
+  instagramHandle?: string;
 }
 
 export const STORES: Store[] = [
@@ -103,7 +104,8 @@ export const STORES: Store[] = [
       lykkeStoreHero,
       lykkeStoreGallery1
     ],
-    address: "Nytorgsgatan 38, Stockholm"
+    address: "Nytorgsgatan 38, Stockholm",
+    instagramHandle: 'lykkenytorget'
   },
   {
     slug: 'parlans-konfektyr',
@@ -124,7 +126,8 @@ export const STORES: Store[] = [
       parlansGallery1,
       parlansGallery2
     ],
-    address: "Nytorgsgatan 38, Stockholm"
+    address: "Nytorgsgatan 38, Stockholm",
+    instagramHandle: 'parlanskonfektyr'
   },
   {
     slug: 'apc',
@@ -144,7 +147,8 @@ export const STORES: Store[] = [
       apcStoreGallery1,
       apcStoreGallery2
     ],
-    address: "Nytorgsgatan 38, Stockholm"
+    address: "Nytorgsgatan 38, Stockholm",
+    instagramHandle: 'apc_paris'
   },
   {
     slug: 'aesop',
@@ -175,14 +179,15 @@ export const STORES: Store[] = [
       "Restaurang: 11:30–Sent"
     ],
     scale: 0.95,
-    description: "Urban Deli är en livlig kombination av restaurang, bar, saluhall och matbutik som erbjuder färska, noga utvalda råvaror i en pulserande atmosfär. Här möts södermalmsbor över en avslappnad middag, ett ostron i baren eller för att handla hem krispiga grönsaker och nybakat bröd.",
+    description: "Urban Deli är en livlig kombination av restaurang, bar, saluhall och matbutik som erbjuder färska, noga utvalda råvaror i a pulserande atmosfär. Här möts södermalmsbor över en avslappnad middag, ett ostron i baren eller för att handla hem krispiga grönsaker och nybakat bröd.",
     heroImage: urbanDeliHero,
     galleryImages: [
       urbanDeliHero,
       urbanDeliGallery1,
       urbanDeliGallery2
     ],
-    address: "Nytorget 4, Stockholm"
+    address: "Nytorget 4, Stockholm",
+    instagramHandle: 'urbandeli'
   },
   {
     slug: 'nytorget-6',
@@ -203,7 +208,8 @@ export const STORES: Store[] = [
       nytorget6Gallery1,
       nytorget6Gallery2
     ],
-    address: "Nytorget 6, Stockholm"
+    address: "Nytorget 6, Stockholm",
+    instagramHandle: 'nytorget6'
   },
   {
     slug: 'meatballs-for-the-people',
@@ -224,7 +230,8 @@ export const STORES: Store[] = [
       meatballsGallery1,
       meatballsGallery2
     ],
-    address: "Nytorgsgatan 30, Stockholm"
+    address: "Nytorgsgatan 30, Stockholm",
+    instagramHandle: 'meatballsforthepeople'
   },
   {
     slug: 'klattermusen',
@@ -244,7 +251,8 @@ export const STORES: Store[] = [
       klattermusenBild2,
       klattermusenBild3
     ],
-    address: "Nytorgsgatan 36, Stockholm"
+    address: "Nytorgsgatan 36, Stockholm",
+    instagramHandle: 'klattermusens.verkstad'
   },
   {
     slug: '654',
@@ -266,7 +274,8 @@ export const STORES: Store[] = [
       store654Gallery2,
       store654Gallery3
     ],
-    address: "Nytorgsgatan 27, Stockholm"
+    address: "Nytorgsgatan 27, Stockholm",
+    instagramHandle: '654.se'
   },
   {
     slug: 'ps-matsal',
@@ -286,7 +295,8 @@ export const STORES: Store[] = [
       psMatsalGallery2,
       psMatsalGallery3
     ],
-    address: "Nytorgsgatan 42, Stockholm"
+    address: "Nytorgsgatan 42, Stockholm",
+    instagramHandle: 'psmatsal'
   },
   {
     slug: 'bladverket',
@@ -307,7 +317,8 @@ export const STORES: Store[] = [
       bladverketGallery1,
       bladverketGallery2
     ],
-    address: "Nytorgsgatan 23A, Stockholm"
+    address: "Nytorgsgatan 23A, Stockholm",
+    instagramHandle: 'bladverket'
   },
   {
     slug: 'retro',
@@ -329,7 +340,8 @@ export const STORES: Store[] = [
       retroGallery1,
       retroGallery2
     ],
-    address: "Nytorgsgatan 42, Stockholm"
+    address: "Nytorgsgatan 42, Stockholm",
+    instagramHandle: 'retrobarsofo'
   },
   {
     slug: 'stadsmissionen',
@@ -349,7 +361,8 @@ export const STORES: Store[] = [
       stadsmissionenHero,
       stadsmissionenGallery1
     ],
-    address: "Nytorgsgatan 44, Stockholm"
+    address: "Nytorgsgatan 44, Stockholm",
+    instagramHandle: 'stadsmissionensecondhand'
   },
   {
     slug: 'house-of-tell',
@@ -370,7 +383,8 @@ export const STORES: Store[] = [
       houseOfTellGallery1,
       houseOfTellGallery2
     ],
-    address: "Nytorgsgatan, Stockholm"
+    address: "Nytorgsgatan, Stockholm",
+    instagramHandle: 'houseoftell'
   },
   {
     slug: 'capanna-verde',
@@ -389,7 +403,8 @@ export const STORES: Store[] = [
       capannaVerdeGallery1,
       capannaVerdeGallery2
     ],
-    address: "Nytorgsgatan, Stockholm"
+    address: "Nytorgsgatan, Stockholm",
+    instagramHandle: 'capannaverde'
   },
   {
     slug: 'lusine-bleue',
@@ -409,7 +424,8 @@ export const STORES: Store[] = [
       lusineBleueGallery1,
       lusineBleueGallery2
     ],
-    address: "Nytorgsgatan 36, Stockholm"
+    address: "Nytorgsgatan 36, Stockholm",
+    instagramHandle: 'lusinebleue'
   },
   {
     slug: 'nytorget',

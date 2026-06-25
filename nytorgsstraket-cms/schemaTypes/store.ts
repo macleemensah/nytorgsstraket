@@ -71,6 +71,12 @@ export default defineType({
       type: 'url',
     }),
     defineField({
+      name: 'instagramHandle',
+      title: 'Instagram Användarnamn (t.ex. lykkenytorget eller @lykkenytorget)',
+      type: 'string',
+      description: 'Används för att automatiskt hämta inlägg till Aktuellt-sidan',
+    }),
+    defineField({
       name: 'tags',
       title: 'Taggar (t.ex. Mode, Vintage, Fika)',
       type: 'array',

@@ -8,12 +8,40 @@ import { client, urlFor } from '../lib/sanity';
 
 interface SanityNews {
   _id: string;
+  _type: 'news';
   title: string;
   slug: { current: string };
   date: string;
   image: any;
   excerpt: string;
   tags: string[];
+}
+
+interface SanityInstagramPost {
+  _id: string;
+  _type: 'instagramPost';
+  caption?: string;
+  imageUrl?: string;
+  localImage?: any;
+  postUrl: string;
+  date: string;
+  store?: {
+    title: string;
+    slug: { current: string };
+  };
+}
+
+interface UnifiedPost {
+  id: string;
+  type: 'news' | 'instagram';
+  title: string;
+  slug: string;
+  date: string;
+  imageUrl: string;
+  excerpt: string;
+  tags: string[];
+  externalUrl?: string;
+  storeName?: string;
 }
 
 const NewsPage: React.FC = () => {
@@ -36,30 +64,89 @@ const NewsPage: React.FC = () => {
     ]
   };
 
-  const [news, setNews] = React.useState<any[]>(hardcodedNews);
+  const [news, setNews] = React.useState<UnifiedPost[]>([]);
 
   React.useEffect(() => {
     client
-      .fetch<SanityNews[]>(
-        `*[_type == "news"] | order(date desc) {
-          _id, title, slug, date, image, excerpt, tags
+      .fetch<(SanityNews | SanityInstagramPost)[]>(
+        `*[_type in ["news", "instagramPost"]] | order(date desc) {
+          _id,
+          _type,
+          title,
+          slug,
+          date,
+          image,
+          excerpt,
+          tags,
+          caption,
+          imageUrl,
+          localImage,
+          postUrl,
+          store->{
+            title,
+            slug
+          }
         }`
       )
       .then((data) => {
         if (data && data.length > 0) {
-          const formatted = data.map((item) => ({
-            id: item._id,
+          const formatted = data.map((item): UnifiedPost => {
+            if (item._type === 'instagramPost') {
+              return {
+                id: item._id,
+                type: 'instagram',
+                title: item.store ? `Inlägg från ${item.store.title}` : 'Inlägg från Instagram',
+                slug: item.store ? item.store.slug.current : '',
+                date: item.date ? item.date.split('T')[0] : '',
+                imageUrl: item.localImage ? urlFor(item.localImage).width(600).url() : (item.imageUrl || ''),
+                excerpt: item.caption || '',
+                tags: ['Instagram'],
+                externalUrl: item.postUrl,
+                storeName: item.store?.title,
+              };
+            } else {
+              return {
+                id: item._id,
+                type: 'news',
+                title: item.title,
+                slug: item.slug.current,
+                date: item.date,
+                imageUrl: item.image ? urlFor(item.image).width(600).url() : '',
+                excerpt: item.excerpt,
+                tags: item.tags || [],
+              };
+            }
+          });
+          setNews(formatted);
+        } else {
+          // Fallback to hardcoded news
+          const formatted = hardcodedNews.map((item): UnifiedPost => ({
+            id: item.id,
+            type: 'news',
             title: item.title,
-            slug: item.slug.current,
+            slug: item.slug,
             date: item.date,
-            imageUrl: item.image ? urlFor(item.image).url() : '',
+            imageUrl: item.imageUrl,
             excerpt: item.excerpt,
-            tags: item.tags || [],
+            tags: item.tags,
           }));
           setNews(formatted);
         }
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        const formatted = hardcodedNews.map((item): UnifiedPost => ({
+          id: item.id,
+          type: 'news',
+          title: item.title,
+          slug: item.slug,
+          date: item.date,
+          imageUrl: item.imageUrl,
+          excerpt: item.excerpt,
+          tags: item.tags,
+        }));
+        setNews(formatted);
+      });
   }, []);
 
   return (
@@ -76,7 +163,7 @@ const NewsPage: React.FC = () => {
       <main className="flex-grow pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <h1 className="text-4xl md:text-6xl font-orpheus font-light tracking-tight mb-4 text-center">Nytt på stråket</h1>
         <p className="text-lg md:text-xl text-text-muted font-light text-center max-w-2xl mx-auto mb-16">
-          Senaste nytt, händelser och inspiration från Nytorgsstråket
+          Senaste nytt, händelser och sociala uppdateringar från Nytorgsstråket
         </p>
 
         {news.length > 0 ? (
@@ -84,15 +171,16 @@ const NewsPage: React.FC = () => {
             {news.map(post => (
               <Link 
                 key={post.id} 
-                to={`/aktuellt/${post.slug}`}
-                className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                to={post.type === 'instagram' ? `/plats/${post.slug}` : `/aktuellt/${post.slug}`}
+                className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
               >
-                <div className="aspect-[4/3] w-full overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #f0ece4 0%, #e8e2d8 100%)' }}>
+                <div className="aspect-[4/3] w-full overflow-hidden relative bg-[#f5ece4]" style={{ background: 'linear-gradient(135deg, #f0ece4 0%, #e8e2d8 100%)' }}>
                   {post.imageUrl ? (
                     <img 
                       src={post.imageUrl} 
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
@@ -106,14 +194,47 @@ const NewsPage: React.FC = () => {
                       </span>
                     </div>
                   )}
+                  
+                  {post.type === 'instagram' && (
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm w-8 h-8 rounded-full shadow-sm flex items-center justify-center text-[#e1306c]">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                      </svg>
+                    </div>
+                  )}
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary">{post.tags?.[0]}</span>
-                    <span className="text-xs text-text-muted">• {post.date}</span>
+                <div className="p-6 flex flex-col flex-grow justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      {post.type === 'instagram' ? (
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-gradient-to-r from-[#fdf4f5] to-[#fef0f6] text-[#e1306c] border border-[#fbdde5]">
+                          {post.tags?.[0]}
+                        </span>
+                      ) : (
+                        <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                          {post.tags?.[0]}
+                        </span>
+                      )}
+                      <span className="text-xs text-text-muted">• {post.date}</span>
+                    </div>
+                    
+                    <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-text-muted text-sm line-clamp-3 leading-relaxed font-light mb-4">
+                      {post.excerpt}
+                    </p>
                   </div>
-                  <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{post.title}</h2>
-                  <p className="text-text-muted text-sm line-clamp-3">{post.excerpt}</p>
+                  
+                  {post.type === 'instagram' && (
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-text-muted flex items-center gap-1.5 mt-auto group-hover:text-[#e1306c] transition-colors font-din">
+                      Se butikssida
+                      {/* @ts-expect-error - Custom element */}
+                      <iconify-icon icon="solar:arrow-right-linear" width="14" height="14"></iconify-icon>
+                    </div>
+                  )}
                 </div>
               </Link>
             ))}
