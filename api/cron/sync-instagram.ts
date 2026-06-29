@@ -20,154 +20,192 @@ const STORE_INSTAGRAM_MAP: Record<string, string> = {
   'lusine-bleue':             'lusinebleue',
 };
 
-// ─── High-fidelity mock posts per store ────────────────────────────────────
+// ─── High-fidelity mock posts per store (fallback only) ────────────────────
 const MOCK_POSTS: Record<string, Array<{ caption: string; imageUrl: string; offsetHours: number }>> = {
   'lykke': [
     {
-      caption: 'Nybakat surdegsbrod och nymalet specialkaffe star redo pa Nytorgsgatan 38! Kom in och varm dig i sofo-vardagsrummet. Valkommen! #lykkenytorget #specialkaffe #sofo #fika',
+      caption: 'Nybakat surdegsbröd och nymalet specialkaffe redo på Nytorgsgatan 38! Kom in och värm dig i sofo-vardagsrummet. Välkommen! #lykkenytorget #specialkaffe #sofo #fika',
       imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800',
       offsetHours: 2,
     },
     {
-      caption: 'Eftermiddagshaeng med naturviner och skoena smarattar. Kaffebaren forvandlas till en mysig kvallsbar varje kvall! #naturvin #sodermalm #sofo',
+      caption: 'Eftermiddagshäng med naturviner och sköna smårätter. Kaffebaren förvandlas till en mysig kvällsbar varje kväll! #naturvin #sodermalm #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800',
       offsetHours: 26,
     },
   ],
   'parlans-konfektyr': [
     {
-      caption: 'Kolasasongen ar i full gang! Havssaltkolan ar var bestsaljare just nu. Handgjord i vart kok varje dag. #parlanskonfektyr #graddkola #mathantverk #sofo',
+      caption: 'Kolasäsongen är i full gång! Havssaltskolan är vår bestsäljare just nu. Handgjord i vårt kök varje dag. #parlanskonfektyr #grädkola #mathantverk #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1581798459219-318e76aecc7b?q=80&w=800',
       offsetHours: 4,
     },
   ],
   'apc': [
     {
-      caption: 'Ny kollektion i japansk radenim pa Nytorgsgatan. Minimalistisk design och perfekt skarning for en tidlos garderob. #apc #apcparis #denim #sofo',
+      caption: 'Ny kollektion i japansk rådenin på Nytorgsgatan. Minimalistisk design och perfekt skärning för en tidlös garderob. #apc #apcparis #denim #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800',
       offsetHours: 6,
     },
   ],
   'urban-deli': [
     {
-      caption: 'Krispiga gronsaker, farskka ostron och nybakat surdegsbroed i var deli! Sla dig ner i restaurangen eller ta med hem. #urbandeli #nytorget #sofo',
+      caption: 'Krispiga grönsaker, färska ostron och nybakat surdegsbröd i vår deli! Slå dig ner i restaurangen eller ta med hem. #urbandeli #nytorget #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800',
       offsetHours: 8,
     },
   ],
   'nytorget-6': [
     {
-      caption: 'Boka bord for helgen! Modern och rustik europeisk mat, generost barhaeng och skont haeng langt in pa natten. Ses vi? #nytorget6 #restaurangstockholm #sofo',
+      caption: 'Boka bord för helgen! Modern och rustik europeisk mat, generöst barhäng och skönt häng långt in på natten. Ses vi? #nytorget6 #restaurangstockholm #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800',
       offsetHours: 12,
     },
   ],
   'meatballs-for-the-people': [
     {
-      caption: 'Traditionell husmanskost med en modern twist. Viltkott, klassiska kalvkottbullar och veganska alternativ. Vad valjer du? #meatballsforthepeople #husmanskost #sofo',
+      caption: 'Traditionell husmanskost med en modern twist. Vilt kött, klassiska kalvköttbullar och veganska alternativ. Vad väljer du? #meatballsforthepeople #husmanskost #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=800',
       offsetHours: 14,
     },
   ],
   'klattermusen': [
     {
-      caption: 'Motesplats for friluftsalskare och hantverkare. Kaffe, utvalda magasin och vintage-friluftsklaeder. #klattermusen #friluftsliv #sofo',
+      caption: 'Mötesplats för friluftsälskare och hantverkare. Kaffe, utvalda magasin och vintage-friluftskläder. #klattermusen #friluftsliv #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=800',
       offsetHours: 18,
     },
   ],
   '654': [
     {
-      caption: 'Allt du behoever for kallvattensurf i de nordiska tropikerna. Vatdrakter, vax och skont surf-snack. #654sofo #surfsverige #kallvattensurf',
+      caption: 'Allt du behöver för kallvattensurf i de nordiska tropikerna. Våtdräkter, vax och skönt surf-snack. #654sofo #surfsverige #kallvattensurf',
       imageUrl: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=800',
       offsetHours: 20,
     },
   ],
   'ps-matsal': [
     {
-      caption: 'En hemlig parla pa Nytorgsgatan. Lekfull avsmakningsmeny tillagad framfor gasternas ogon. Boka nu! #psmatsal #gastronomi #sofo',
+      caption: 'En hemlig pärla på Nytorgsgatan. Lekfull avsmakningsmeny tillagad framför gästernas ögon. Boka nu! #psmatsal #gastronomi #sofo',
       imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800',
       offsetHours: 10,
     },
   ],
   'bladverket': [
     {
-      caption: 'Butiken doftar ljuvligt av sasongens snittblommor. Kom forbi och plocka ihop en helgkansla hem! #bladverket #florist #nytorgsgatan',
+      caption: 'Butiken doftar ljuvligt av säsongens snittblommor. Kom förbi och plocka ihop en helgkänsla hem! #bladverket #florist #nytorgsgatan',
       imageUrl: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800',
       offsetHours: 22,
     },
   ],
   'retro': [
     {
-      caption: 'Kvallens match visas pa alla skarmar! Burgare, kalla drycker och skont barhaeng. #retrobarsofo #sportsbar #awsofo',
+      caption: 'Kvällens match visas på alla skärmar! Burgare, kalla drycker och skönt barhäng. #retrobarsofo #sportsbar #awsofo',
       imageUrl: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800',
       offsetHours: 24,
     },
   ],
   'house-of-tell': [
     {
-      caption: 'Kurerat urval av Phoebe Philo Celine, Margiela Hermes och The Row. Tidlos design av hogsta kvalitet. #houseoftell #archivalfashion',
+      caption: 'Kurerat urval av Phoebe Philo Céline, Margiela Hermès och The Row. Tidlös design av högsta kvalitet. #houseoftell #archivalfashion',
       imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800',
       offsetHours: 30,
     },
   ],
   'capanna-verde': [
     {
-      caption: 'Genuint italienskt glasshantverk i hjartat av Sodermalm. Kremig gelato pa de finaste ravarorna. Vilken smak idag? #capannaverde #gelato',
+      caption: 'Genuint italienskt glasshantverk i hjärtat av Södermalm. Krämig gelato på de finaste råvarorna. Vilken smak idag? #capannaverde #gelato',
       imageUrl: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800',
       offsetHours: 32,
     },
   ],
   'lusine-bleue': [
     {
-      caption: 'Den klassiska bla franska arbetarjackan i slitstark bomullstwill. Europas storsta sortiment av franskt workwear. #lusinebleue #frenchworkwear',
+      caption: 'Den klassiska blå franska arbetarjackan i slitstarkt bomullstwill. Europas största sortiment av franskt workwear. #lusinebleue #frenchworkwear',
       imageUrl: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=800',
       offsetHours: 34,
     },
   ],
   'stadsmissionen': [
     {
-      caption: 'Unika vintagefynd och handplockat mode pa Nytorgsgatan. Varje kop bidrar till Stadsmissionens sociala arbete. #stadsmissionensecondhand #vintage',
+      caption: 'Unika vintagefynd och handplockat mode på Nytorgsgatan. Varje köp bidrar till Stadsmissionens sociala arbete. #stadsmissionensecondhand #vintage',
       imageUrl: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=800',
       offsetHours: 36,
     },
   ],
 };
 
-// ─── Helper: push mock posts into target array ──────────────────────────────
-function pushMock(
-  target: any[],
-  slug: string,
-  storeId: string | undefined,
-  storeTitle: string,
-  now: Date,
-): void {
-  const posts = MOCK_POSTS[slug] || [
+// ─── Fetch real posts from Instagram's web API ──────────────────────────────
+async function fetchInstagramPosts(
+  handle: string,
+): Promise<Array<{ shortcode: string; caption: string; imageUrl: string; takenAt: number; id: string }>> {
+  const res = await fetch(
+    `https://www.instagram.com/api/v1/users/web_profile_info/?username=${handle}`,
     {
-      caption: `Senaste nytt fran ${storeTitle} pa Nytorgsstraket! Valkommen in. #nytorgsstraket #sofo`,
-      imageUrl: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800',
-      offsetHours: 12,
-    },
-  ];
-
-  posts.forEach((p, i) => {
-    const postDate = new Date(now.getTime() - p.offsetHours * 3_600_000);
-    const doc: any = {
-      _type: 'instagramPost',
-      // Safe Sanity _id: only alphanumeric + dots, max 64 chars
-      _id: `igpost.${slug}.${i}`,
-      postId: `${slug}_mock_${i}`,
-      caption: p.caption,
-      imageUrl: p.imageUrl,
-      postUrl: `https://www.instagram.com/${STORE_INSTAGRAM_MAP[slug] || slug}/`,
-      date: postDate.toISOString(),
-    };
-    // Only attach store reference if we found a real Sanity document for it
-    if (storeId) {
-      doc.store = { _type: 'reference', _ref: storeId };
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'x-ig-app-id': '936619743392459',
+        'Accept': '*/*',
+        'Accept-Language': 'sv-SE,sv;q=0.9,en;q=0.8',
+        'Referer': 'https://www.instagram.com/',
+      },
     }
-    target.push(doc);
+  );
+
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`);
+  }
+
+  const data = await res.json();
+  const edges: any[] = data?.data?.user?.edge_owner_to_timeline_media?.edges || [];
+
+  return edges.slice(0, 3).map((edge: any, i: number) => {
+    const node = edge.node || {};
+    return {
+      shortcode: node.shortcode || `live_${i}`,
+      caption: node?.edge_media_to_caption?.edges?.[0]?.node?.text || '',
+      imageUrl: node.display_url || node.thumbnail_src || '',
+      takenAt: node.taken_at_timestamp || Math.floor(Date.now() / 1000),
+      id: node.id || node.shortcode || `live_${i}`,
+    };
   });
+}
+
+// Helper to download image and upload it to Sanity as localImage
+async function downloadAndUploadImage(
+  sanity: any,
+  imageUrl: string,
+  slug: string,
+  shortcode: string,
+  debugLog: string[]
+): Promise<any> {
+  if (!imageUrl) return undefined;
+
+  try {
+    debugLog.push(`    - Downloading image for "${slug}" (${shortcode}): ${imageUrl.slice(0, 60)}...`);
+    const imgRes = await fetch(imageUrl);
+    if (!imgRes.ok) {
+      throw new Error(`Failed to download image: HTTP ${imgRes.status}`);
+    }
+    const arrayBuffer = await imgRes.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    
+    debugLog.push(`    - Uploading downloaded image to Sanity...`);
+    const asset = await sanity.assets.upload('image', buffer, {
+      contentType: imgRes.headers.get('content-type') || 'image/jpeg',
+      filename: `ig_${slug}_${shortcode}.jpg`,
+    });
+    
+    return {
+      _type: 'image',
+      asset: {
+        _type: 'reference',
+        _ref: asset._id,
+      },
+    };
+  } catch (err: any) {
+    debugLog.push(`    - Error saving localImage for "${slug}" (${shortcode}): ${err.message}`);
+    return undefined;
+  }
 }
 
 // ─── Main handler ───────────────────────────────────────────────────────────
@@ -179,14 +217,12 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  const projectId   = 'lsded7br';
-  const dataset     = 'production';
-  const writeToken  = process.env.SANITY_WRITE_TOKEN;
-  const rapidApiKey = process.env.RAPIDAPI_KEY;
+  const projectId  = 'lsded7br';
+  const dataset    = 'production';
+  const writeToken = process.env.SANITY_WRITE_TOKEN;
   const debugLog: string[] = [];
 
   debugLog.push(`writeToken present: ${!!writeToken}`);
-  debugLog.push(`rapidApiKey present: ${!!rapidApiKey}`);
 
   // 2. Sanity client (needs token for writes)
   const sanity = createClient({
@@ -211,11 +247,24 @@ export default async function handler(req: any, res: any) {
       storeTitleBySlug[s.slug.current] = s.title;
     }
 
+    // 4. Fetch existing instagramPost documents to check and reuse uploaded image assets
+    const existingPosts = await sanity.fetch<Array<{ _id: string; localImage?: any }>>(
+      `*[_type == "instagramPost"] { _id, localImage }`
+    );
+    const existingImageById = new Map<string, any>();
+    for (const p of existingPosts) {
+      existingImageById.set(p._id, p.localImage);
+    }
+    debugLog.push(`Found ${existingPosts.length} existing posts in Sanity to cache-check images`);
+
     const allPosts: any[] = [];
     const now = new Date();
+    const slugKeys = Object.keys(STORE_INSTAGRAM_MAP);
 
-    // 4. Build posts for every store in the hardcoded map
-    for (const [slug, handle] of Object.entries(STORE_INSTAGRAM_MAP)) {
+    // 5. Build posts for every store — try live IG web API, fall back to mock
+    for (let i = 0; i < slugKeys.length; i++) {
+      const slug   = slugKeys[i];
+      const handle = STORE_INSTAGRAM_MAP[slug];
       const storeId    = storeIdBySlug[slug];
       const storeTitle = storeTitleBySlug[slug] || slug;
 
@@ -223,53 +272,84 @@ export default async function handler(req: any, res: any) {
         debugLog.push(`WARNING: no Sanity store found for slug "${slug}" – post will have no store reference`);
       }
 
-      if (rapidApiKey) {
-        // ── LIVE MODE ────────────────────────────────────────────────────
-        try {
-          const apiRes = await fetch(
-            `https://instagram-scraper-api2.p.rapidapi.com/v1/user_posts?username_or_id_or_url=${handle}`,
-            {
-              headers: {
-                'x-rapidapi-key': rapidApiKey,
-                'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
-              },
-            }
-          );
-          if (apiRes.ok) {
-            const apiData  = await apiRes.json();
-            const posts: any[] = (apiData?.data?.items || []).slice(0, 3);
-            debugLog.push(`@${handle}: fetched ${posts.length} live posts`);
-            posts.forEach((post: any, i: number) => {
-              const code = post.code || `${slug}_live_${i}`;
-              const doc: any = {
-                _type:    'instagramPost',
-                _id:      `igpost.${slug}.${code}`.slice(0, 64),
-                postId:   post.id || code,
-                caption:  post.caption?.text || '',
-                imageUrl: post.image_versions?.items?.[0]?.url || post.thumbnail_url || '',
-                postUrl:  `https://www.instagram.com/p/${code}/`,
-                date:     post.taken_at ? new Date(post.taken_at * 1000).toISOString() : now.toISOString(),
-              };
-              if (storeId) doc.store = { _type: 'reference', _ref: storeId };
-              allPosts.push(doc);
-            });
-          } else {
-            debugLog.push(`@${handle}: live fetch failed (${apiRes.status}) – falling back to mock`);
-            pushMock(allPosts, slug, storeId, storeTitle, now);
+      // Small delay between requests to avoid Instagram rate limiting
+      if (i > 0) {
+        await new Promise(r => setTimeout(r, 1000));
+      }
+
+      try {
+        const livePosts = await fetchInstagramPosts(handle);
+        debugLog.push(`@${handle}: fetched ${livePosts.length} live posts via IG web API`);
+
+        for (let postIndex = 0; postIndex < livePosts.length; postIndex++) {
+          const post = livePosts[postIndex];
+          const docId = `igpost.${slug}.${post.shortcode}`.slice(0, 64);
+          
+          const doc: any = {
+            _type:    'instagramPost',
+            _id:      docId,
+            postId:   post.id,
+            caption:  post.caption,
+            imageUrl: post.imageUrl,
+            postUrl:  `https://www.instagram.com/p/${post.shortcode}/`,
+            date:     new Date(post.takenAt * 1000).toISOString(),
+          };
+          if (storeId) doc.store = { _type: 'reference', _ref: storeId };
+
+          // Reuse existing image asset if it exists, otherwise download and upload it
+          const cachedImage = existingImageById.get(docId);
+          if (cachedImage) {
+            doc.localImage = cachedImage;
+            debugLog.push(`  - @${handle}: reusing cached localImage asset`);
+          } else if (post.imageUrl && writeToken) {
+            doc.localImage = await downloadAndUploadImage(sanity, post.imageUrl, slug, post.shortcode, debugLog);
           }
-        } catch (e: any) {
-          debugLog.push(`@${handle}: live error – ${e.message} – falling back to mock`);
-          pushMock(allPosts, slug, storeId, storeTitle, now);
+
+          allPosts.push(doc);
         }
-      } else {
-        // ── MOCK MODE ─────────────────────────────────────────────────────
-        pushMock(allPosts, slug, storeId, storeTitle, now);
+      } catch (e: any) {
+        debugLog.push(`@${handle}: live fetch failed (${e.message}) – falling back to mock`);
+        
+        // Mock fallback with localImage upload
+        const posts = MOCK_POSTS[slug] || [
+          {
+            caption: `Senaste nytt från ${storeTitle} på Nytorgsstråket! Välkommen in. #nytorgsstraket #sofo`,
+            imageUrl: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800',
+            offsetHours: 12,
+          },
+        ];
+
+        for (let j = 0; j < posts.length; j++) {
+          const p = posts[j];
+          const docId = `igpost.${slug}.${j}`;
+          const postDate = new Date(now.getTime() - p.offsetHours * 3_600_000);
+          
+          const doc: any = {
+            _type: 'instagramPost',
+            _id: docId,
+            postId: `${slug}_mock_${j}`,
+            caption: p.caption,
+            imageUrl: p.imageUrl,
+            postUrl: `https://www.instagram.com/${STORE_INSTAGRAM_MAP[slug] || slug}/`,
+            date: postDate.toISOString(),
+          };
+          if (storeId) doc.store = { _type: 'reference', _ref: storeId };
+
+          const cachedImage = existingImageById.get(docId);
+          if (cachedImage) {
+            doc.localImage = cachedImage;
+          } else if (p.imageUrl && writeToken) {
+            doc.localImage = await downloadAndUploadImage(sanity, p.imageUrl, slug, `mock_${j}`, debugLog);
+          }
+
+          allPosts.push(doc);
+        }
       }
     }
 
     debugLog.push(`Total posts prepared: ${allPosts.length}`);
 
-    // 5. Write to Sanity (createOrReplace = idempotent, no duplicates)
+    // 6. Write to Sanity (createOrReplace = idempotent, no duplicates)
     let imported = 0;
     if (writeToken) {
       for (const post of allPosts) {
@@ -283,9 +363,9 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({
       success:      true,
-      mode:         rapidApiKey ? 'live' : 'mock',
-      writeStatus:  writeToken  ? 'written-to-sanity' : 'dry-run-no-token',
-      storeCount:   Object.keys(STORE_INSTAGRAM_MAP).length,
+      mode:         'live-ig-web-api',
+      writeStatus:  writeToken ? 'written-to-sanity' : 'dry-run-no-token',
+      storeCount:   slugKeys.length,
       postsWritten: imported,
       debug:        debugLog,
     });
