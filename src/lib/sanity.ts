@@ -2,10 +2,13 @@ import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
-  projectId: 'lsded7br', // Ditt Sanity Project ID
+  projectId: 'lsded7br',
   dataset: 'production',
-  useCdn: true, // `false` om du vill säkerställa 100% färsk data oavsett, `true` för snabbhet i prod
-  apiVersion: '2024-03-01', // Använd dagens datum (när projektet sattes upp)
+  useCdn: false, // Direkta API:et (api.sanity.io) – CDN har separat CORS-lista
+  apiVersion: '2024-03-01',
+  // Read-only viewer token – krävs eftersom datasetet kräver autentisering
+  // Läggs till i .env som VITE_SANITY_READ_TOKEN och i Vercel Environment Variables
+  token: import.meta.env.VITE_SANITY_READ_TOKEN || undefined,
 });
 
 // Helper för att generera bild-URL:er från Sanity
