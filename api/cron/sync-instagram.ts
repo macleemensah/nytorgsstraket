@@ -141,6 +141,7 @@ async function fetchInstagramPosts(
   const res = await fetch(
     `https://www.instagram.com/api/v1/users/web_profile_info/?username=${handle}`,
     {
+      signal: AbortSignal.timeout(5000),
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         'x-ig-app-id': '936619743392459',
@@ -182,7 +183,7 @@ async function downloadAndUploadImage(
 
   try {
     debugLog.push(`    - Downloading image for "${slug}" (${shortcode}): ${imageUrl.slice(0, 60)}...`);
-    const imgRes = await fetch(imageUrl);
+    const imgRes = await fetch(imageUrl, { signal: AbortSignal.timeout(10000) });
     if (!imgRes.ok) {
       throw new Error(`Failed to download image: HTTP ${imgRes.status}`);
     }
