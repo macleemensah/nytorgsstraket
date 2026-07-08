@@ -459,8 +459,8 @@ export const STORES: Store[] = [
     heroVideo: '/videos/axel-landquist-cover.mp4',
     galleryImages: [
       axelLandquistHero,
-      "https://images.unsplash.com/photo-1507290439931-a861cf2376fb?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1463936555620-2a0a5368a186?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop"
     ],
     address: "Nytorgsgatan/Åsögatan, Södermalm"
   },
