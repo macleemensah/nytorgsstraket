@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { supabase } from '../lib/supabase';
+import { parseEventDates, getPerformer, getAbsoluteImageUrl } from '../lib/schemaHelpers';
 // For MVP fallback, we export FALLBACK_EVENTS from Events component or duplicate here
 // Let's create a shared data logic or duplicate the fallback here for simplicity.
 import matKulturImg from '../assets/places/mat-kultur-poster-official.png';
@@ -470,22 +471,36 @@ export default function EventsPage() {
     "name": "Evenemang på Nytorgsstråket",
     "description": "Aktuella evenemang, livemusik, festivaler och upplevelser vid Nytorget i SoFo, Södermalm.",
     "url": "https://nytorgsstraket.se/evenemang",
-    "hasPart": events.map(e => ({
-      "@type": "Event",
-      "name": e.title,
-      "description": e.description,
-      "url": `https://nytorgsstraket.se/evenemang/${e.slug}`,
-      "location": {
-        "@type": "Place",
-        "name": "Nytorgsstråket, Nytorget",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Nytorgsgatan",
-          "addressLocality": "Stockholm",
-          "addressCountry": "SE"
+    "hasPart": events.map(e => {
+      const { startDate, endDate } = parseEventDates(e.date, e.end_date);
+      return {
+        "@type": "Event",
+        "name": e.title,
+        "description": e.description,
+        "url": `https://nytorgsstraket.se/evenemang/${e.slug}`,
+        "startDate": startDate,
+        "endDate": endDate,
+        "image": [getAbsoluteImageUrl(e.image_url)],
+        "performer": getPerformer(e.title),
+        "offers": {
+          "@type": "Offer",
+          "url": e.external_url || `https://nytorgsstraket.se/evenemang/${e.slug}`,
+          "price": "0",
+          "priceCurrency": "SEK",
+          "availability": "https://schema.org/InStock"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Nytorgsstråket, Nytorget",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Nytorgsgatan",
+            "addressLocality": "Stockholm",
+            "addressCountry": "SE"
+          }
         }
-      }
-    }))
+      };
+    })
   };
 
   return (

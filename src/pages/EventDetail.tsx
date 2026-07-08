@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { type EventData, FALLBACK_EVENTS_DATA } from './EventsPage';
+import { parseEventDates, getPerformer, getAbsoluteImageUrl } from '../lib/schemaHelpers';
 
 export default function EventDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -88,17 +89,24 @@ export default function EventDetail() {
   }
 
   // Construct Event Schema.org JSON-LD
-  // We extract a year from end_date if available, otherwise current year to make a valid ISO date for schema
-  let startDateIso = event.end_date ? new Date(event.end_date).toISOString() : new Date().toISOString();
+  const { startDate, endDate } = parseEventDates(event.date, event.end_date);
   
   const schema = {
     "@context": "https://schema.org",
     "@type": "Event",
     "name": event.title,
     "description": event.description,
-    "startDate": startDateIso,
-    ...(event.end_date && { "endDate": new Date(event.end_date).toISOString() }),
-    "image": [event.image_url],
+    "startDate": startDate,
+    "endDate": endDate,
+    "image": [getAbsoluteImageUrl(event.image_url)],
+    "performer": getPerformer(event.title),
+    "offers": {
+      "@type": "Offer",
+      "url": event.external_url || `https://nytorgsstraket.se/evenemang/${slug}`,
+      "price": "0",
+      "priceCurrency": "SEK",
+      "availability": "https://schema.org/InStock"
+    },
     "location": {
       "@type": "Place",
       "name": "Nytorgsstråket",

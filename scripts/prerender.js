@@ -23,8 +23,8 @@ const STATIC_META = {
     description: 'Upptäck Nytorgsstråket vid Nytorget i SoFo, Södermalm. Handplockade butiker, mysiga kaféer och populära restauranger på Nytorgsgatan i hjärtat av Stockholm.',
   },
   '/om-nytorget': {
-    title: 'Om Nytorget | En Komplett Guide till SoFos Hjärta',
-    description: 'Utforska Nytorget på Södermalm. Upptäck historien, lekparken, gräsytorna och de bästa platserna runtomkring Stockholms mest levande torg.',
+    title: 'Guide till Nytorget | Shopping, Kaféer & Kultur i SoFo Södermalm',
+    description: 'Komplett guide till Nytorgsstråket vid Nytorget i SoFo, Södermalm. Historia, hitta hit, årstider, evenemang och allt du behöver veta om Stockholms mest levande kvarter.',
   },
   '/aktuellt': {
     title: 'Aktuellt | Senaste Nytt & Inspiration | Nytorgsstråket',

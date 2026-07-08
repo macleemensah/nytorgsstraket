@@ -96,13 +96,24 @@ export default function PlaceDetail() {
       />
       <Navbar />
 
-      {/* Hero Image */}
+      {/* Hero */}
       <div className="w-full h-[40vh] md:h-[60vh] relative pt-16">
-        <img
-          src={store.heroImage}
-          alt={store.name}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {store.heroVideo ? (
+          <video
+            src={store.heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src={store.heroImage}
+            alt={store.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/20"></div>
       </div>
 

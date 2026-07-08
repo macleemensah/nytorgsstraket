@@ -77,6 +77,7 @@ export interface Store {
   scale: number;
   description: string;
   heroImage: string;
+  heroVideo?: string;
   galleryImages: string[];
   address: string;
   isClosed?: boolean;
@@ -455,6 +456,7 @@ export const STORES: Store[] = [
     scale: 1.0,
     description: "Axel Landquists park är en charmig oas i korsningen Nytorgsgatan och Åsögatan. Parken är uppkallad efter Axel Landquist, en hängiven präst och social reformator som verkade i området. Här kan besökare njuta av lummig grönska och beskåda skulpturen 'Tittut', medan stadens puls pågår precis utanför.",
     heroImage: axelLandquistHero,
+    heroVideo: '/videos/axel-landquist-cover.mp4',
     galleryImages: [
       axelLandquistHero,
       "https://images.unsplash.com/photo-1507290439931-a861cf2376fb?q=80&w=1000&auto=format&fit=crop",
