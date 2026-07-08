@@ -74,12 +74,13 @@ async function seed() {
 
     // 1. Check if store already has a hero image asset uploaded
     let assetId: string | null = null;
+    const forceUpload = process.argv.includes('--force') || ['nytorget', 'axel-landquists-park'].includes(store.slug);
     const existing = await sanity.fetch<{ image?: { asset?: { _ref: string } } }>(
       `*[_type == "store" && slug.current == $slug][0] { image }`,
       { slug: store.slug }
     );
 
-    if (existing?.image?.asset?._ref) {
+    if (existing?.image?.asset?._ref && !forceUpload) {
       assetId = existing.image.asset._ref;
       console.log(`  - Found existing image asset: ${assetId}`);
     } else if (store.heroImage) {
