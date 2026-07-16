@@ -11,6 +11,7 @@ import { parseEventDates, getPerformer, getAbsoluteImageUrl } from '../lib/schem
 import matKulturImg from '../assets/places/mat-kultur-poster-official.png';
 import klattermusenBild1 from '../assets/stores/klattermusen/bild1.jpg';
 import klattermusenBild3 from '../assets/stores/klattermusen/bild3.jpg';
+import supercatImg from '../assets/stores/klattermusen/supercat.png';
 
 // Re-defining the interface for the page
 export interface EventData {
@@ -35,6 +36,39 @@ const generateSlug = (title: string) => {
 };
 
 export const FALLBACK_EVENTS_DATA: EventData[] = [
+  {
+    id: 22,
+    slug: generateSlug('The Supercat from Addis at Klättermusen'),
+    date: '25 Juli',
+    end_date: '2026-07-25',
+    tag: 'Musik',
+    title: 'The Supercat from Addis',
+    description: 'DJ Mahlet Keleme (@mahletkeleme) bjuder på etiopiska rytmer och beats som blandar traditionell musik med moderna tongångar på Klättermusens Verkstad.',
+    image_url: supercatImg,
+    tag_color: '#fff0a2',
+    is_featured: false,
+    is_active: true,
+    content: `
+      <div class="space-y-10">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Vi är otroligt stolta över att presentera <strong>The Supercat from Addis</strong> live på Klättermusens Verkstad! @mahletkeleme är en sensation både i Addis Abeba och internationellt. Hennes passion för etiopisk musik och förmåga att väva samman traditionella melodier med moderna, fängslande beats skapar en helt unik ljudupplevelse.</p>
+          <p>Kom förbi på en eftermiddag fylld av kultur, gemenskap, glädje och fantastisk musik. Vi bjuder på skön stämning i butiken och hoppas få se dig där!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Praktisk info</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>När</strong> Lördagen den 25 juli 2026 (kl. 13:00–17:00)</p>
+              <p><strong>Var</strong> Klättermusens Verkstad, Nytorgsgatan 36, Stockholm</p>
+              <p><strong>Artist</strong> DJ Mahlet Keleme (@mahletkeleme)</p>
+              <p><strong>Entré</strong> Fri entré – alla är välkomna!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+  },
   {
     id: 21,
     slug: generateSlug('Nostalgiklubben: Morning Coffee Party på Lykke'),
