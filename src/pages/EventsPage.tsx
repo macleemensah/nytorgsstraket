@@ -36,6 +36,62 @@ const generateSlug = (title: string) => {
 
 export const FALLBACK_EVENTS_DATA: EventData[] = [
   {
+    id: 21,
+    slug: generateSlug('Nostalgiklubben: Morning Coffee Party på Lykke'),
+    date: '21 Augusti',
+    end_date: '2026-08-21',
+    tag: 'Fest',
+    title: 'Nostalgiklubben: Morning Coffee Party',
+    description: 'Efter stor efterfrågan — Nostalgiklubben förvandlar Lykke till en rosa glädjebubbla med 00-talets absolut största hits. 08:00–10:00. Endast 90 biljetter.',
+    image_url: 'https://images.squarespace-cdn.com/content/v1/634e98c4f6b5087c011f9aeb/5a42c92c-c446-40b5-b078-85f91c12ac82/Regnb%C3%A5ge_rosa+copy+mobile.png',
+    tag_color: '#f5c9bf',
+    is_featured: true,
+    is_active: true,
+    external_url: 'https://billetto.se/e/nostalgiklubben-morning-coffee-party-pa-lykke',
+    content: `
+      <div class="space-y-10">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Efter stor efterfrågan och uppmärksamhet i bland annat TV4 Nyhetsmorgon, DN och Aftonbladet är Nostalgiklubben tillbaka med Morning Coffee Party på Lykke! DJ:s Flora Summers och Martin Landl förvandlar det superfina Lykke på Nytorget till en rosa och glittrig glädjebubbla för dig som vill dricka ditt kaffe sjungandes till 00-talets allra största hits.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Praktisk info</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>Datum</strong> Fredagen den 21 augusti 2026</p>
+              <p><strong>Tid</strong> 08:00 – 10:00</p>
+              <p><strong>Plats</strong> Lykke, Nytorgsgatan 38, Stockholm</p>
+              <p><strong>Biljetter</strong> 90 platser — säkra din via Billetto</p>
+              <p><strong>DJ:s</strong> Flora Summers &amp; Martin Landl</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Smakprov på musiken</h4>
+            <div class="space-y-1 text-sm text-text-dark/70 columns-2">
+              <p>✰ Bootylicious – Destiny's Child</p>
+              <p>✰ Work – Rihanna</p>
+              <p>✰ Yeah! – Usher</p>
+              <p>✰ Unwritten – Natasha Bedingfield</p>
+              <p>✰ Toxic – Britney Spears</p>
+              <p>✰ Crazy In Love – Beyoncé</p>
+              <p>✰ Hips Don't Lie – Shakira</p>
+              <p>✰ Everybody – Backstreet Boys</p>
+              <p>✰ Pump It – Black Eyed Peas</p>
+              <p>✰ Promiscuous – Nelly Furtado</p>
+              <p>✰ Crazy – Gnarls Barkley</p>
+              <p>✰ The Sweet Escape – Gwen Stefani</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#f4f3ef] p-6 rounded-sm border border-text-dark/5 text-sm text-text-dark/70 italic">
+          Begränsat antal biljetter — endast 90 platser släpps. Säkra din plats via Billetto så tidigt som möjligt!
+        </div>
+      </div>
+    `,
+  },
+  {
     id: 1,
     slug: generateSlug('Nytorgsfesten 2026'),
     date: '14 — 16 Augusti',
@@ -487,7 +543,8 @@ export default function EventsPage() {
           "url": e.external_url || `https://nytorgsstraket.se/evenemang/${e.slug}`,
           "price": "0",
           "priceCurrency": "SEK",
-          "availability": "https://schema.org/InStock"
+          "availability": "https://schema.org/InStock",
+          "validFrom": startDate
         },
         "location": {
           "@type": "Place",
