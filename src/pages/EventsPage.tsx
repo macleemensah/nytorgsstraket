@@ -478,26 +478,33 @@ export default function EventsPage() {
           });
         };
 
-        if (!supabase) {
-          const filtered = FALLBACK_EVENTS_DATA.filter(e => !e.end_date || new Date(e.end_date) >= now);
-          setEvents(sortEvents(filtered));
-          return;
+        let allEvents = [...FALLBACK_EVENTS_DATA];
+
+        if (supabase) {
+          const { data } = await supabase
+            .from('events')
+            .select('*')
+            .eq('is_active', true)
+            .limit(50);
+
+          if (data && data.length > 0) {
+            const dbEvents = (data as EventData[]).map(e => ({ ...e, slug: e.slug || generateSlug(e.title) }));
+            const eventMap = new Map<string, EventData>();
+            
+            allEvents.forEach(e => {
+              const slug = e.slug || generateSlug(e.title);
+              eventMap.set(slug, e);
+            });
+            dbEvents.forEach(e => {
+              const slug = e.slug || generateSlug(e.title);
+              eventMap.set(slug, e);
+            });
+            allEvents = Array.from(eventMap.values());
+          }
         }
 
-        const { data } = await supabase
-          .from('events')
-          .select('*')
-          .eq('is_active', true)
-          .limit(50);
-
-        if (data && data.length > 0) {
-          const formatted = (data as EventData[]).map(e => ({ ...e, slug: e.slug || generateSlug(e.title) }));
-          const filtered = formatted.filter(e => !e.end_date || new Date(e.end_date) >= now);
-          setEvents(sortEvents(filtered));
-        } else {
-          const filtered = FALLBACK_EVENTS_DATA.filter(e => !e.end_date || new Date(e.end_date) >= now);
-          setEvents(sortEvents(filtered));
-        }
+        const filtered = allEvents.filter(e => !e.end_date || new Date(e.end_date) >= now);
+        setEvents(sortEvents(filtered));
       } catch {
         const now = new Date();
         now.setHours(0, 0, 0, 0);

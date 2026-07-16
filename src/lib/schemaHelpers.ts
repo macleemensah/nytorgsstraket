@@ -4,13 +4,47 @@ const swedishMonths = [
 ];
 
 /**
+ * Detects if a string is an ISO date (YYYY-MM-DD) and returns a Date if so.
+ */
+const parseISODate = (str: string): Date | null => {
+  const isoMatch = str.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (isoMatch) {
+    const [, y, m, d] = isoMatch;
+    return new Date(parseInt(y), parseInt(m) - 1, parseInt(d), 9, 0, 0);
+  }
+  return null;
+};
+
+/**
  * Parses event date string and optional end date string to determine ISO startDate and endDate.
+ * Handles both ISO format (YYYY-MM-DD, from Supabase) and Swedish human-readable format (e.g. "7 Juli").
  */
 export const parseEventDates = (dateStr: string, endDateStr?: string) => {
-  // Default to today if no end_date is provided
+  // --- Handle ISO date strings directly (from Supabase, e.g. "2026-07-07") ---
+  const isoStart = parseISODate(dateStr);
+  if (isoStart) {
+    const startDate = isoStart.toISOString();
+    if (endDateStr) {
+      const isoEnd = parseISODate(endDateStr);
+      if (isoEnd) {
+        isoEnd.setHours(22, 0, 0, 0);
+        return { startDate, endDate: isoEnd.toISOString() };
+      }
+      // end_date might also be ISO
+      const endFallback = new Date(endDateStr);
+      endFallback.setHours(22, 0, 0, 0);
+      return { startDate, endDate: endFallback.toISOString() };
+    }
+    // No end_date: end on same day at 22:00
+    const endDateTime = new Date(isoStart);
+    endDateTime.setHours(22, 0, 0, 0);
+    return { startDate, endDate: endDateTime.toISOString() };
+  }
+
+  // --- Handle Swedish human-readable date strings (e.g. "7 Juli", "14 — 16 Augusti") ---
+
   if (!endDateStr) {
     const today = new Date();
-    // Try to guess month and day from human dateStr (e.g. "23 April")
     const normalized = dateStr.toLowerCase();
     let foundMonth = -1;
     for (let i = 0; i < swedishMonths.length; i++) {
@@ -37,6 +71,7 @@ export const parseEventDates = (dateStr: string, endDateStr?: string) => {
       };
     }
 
+    // Could not parse date — use today as absolute fallback
     return {
       startDate: today.toISOString(),
       endDate: today.toISOString()

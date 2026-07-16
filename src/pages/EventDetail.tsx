@@ -105,7 +105,8 @@ export default function EventDetail() {
       "url": event.external_url || `https://nytorgsstraket.se/evenemang/${slug}`,
       "price": "0",
       "priceCurrency": "SEK",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "validFrom": startDate
     },
     "location": {
       "@type": "Place",
