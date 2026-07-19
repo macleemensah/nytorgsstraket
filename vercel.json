@@ -12,7 +12,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!api|assets|sitemap\\.xml|robots\\.txt|favicon\\.png|og-image\\.jpg).*)", "destination": "/index.html" }
+    { "source": "/((?!api|assets|sitemap\\.xml|robots\\.txt|favicon\\.png|favicon\\.ico|favicon-32\\.png|favicon-192\\.png|apple-touch-icon\\.png|og-image\\.jpg).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

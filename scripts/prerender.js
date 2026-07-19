@@ -63,7 +63,8 @@ function parseStores() {
     const chunk = src.slice(m.index, m.index + 2500);
     const name = chunk.match(/\bname:\s*"([^"]+)"/)?.[1] ?? '';
     const desc = chunk.match(/\bdescription:\s*"([^"]+)"/)?.[1]?.substring(0, 160).trim() ?? '';
-    if (name) stores.push({ slug: m[1], name, description: desc });
+    const address = chunk.match(/\baddress:\s*"([^"]+)"/)?.[1] ?? '';
+    if (name) stores.push({ slug: m[1], name, description: desc, address });
   }
   return stores;
 }
@@ -75,9 +76,12 @@ function parseFallbackEvents() {
   let m;
   while ((m = re.exec(src)) !== null) {
     const slug = m[1].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-    const chunkBefore = src.slice(Math.max(0, m.index - 300), m.index);
-    const title = chunkBefore.match(/title:\s*['"]([^'"]+)['"]\s*,?\s*$/m)?.[1] ?? slug;
-    events.push({ slug, title, description: '' });
+    // Fields (title, description, end_date) come AFTER slug in each event object
+    const chunk = src.slice(m.index, m.index + 1200);
+    const title = chunk.match(/\btitle:\s*['"]([^'"]+)['"]/)?.[1] ?? slug;
+    const description = chunk.match(/\bdescription:\s*['"]([^'"]+)['"]/)?.[1]?.substring(0, 160).trim() ?? '';
+    const endDate = chunk.match(/\bend_date:\s*['"](\d{4}-\d{2}-\d{2})['"]/)?.[1] ?? '';
+    events.push({ slug, title, description, end_date: endDate });
   }
   return events;
 }
@@ -88,7 +92,7 @@ async function fetchSupabaseEvents() {
   if (!url || !key) return [];
   try {
     const res = await fetch(
-      `${url}/rest/v1/events?is_active=eq.true&select=slug,title,description`,
+      `${url}/rest/v1/events?is_active=eq.true&select=slug,title,description,date,end_date`,
       { headers: { apikey: key, Authorization: `Bearer ${key}` } }
     );
     return res.ok ? await res.json() : [];
@@ -127,14 +131,86 @@ function buildHead({ title, description, canonical }) {
   ].join('\n    ');
 }
 
-function injectIntoTemplate(template, meta) {
+// ── Structured data (JSON-LD) ──────────────────────────────────────────────
+
+function jsonLdTag(schema) {
+  // < prevents "</script>" inside string values from breaking the tag
+  return `<script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`;
+}
+
+function buildHomeSchemas() {
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Nytorgsstråket',
+      url: `${BASE_URL}/`,
+      inLanguage: 'sv',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Nytorgsstråket',
+      url: `${BASE_URL}/`,
+      logo: `${BASE_URL}/favicon.png`,
+      image: `${BASE_URL}/og-image.jpg`,
+    },
+  ];
+}
+
+function buildStoreSchema(store, route) {
+  const streetAddress = store.address ? store.address.split(',')[0].trim() : undefined;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: store.name,
+    description: store.description || undefined,
+    url: `${BASE_URL}${route}`,
+    image: `${BASE_URL}/og-image.jpg`,
+    address: {
+      '@type': 'PostalAddress',
+      ...(streetAddress ? { streetAddress } : {}),
+      addressLocality: 'Stockholm',
+      addressCountry: 'SE',
+    },
+  };
+}
+
+function buildEventSchema(event, route) {
+  const isoDate =
+    (event.end_date?.match(/^\d{4}-\d{2}-\d{2}/) || event.date?.match(/^\d{4}-\d{2}-\d{2}/))?.[0];
+  const isLykkeLive = event.title?.startsWith('Lykke Live:');
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: event.title,
+    description: event.description || undefined,
+    url: `${BASE_URL}${route}`,
+    image: `${BASE_URL}/og-image.jpg`,
+    ...(isoDate ? { startDate: isoDate, endDate: isoDate } : {}),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: 'Nytorget, Södermalm',
+      address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressCountry: 'SE' },
+    },
+    organizer: { '@type': 'Organization', name: 'Nytorgsstråket', url: `${BASE_URL}/` },
+    performer: isLykkeLive
+      ? { '@type': 'PerformingGroup', name: event.title.replace('Lykke Live:', '').trim() }
+      : { '@type': 'Organization', name: 'Nytorgsstråket' },
+  };
+}
+
+function injectIntoTemplate(template, meta, schemas = []) {
+  const jsonLd = schemas.length ? `\n    ${schemas.map(jsonLdTag).join('\n    ')}` : '';
   return template
     .replace(/<title>[^<]*<\/title>/g, '')
     .replace(/<meta name="description"[^>]*\/?>/g, '')
     .replace(/<meta property="og:[^>]*\/?>/g, '')
     .replace(/<meta name="twitter:[^>]*\/?>/g, '')
     .replace(/<link rel="canonical"[^>]*\/?>/g, '')
-    .replace('</head>', `    ${buildHead(meta)}\n  </head>`);
+    .replace('</head>', `    ${buildHead(meta)}${jsonLd}\n  </head>`);
 }
 
 function writePage(route, html) {
@@ -159,21 +235,10 @@ function generateSitemap(routes) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>`;
 }
 
-// ── Robots ─────────────────────────────────────────────────────────────────
-
-function generateRobots() {
-  const blocked = ['Bytespider', 'PetalBot', 'Amazonbot', 'MJ12bot', 'AhrefsBot', 'SemrushBot', 'DotBot', 'BLEXBot'];
-  const rules = blocked.map(bot => `User-agent: ${bot}\nDisallow: /`).join('\n\n');
-  return `User-agent: *\nAllow: /\n\n${rules}\n\nSitemap: ${BASE_URL}/sitemap.xml\n`;
-}
-
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
   console.log('[prerender] Starting static file generation...');
-
-  // Inject env for diagnostics
-  console.log(`◇ injected env (${Object.keys(process.env).filter(k => k.startsWith('VITE_')).length}) from .env // tip: ⌁ auth for agents [www.vestauth.com]`);
 
   // Collect routes & data
   const stores = parseStores();
@@ -186,7 +251,7 @@ async function main() {
   for (const e of fallbackEvents) eventMap.set(e.slug, e);
   for (const e of dbEvents) {
     const slug = e.slug || e.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-    if (slug) eventMap.set(slug, { slug, title: e.title, description: e.description ?? '' });
+    if (slug) eventMap.set(slug, { slug, title: e.title, description: e.description ?? '', date: e.date ?? '', end_date: e.end_date ?? '' });
   }
 
   const routes = [
@@ -195,21 +260,20 @@ async function main() {
     ...[...eventMap.keys()].map(s => `/evenemang/${s}`),
   ];
 
-  // Generate sitemap & robots
+  // Generate sitemap (robots.txt is a static file in public/, copied by Vite)
   fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), generateSitemap(routes));
   console.log('[prerender] ✓ Generated sitemap.xml');
-
-  fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), generateRobots());
-  console.log('[prerender] ✓ Generated robots.txt');
 
   // Inject meta tags per route
   const template = fs.readFileSync(path.join(DIST_DIR, 'index.html'), 'utf-8');
 
   for (const route of routes) {
     let meta;
+    let schemas = [];
 
     if (STATIC_META[route]) {
       meta = { ...STATIC_META[route], canonical: route };
+      if (route === '/') schemas = buildHomeSchemas();
 
     } else if (route.startsWith('/plats/')) {
       const slug = route.replace('/plats/', '');
@@ -219,6 +283,7 @@ async function main() {
         description: store?.description || 'Utforska platser längs Nytorgsstråket i SoFo, Södermalm.',
         canonical: route,
       };
+      if (store) schemas = [buildStoreSchema(store, route)];
 
     } else if (route.startsWith('/evenemang/')) {
       const slug = route.replace('/evenemang/', '');
@@ -228,12 +293,13 @@ async function main() {
         description: event?.description || 'Evenemang vid Nytorget i SoFo, Södermalm.',
         canonical: route,
       };
+      if (event) schemas = [buildEventSchema(event, route)];
 
     } else {
       meta = { title: 'Nytorgsstråket', description: '', canonical: route };
     }
 
-    writePage(route, injectIntoTemplate(template, meta));
+    writePage(route, injectIntoTemplate(template, meta, schemas));
     console.log(`[prerender] ✓ ${route}`);
   }
 
