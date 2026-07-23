@@ -30,12 +30,130 @@ export interface EventData {
   external_url?: string;
 }
 
-// We add a simple utility to generate slugs for the fallback events
 const generateSlug = (title: string) => {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 };
 
 export const FALLBACK_EVENTS_DATA: EventData[] = [
+  {
+    id: 23,
+    slug: generateSlug('Konst på Nytorget: Darlinn Illustrations'),
+    date: '28 Juli — 2 Augusti',
+    end_date: '2026-08-02',
+    tag: 'Konst',
+    title: 'Konst på Nytorget: Darlinn Illustrations',
+    description: 'Linn Hallsenius (Darlinn Illustrations) ställer ut sin konst i Postbar på Urban Deli Nytorget under hela Prideveckan. Humoristiska och queera omskrivningar av kända varumärken.',
+    image_url: 'https://urbandeli.se/wp-content/uploads/2026/06/Linn-Hallsenius22.jpg',
+    tag_color: '#f5c9bf',
+    is_featured: false,
+    is_active: true,
+    external_url: 'https://urbandeli.se/event/konst-i-postbar/',
+    content: `
+      <div class="space-y-10">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Linn Hallsenius, illustratören bakom <strong>Darlinn Illustrations</strong>, hänger upp sin konst i Postbar på Urban Deli Nytorget. Verken finns på plats under hela Prideveckan.</p>
+          <p>I den här konstserien får kända varumärken nya namn och identiteter genom humoristiska och queera omskrivningar. Bakom konsten finns ett budskap om hur stöd för hbtq-personer ofta är villkorat och kan försvinna när det inte längre ses som lönsamt eller okontroversiellt.</p>
+          <p>Kom in och spana in konsten!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Praktisk info</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>När</strong> 28 juli – 2 augusti 2026</p>
+              <p><strong>Var</strong> Postbar, Urban Deli, Nytorget 4, Stockholm</p>
+              <p><strong>Konstnär</strong> Linn Hallsenius (Darlinn Illustrations)</p>
+              <p><strong>Entré</strong> Fri entré</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+  },
+  {
+    id: 24,
+    slug: generateSlug('Pride på Nytorget: Drag, Tarot & Musik'),
+    date: '29 Juli',
+    end_date: '2026-07-29',
+    tag: 'Pride',
+    title: 'Pride på Nytorget (Onsdag)',
+    description: 'Pride intar Nytorget med musik, drag och tarot! Dragartisterna Vienna Audior och Kendi bjuder på glamour, DJ Amor står för musiken och Ebba Gratte läser tarot.',
+    image_url: 'https://urbandeli.se/wp-content/uploads/2025/10/UD_241114_0125_ver2-scaled.jpg',
+    tag_color: '#f5c9bf',
+    is_featured: true,
+    is_active: true,
+    external_url: 'https://urbandeli.se/event/pride-pa-nud-29-juli/',
+    content: `
+      <div class="space-y-10">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Pride intar Urban Deli Nytorget med musik, drag och tarot! I samarbete med Mohamed Touzari skapar vi en kväll fylld av glamour, energi och show.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Program – Onsdag 29 Juli</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>17.30–22.00</strong> Dragartisten Vienna Audior – 80-talssignatur och elegans</p>
+              <p><strong>17.30–19.00</strong> Tarot med Ebba Gratte – spår gäster på svenska och engelska</p>
+              <p><strong>18.00–22.00</strong> DJ Amor – fest och rytm med dans- och koreografbakgrund</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Plats & Info</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>Plats</strong> Urban Deli, Nytorget 4, Stockholm</p>
+              <p><strong>Tid</strong> 17:30 – 22:00</p>
+              <p><strong>Samarbete</strong> Mohamed Touzari</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+  },
+  {
+    id: 25,
+    slug: generateSlug('Pride på Nytorget: Paraddagen'),
+    date: '01 Augusti',
+    end_date: '2026-08-01',
+    tag: 'Pride',
+    title: 'Pride på Nytorget: Paraddagen',
+    description: 'Musik, drag, tarot och street performance på Nytorget! DJ Panica!, Dragartisten Chiwi, Tarot med Ester, Street performance med Kiki House of Bodega och DJ Kjell.',
+    image_url: 'https://urbandeli.se/wp-content/uploads/2025/10/UD_241114_0125_ver2-scaled.jpg',
+    tag_color: '#f5c9bf',
+    is_featured: true,
+    is_active: true,
+    external_url: 'https://urbandeli.se/event/pride-pa-nud-1-augusti/',
+    content: `
+      <div class="space-y-10">
+        <div class="prose prose-sm md:prose-base text-text-dark/80">
+          <p>Musik, drag, tarot och street performance tar plats på Nytorget under den stora paraddagen! I samarbete med Mohamed Touzari fyller vi hela dagen med färg, dans och firande.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Program – Lördag 1 Augusti</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>15.00–19.00</strong> DJ Panica! – Extravaganta looks och galen feststämmning</p>
+              <p><strong>16.30–19.00</strong> Ester's Tarot and Somatics – Lång tarotsession på paraddagen</p>
+              <p><strong>16.30–20.30</strong> Dragartisten Chiwi – Panamas stolthet på svenska dragscenen</p>
+              <p><strong>19.00–19.10</strong> Street performance med Kiki House of Bodega – Spektakulär ballroom-dans på gatan</p>
+              <p><strong>19.10–22.30</strong> DJ Kjell – Skönaste ballroom-beatsen till stängning</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-din uppercase tracking-widest text-brand-red text-xs border-b border-brand-red/10 pb-2">Plats & Info</h4>
+            <div class="space-y-3 text-sm">
+              <p><strong>Plats</strong> Urban Deli, Nytorget 4, Stockholm</p>
+              <p><strong>Tid</strong> 15:00 – 22:30</p>
+              <p><strong>Samarbete</strong> Mohamed Touzari</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+  },
   {
     id: 22,
     slug: generateSlug('The Supercat from Addis at Klättermusen'),
